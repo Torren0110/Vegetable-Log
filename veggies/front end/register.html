@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="register.css"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+ </head>
+  <body>
+    <header>
+      <div class="logo">
+          <a href="#"><img src="images/vegetable.png" alt=""></a>
+<span>Veggies.</span>
+      </div>
+     
+      <nav class="navbar">
+        <a class="" href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#offers">Prices</a>
+        <a href="index.html#reviews">Review</a>
+        <a href="index.html#book">Contact</a>
+      </nav>
+      <div class="icons">
+        <i class="fa fa-bars" id="menu-bars"></i>
+        <!-- <i class="fa fa-search" id="search-icon"></i> -->
+        <input type="search" placeholder="Search here..." name="searchbar" id="searchbar">
+       <a href="login.html"> <i class="fa-solid fa-right-to-bracket"></i></a> 
+       <a href="register.html"> <i class="fa-solid fa-registered"></i></a>
+              </div>
+    </header>
+    <div class="container">
+     
+       
+          <div class="heading">
+            <h1>Registration Form</h1>
+          </div>
+          <div class="panel-body">
+            <form action="#" method="post">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" required/> <br>
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" required/>
+              </div>
+              <div class="form-group">
+                
+              </div>
+              <div class="form-group">
+                <label for="gender">Gender</label>
+                <div>
+                  <label for="male" class="radio-inline">
+                    <input type="radio" name="gender" value="m" id="male" />Male</label>
+                  <label for="female" class="radio-inline">
+                    <input type="radio" name="gender" value="f" id="female" />Female</label>
+                  <label for="others" class="radio-inline">
+                    <input type="radio" name="gender" value="o" id="others"/>Others</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="number">Phone Number</label>
+                <input type="number" class="form-control" id="number" name="number" required/>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required/>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required/>
+              </div>
+              <input type="checkbox" name="terms" id="terms" required>
+              <label for="checkbox">I agree with terms and conditions</label><br>
+              <input type="submit" class="btn" />
+              <p id="login">Already have an account? <a href="login.html">Login</a></p>
+            </form>
+          </div>
+ 
+    </div>
+    
+  </body>
+</html>

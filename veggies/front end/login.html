@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="login.css"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+ </head>
+  <body>
+    <header>
+      <div class="logo">
+          <a href="#"><img src="images/vegetable.png" alt=""></a>
+<span>Veggies.</span>
+      </div>
+     
+      <nav class="navbar">
+        <a class="" href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#offers">Prices</a>
+        <a href="index.html#reviews">Review</a>
+        <a href="index.html#book">Contact</a>
+      </nav>
+      <div class="icons">
+        <i class="fa fa-bars" id="menu-bars"></i>
+        <!-- <i class="fa fa-search" id="search-icon"></i> -->
+        <input type="search" placeholder="Search here..." name="searchbar" id="searchbar">
+       <a href="login.html"> <i class="fa-solid fa-right-to-bracket"></i></a> 
+       <a href="register.html"> <i class="fa-solid fa-registered"></i></a>
+              </div>
+    </header>
+    <div class="container">
+     
+       
+          <div class="heading">
+            <h1>Login Form</h1>
+          </div>
+          <div class="panel-body">
+            <form action="#" method="post">
+             
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required/>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required/>
+              </div>
+              <input type="checkbox" name="terms" id="terms">
+              <label for="checkbox">Remember me</label>
+              <span id="forgot">Forgot password?</span> <br>
+              <input type="submit" value="Login" class="btn" />
+              <p id="register">Doesn't have an account? <a href="register.html">Register</a></p>
+              <p id="or"><span>OR</span></p>
+              <div class="login-options">
+                <p> <span><i class="fa-brands fa-facebook"></i></span>Login with Facebook</p>
+                <p><span><i class="fa-brands fa-google"></i></span>Login with Google</p>
+              </div>
+            </form>
+          </div>
+ 
+    </div>
+    
+  </body>
+</html>
