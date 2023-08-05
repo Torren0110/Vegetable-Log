@@ -4,37 +4,36 @@ const data = [
   {
     id: 1,
     name: "item 1",
-    image: ["src1"],
+    image: [],
     price: 10,
   },
   {
     id: 2,
     name: "item 2",
-    image: ["src2"],
-    price: 20,
+    image: [],
   },
   {
     id: 3,
     name: "item 3",
-    image: ["src3"],
+    image: [],
     price: 20,
   },
   {
     id: 4,
     name: "item 4",
-    image: ["src4"],
+    image: [],
     price: 20,
   },
   {
     id: 5,
     name: "item 5",
-    image: ["src5"],
+    image: [],
     price: 20,
   },
   {
     id: 6,
     name: "item 6",
-    image: ["src6"],
+    image: [],
     price: 20,
   },
 ];

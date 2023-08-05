@@ -6,10 +6,7 @@ const VegetableGrid = ({ vegetables }) => {
       {vegetables.map((veg) => (
         <VegetableCard
           key={veg.id}
-          name={veg.name}
-          id={veg.id}
-          price={veg.price}
-          img={veg.image[0]}
+          vegetable={veg}
         />
       ))}
     </div>
