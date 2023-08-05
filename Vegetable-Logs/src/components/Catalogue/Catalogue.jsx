@@ -5,11 +5,11 @@ import VegetableSearchBar from "./VegetableSearchBar";
 
 const Catalogue = () => {
   const [ searchString, setSearchString ] = useState("");
-  const { vegetables, setVegetables } = useVegetable();
+  const { vegetables, setVegetables } = useVegetable(searchString);
 
   return (
     <div>
-      <VegetableSearchBar onSearch = {(str) => { console.log(str) }} />
+      <VegetableSearchBar onSearch = {(str) => { setSearchString(str) }} />
       <VegetableGrid vegetables={vegetables} />
     </div>
   );
