@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Domine&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,300;1,400;1,600;1,700;1,800&display=swap');
+        
+*{
+    margin:0;
+    padding:0;
+    font-family: 'Domine',sans-serif,"Segoe UI",Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    box-sizing: border-box;
+    text-decoration: none;
+    transition: .5s;
+}
+.header {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+display: flex;
+justify-content: space-between;
+padding: .7rem 2%;
+z-index: 10000;
+background: #f7f7f7;
+transition: .2s !important;
+
+}
+
+.header .logo{
+margin-top:-13px;
+display: flex;
+}
+.header .logo span{
+font-size:1.6rem;
+display: inline-block;
+margin-top:25px;
+}
+.header .logo img{
+mix-blend-mode: multiply;
+height:80px;
+width:120px;
+}
+
+.header .navbar{
+margin-left:5rem;
+margin-top:.6rem;
+}
+.header .navbar  a {
+display: inline-block;
+padding: .8rem .7rem;
+margin-left:.5rem;
+margin-right:.5rem;
+font-size: 1.2rem;
+border-radius: 7px;
+color: #000;
+text-decoration: none;
+text-transform: capitalize;
+}
+.header .navbar a.active,
+.header .navbar a:hover {
+border-radius: 7px;
+color:#fff;
+background: #222;
+}
+.header .icons{
+margin-left:5rem;
+padding-top:.5rem;
+}
+.header .icons i{
+font-size:1.2rem;
+color:#000;
+margin-right:.5rem;
+border:1px solid #333;
+border-radius: 50%;
+padding:.6rem;
+}
+.header .icons i:hover{
+color:#fff;
+background-color: #222;
+border:1px solid transparent;
+
+}
