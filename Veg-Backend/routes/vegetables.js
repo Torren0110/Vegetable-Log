@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const joi = require("joi");
 
 const vegetables = [
   {
@@ -39,6 +40,17 @@ const vegetables = [
   },
 ];
 
+
+const validateVeg = (veg) => {
+  const schema = joi.object({
+    name: joi.string().min(5).required(),
+    price: joi.number().positive().required(),
+    quantity: joi.number().positive().required(),
+  });
+
+  return schema.validate(veg);
+}
+
 //create routes
 
 router.get("/", (req, res) => {
@@ -53,6 +65,17 @@ router.get("/", (req, res) => {
 	else
   	res.json(vegetables);
 
+});
+
+router.post("/", (req, res) => {
+  const { error } = validateVeg(req.body);
+
+  if(error)
+    return res.status(400).send(error.details[0].message);
+
+  const newVeg = { id: vegetables.length + 1, ...req.body, image: [] };
+  vegetables.push(newVeg);
+  res.json(newVeg);
 });
 
 //Export router

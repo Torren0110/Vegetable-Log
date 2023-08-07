@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import vegetableService from "../../services/vegetable-service";
 
 
 const schema = z.object({
@@ -17,7 +18,7 @@ const SellForm = () => {
   } = useForm({ resolver: zodResolver(schema) });
 
   const onSubmit = (data) => {
-    console.log(data);
+    vegetableService.create(data);
   };
 
   return (
