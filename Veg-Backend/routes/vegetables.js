@@ -42,18 +42,16 @@ const vegetables = [
 //create routes
 
 router.get("/", (req, res) => {
-	const searchStr = req.body.search;
+  const searchStr = req.query.search;
 
 	if(searchStr){
 		const data = vegetables.filter(veg => {
 			return veg.name.includes(searchStr);
 		});
-		
-		res.send(data);
+		res.json(data);
 	}
-
 	else
-  	res.send(vegetables);
+  	res.json(vegetables);
 
 });
 
