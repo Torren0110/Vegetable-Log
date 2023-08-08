@@ -3,22 +3,21 @@ import './App.css'
 import Catalogue from './components/Catalogue/Catalogue'
 import SellForm from './components/SellForm/SellForm'
 import ItemView from './components/ItemView/ItemView'
+import Cart from './components/Cart/Cart'
 
 function App() {
 
   return (
     <div>
-      {/* <Router>
-        <Header />
+      <Router>
         <Routes>
-          <Routes path='/' />
-          <Routes path='/cart' />
-          <Routes path='/sellform' />
+          <Route path='/' element={<Catalogue />} />
+          <Route path='/cart' element={<Cart />}/>
+          <Route path='/sellform' element={<SellForm />}/>
+          <Route path='/itemview' element={<ItemView />}/>
         </Routes>
-      </Router> */}
-      {/* <Catalogue /> */}
-      <ItemView />
-      {/* <SellForm /> */}
+      </Router>
+      
     </div>
   )
 }

@@ -11,23 +11,24 @@ const createMarkup=(text)=>{
 
 const ItemView = () => {
 
+
     const [product, setProduct] = useState({});
     const [quantity, setQuantity] = useState(1);
 
-    vegetableService.get(1)
+    
+
+    useEffect(()=>{
+        vegetableService.get(1)
     .then((res) => {
       setProduct(
-        res.data
-      );
+        {...res.data}
+        );
+        console.log(product.image)
     })
     .catch((err) => {
-      console.log(err);
+      console.log(err,"error");
     });
-
-    // useEffect(()=>{
-    //     const id=window.location.pathname.split("/");
-    //     fetchProduct(1);
-    // },[]);
+    },[]);
 
     const handleQuantity = (param) => {
         if(param=='decrease' && param > 1){
@@ -37,18 +38,22 @@ const ItemView = () => {
             setQuantity(quantity+1);
         }
     }
-
+    let imgSrc=Logo
+    if(product.image && product.image.length){
+        imgSrc=product.image[0]
+    }
   return (
     <Container className='ProductView' >
         <Grid container spacing={4} >
             <Grid item xs={12} md={8} className="imageWrapper">
-                {product.image[0]?<img
+                
+                {<img
                     // onLoad={()=>{
                     //     setLoading=(false);
                     // }}
-                    src={product.src}
+                    src={imgSrc}
                     alt={product.name}
-                />:<img src={Logo} />}
+                />}
             </Grid>
             <Grid item xs={12} md={8} className="text">
                 <Typography variant='h2' >{product.name}</Typography>
@@ -98,6 +103,7 @@ const ItemView = () => {
                 </Grid>
             </Grid>
         </Grid>
+        {console.log(product.image)}
     </Container>
   )
 }
