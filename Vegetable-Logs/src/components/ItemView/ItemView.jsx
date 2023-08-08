@@ -1,8 +1,9 @@
 import {useState, useEffect} from 'react'
+import Logo from '../../assets/logo.webp'
 import {Grid, Button, Container, Typography } from '@mui/material/'
-import {ShoppingCart } from '@mui/material/Icon/'
+// import {ShoppingCart } from '@mui/material/'
 import './ItemView.css'
-import vegetableService from "./services/vegetable-service";
+import vegetableService from "../../services/vegetable-service";
 
 const createMarkup=(text)=>{
     return {_html: text};
@@ -13,7 +14,7 @@ const ItemView = () => {
     const [product, setProduct] = useState({});
     const [quantity, setQuantity] = useState(1);
 
-    vegetableService.get(10)
+    vegetableService.get(1)
     .then((res) => {
       setProduct(
         res.data
@@ -41,13 +42,13 @@ const ItemView = () => {
     <Container className='ProductView' >
         <Grid container spacing={4} >
             <Grid item xs={12} md={8} className="imageWrapper">
-                <img
+                {product.image[0]?<img
                     // onLoad={()=>{
                     //     setLoading=(false);
                     // }}
                     src={product.src}
                     alt={product.name}
-                />
+                />:<img src={Logo} />}
             </Grid>
             <Grid item xs={12} md={8} className="text">
                 <Typography variant='h2' >{product.name}</Typography>
@@ -87,10 +88,11 @@ const ItemView = () => {
                             size='large'
                             className='customButton'
                             onClick={()=>{
-                                addProduct(product.id, quantity)
+                                //addProduct(product.id, quantity)
                             }}
                         >
-                            <ShoppingCart />Add to basket
+                            {/* <ShoppingCart /> */}
+                            Add to basket
                         </Button>
                     </Grid>
                 </Grid>
