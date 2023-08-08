@@ -3,8 +3,6 @@ import './App.css'
 import Catalogue from './components/Catalogue/Catalogue'
 import SellForm from './components/SellForm/SellForm'
 import ItemView from './components/ItemView/ItemView'
-import Header from './components/Header'
-import Footer from './components/Footer/Footer'
 
 function App() {
 
@@ -18,8 +16,8 @@ function App() {
           <Routes path='/sellform' />
         </Routes>
       </Router> */}
-      <Catalogue />
-      {/* <ItemView /> */}
+      {/* <Catalogue /> */}
+      <ItemView />
       {/* <SellForm /> */}
     </div>
   )
