@@ -11,30 +11,30 @@ const vegetables = [
   },
   {
     id: 2,
-    name: "item 2",
+    name: "vegetable 2",
     image: [],
   },
   {
     id: 3,
-    name: "item 3",
+    name: "Bhindi 3",
     image: [],
     price: 20,
   },
   {
     id: 4,
-    name: "item 4",
+    name: "Aaloo 4",
     image: [],
     price: 20,
   },
   {
     id: 5,
-    name: "item 5",
+    name: "Methi 5",
     image: [],
     price: 20,
   },
   {
     id: 6,
-    name: "item 6",
+    name: "Muli 6",
     image: [],
     price: 20,
   },
@@ -58,7 +58,7 @@ router.get("/", (req, res) => {
 
 	if(searchStr){
 		const data = vegetables.filter(veg => {
-			return veg.name.includes(searchStr);
+			return veg.name.toLowerCase().includes(searchStr.toLowerCase());
 		});
 		res.json(data);
 	}
@@ -66,6 +66,16 @@ router.get("/", (req, res) => {
   	res.json(vegetables);
 
 });
+
+router.get("/:id", (req, res) => {
+  const q = parseInt(req.params.id);
+  const veg = vegetables.find(v => v.id === q);
+
+  if(!veg)
+    res.status(400).send("Invalid Key");
+  else
+    res.json(veg);
+})
 
 router.post("/", (req, res) => {
   const { error } = validateVeg(req.body);
