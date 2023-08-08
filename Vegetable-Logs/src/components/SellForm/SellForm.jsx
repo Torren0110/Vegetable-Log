@@ -2,7 +2,8 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import vegetableService from "../../services/vegetable-service";
-
+import { useState } from 'react';
+import { Alert } from '@mui/material';
 
 const schema = z.object({
   name: z.string().min(5).nonempty(),
@@ -15,14 +16,26 @@ const SellForm = () => {
     register,
     handleSubmit,
     formState: { errors, isValid },
+    reset,
   } = useForm({ resolver: zodResolver(schema) });
+
+  const [ showAlert, setAlert ] = useState(false);
 
   const onSubmit = (data) => {
     vegetableService.create(data);
+    setAlert(true);
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      onSubmit={
+        handleSubmit((data) => {
+          onSubmit(data);
+          reset();
+        })
+      }
+    >
+      { showAlert && <Alert onClose={() => {setAlert(false)}}>Item Successfully Posted!!</Alert> }
       <div className="mb-3">
         <label htmlFor="name" className="form-label">
           Name
@@ -33,19 +46,19 @@ const SellForm = () => {
           id="name"
           className="form-control"
         />
-        { errors.name && <p className="text-danger">{ errors.name.message }</p> }
+        {errors.name && <p className="text-danger">{errors.name.message}</p>}
       </div>
       <div className="mb-3">
         <label htmlFor="price" className="form-label">
           Price
         </label>
         <input
-          {...register("price", { valueAsNumber: true }) }
+          {...register("price", { valueAsNumber: true })}
           type="number"
           id="price"
           className="form-control"
         />
-        { errors.price && <p className="text-danger">{ errors.price.message }</p> }
+        {errors.price && <p className="text-danger">{errors.price.message}</p>}
       </div>
       <div className="mb-3">
         <label htmlFor="quantity" className="form-label">
@@ -57,7 +70,9 @@ const SellForm = () => {
           id="quantity"
           className="form-control"
         />
-        { errors.quantity && <p className="text-danger">{ errors.quantity.message }</p> }
+        {errors.quantity && (
+          <p className="text-danger">{errors.quantity.message}</p>
+        )}
       </div>
 
       <button className="btn btn-primary" type="submit">

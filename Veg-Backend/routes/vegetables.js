@@ -90,7 +90,7 @@ router.post("/", (req, res) => {
   if(error)
     return res.status(400).send(error.details[0].message);
 
-  const newVeg = { id: vegetables.length + 1, ...req.body, image: [] };
+  const newVeg = { id: vegetables.length + 1, ...req.body, image: "" };
   vegetables.push(newVeg);
   res.json(newVeg);
 });
