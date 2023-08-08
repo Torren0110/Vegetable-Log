@@ -1,56 +1,43 @@
 import { useEffect, useState } from "react";
+import apiClient from "../../services/api-client";
 
+const endpoint = "/vegetables";
 
+const useVegetable = (searchString = "") => {
+  const [vegetables, setVegetables] = useState([]);
+  const [error, setError] = useState("");
+  const [isLoading, setLoading] = useState(false);
 
-const data = [{
-    id: 1,
-    name: "item 1",
-    image: ["src1"],
-    price: 10
-},
-{
-    id: 2,
-    name: "item 2",
-    image: ["src2"],
-    price: 20
-},
-{
-    id: 3,
-    name: "item 3",
-    image: ["src3"],
-    price: 20
-},
-{
-    id: 4,
-    name: "item 4",
-    image: ["src4"],
-    price: 20
-},
-{
-    id: 5,
-    name: "item 5",
-    image: ["src5"],
-    price: 20
-},
-{
-    id: 6,
-    name: "item 6",
-    image: ["src6"],
-    price: 20
-}
-];
-const useVegetable = () => {
-    const [vegetables, setVegetables] = useState(data);
-    const [error, setError] = useState("");
-    const [isLoading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
 
-    useEffect(() => {
-        setVegetables(data);
-    }, []);
+    apiClient
+      .get(endpoint, { params: {
+        search: searchString
+      } })
+      .then((res) => {
+        setVegetables(res.data);
+        console.log(vegetables);
+        setLoading(false);
+      })
+      .catch((err) => {
+        if (err instanceof CanceledError) return;
+        setError(err.message);
+        setLoading(false);
+      });
 
+    // if (searchString) {
+    //   setVegetables(
+    //     data.filter((veg) => {
+    //       return veg.name.includes(searchString);
+    //     })
+    //   );
+    // } else {
+    //   setVegetables(data);
+    // }
+  }, [searchString]);
 
-    return { vegetables, setVegetables, error, isLoading  };
-
-}
+  return { vegetables, setVegetables, error, isLoading };
+};
 
 export default useVegetable;

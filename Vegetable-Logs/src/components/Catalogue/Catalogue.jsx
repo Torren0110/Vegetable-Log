@@ -1,14 +1,15 @@
+import { useState } from "react";
 import useVegetable from "../../hooks/useVegetable";
-import VegetableCard from "./VegetableCard";
 import VegetableGrid from "./VegetableGrid";
 import VegetableSearchBar from "./VegetableSearchBar";
 
 const Catalogue = () => {
-  const { vegetables } = useVegetable();
+  const [ searchString, setSearchString ] = useState("");
+  const { vegetables, setVegetables } = useVegetable(searchString);
 
   return (
     <div>
-      <VegetableSearchBar />
+      <VegetableSearchBar onSearch = {(str) => { setSearchString(str) }} />
       <VegetableGrid vegetables={vegetables} />
     </div>
   );
