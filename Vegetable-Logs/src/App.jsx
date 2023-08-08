@@ -4,18 +4,22 @@ import Catalogue from './components/Catalogue/Catalogue'
 import SellForm from './components/SellForm/SellForm'
 import ItemView from './components/ItemView/ItemView'
 import Cart from './components/Cart/Cart'
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 
 function App() {
 
   return (
     <div>
       <Router>
+        <Header />
         <Routes>
           <Route path='/' element={<Catalogue />} />
           <Route path='/cart' element={<Cart />}/>
           <Route path='/sellform' element={<SellForm />}/>
           <Route path='/itemview' element={<ItemView />}/>
         </Routes>
+        <Footer />
       </Router>
       
     </div>
