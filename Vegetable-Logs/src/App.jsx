@@ -1,18 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Catalogue from './components/Catalogue/Catalogue'
 import SellForm from './components/SellForm/SellForm'
+import ItemView from './components/ItemView/ItemView'
+import Header from './components/Header'
+import Footer from './components/Footer/Footer'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      {/* <Catalogue /> */}
-      <SellForm />
-    </>
+    <div>
+      {/* <Router>
+        <Header />
+        <Routes>
+          <Routes path='/' />
+          <Routes path='/cart' />
+          <Routes path='/sellform' />
+        </Routes>
+      </Router> */}
+      <Catalogue />
+      {/* <ItemView /> */}
+      {/* <SellForm /> */}
+    </div>
   )
 }
 

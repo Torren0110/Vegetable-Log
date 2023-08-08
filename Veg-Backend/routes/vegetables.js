@@ -12,6 +12,7 @@ const vegetables = [
     id: 2,
     name: "item 2",
     image: [],
+    price: 20,
   },
   {
     id: 3,
