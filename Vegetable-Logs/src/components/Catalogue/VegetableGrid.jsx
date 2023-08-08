@@ -4,8 +4,8 @@ const VegetableGrid = ({ isLoading, vegetables }) => {
   return (
     <div className="d-flex w-100 flex-wrap">
       {isLoading && (
-        <div class="spinner-border text-primary" role="status">
-          <span class="sr-only"></span>
+        <div className="spinner-border text-primary" role="status">
+          <span className="sr-only"></span>
         </div>
       )}
 

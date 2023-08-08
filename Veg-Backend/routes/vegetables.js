@@ -8,35 +8,42 @@ const vegetables = [
     name: "item 1",
     image: [],
     price: 10,
+    quantity: 12, 
   },
   {
     id: 2,
     name: "vegetable 2",
     image: [],
+    price: 10,
+    quantity: 12,
   },
   {
     id: 3,
     name: "Bhindi 3",
     image: [],
     price: 20,
+    quantity: 12,
   },
   {
     id: 4,
     name: "Aaloo 4",
     image: [],
     price: 20,
+    quantity: 12,
   },
   {
     id: 5,
     name: "Methi 5",
     image: [],
     price: 20,
+    quantity: 12,
   },
   {
     id: 6,
     name: "Muli 6",
     image: [],
     price: 20,
+    quantity: 12,
   },
 ];
 

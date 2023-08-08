@@ -15,6 +15,12 @@ class VegerableService {
     return request;
   }
 
+  get(id) {
+    const request = apiClient.get(this.endpoint + `/${id}`);
+
+    return request;
+  }
+
   create(veg) {
     return apiClient.post(this.endpoint, veg);
   }
