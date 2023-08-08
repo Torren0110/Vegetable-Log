@@ -1,14 +1,16 @@
 import VegetableCard from "./VegetableCard";
 
-const VegetableGrid = ({ vegetables }) => {
+const VegetableGrid = ({ isLoading, vegetables }) => {
   return (
     <div className="d-flex w-100 flex-wrap">
-      {vegetables.map((veg) => (
-        <VegetableCard
-          key={veg.id}
-          vegetable={veg}
-        />
-      ))}
+      {isLoading && (
+        <div class="spinner-border text-primary" role="status">
+          <span class="sr-only"></span>
+        </div>
+      )}
+
+      {!isLoading &&
+        vegetables.map((veg) => <VegetableCard key={veg.id} vegetable={veg} />)}
     </div>
   );
 };
