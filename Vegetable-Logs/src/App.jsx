@@ -1,24 +1,28 @@
-import { useState } from "react";
-import "./App.css";
-import Catalogue from "./components/Catalogue/Catalogue";
-import SellForm from "./components/SellForm/SellForm";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import './App.css'
+import Catalogue from './components/Catalogue/Catalogue'
+import SellForm from './components/SellForm/SellForm'
+import ItemView from './components/ItemView/ItemView'
+import Header from './components/Header'
+import Footer from './components/Footer/Footer'
 
 function App() {
 
-  vegetableService.get(10)
-    .then((res) => {
-      console.log(res.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-
   return (
-    <>
+    <div>
+      {/* <Router>
+        <Header />
+        <Routes>
+          <Routes path='/' />
+          <Routes path='/cart' />
+          <Routes path='/sellform' />
+        </Routes>
+      </Router> */}
       <Catalogue />
+      {/* <ItemView /> */}
       {/* <SellForm /> */}
-    </>
-  );
+    </div>
+  )
 }
 
 export default App;
