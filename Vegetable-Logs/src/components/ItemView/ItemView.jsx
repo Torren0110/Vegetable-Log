@@ -1,5 +1,6 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import Logo from '../../assets/logo.webp'
+import { ShopContext } from '../../context/shop-context'
 import {Grid, Button, Container, Typography } from '@mui/material/'
 // import {ShoppingCart } from '@mui/material/'
 import './ItemView.css'
@@ -29,6 +30,8 @@ const ItemView = () => {
       console.log(err,"error");
     });
     },[]);
+
+    const {addToCart, cartItems} = useContext(ShopContext);
 
     const handleQuantity = (param) => {
         if(param=='decrease' && param > 1){
