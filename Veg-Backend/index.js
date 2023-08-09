@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const vegetables = require("./routes/vegetables");
+const users = require("./routes/users");
 const mongoose = require("mongoose");
 const app = express();
 
@@ -12,6 +13,7 @@ mongoose
 app.use(cors());
 app.use(express.json());
 app.use("/api/vegetables", vegetables);
+app.use("/api/users", users);
 
 const port = 3000;
 
