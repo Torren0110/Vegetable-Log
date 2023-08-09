@@ -1,6 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const joi = require("joi");
+const mongoose = require("mongoose");
+
+const vegetableSchema = new mongoose.Schema({
+  name: { type: String, required: true, minlength: 3 },
+  price: { type: Number, required: true, min: 1 },
+  quantity: { type: Number, required: true, min: 1 },
+  image: { type: String, default: "" },
+});
+
+const Vegetable = new mongoose.model("Vegetable", vegetableSchema);
 
 const vegetables = [
   {
@@ -8,7 +18,7 @@ const vegetables = [
     name: "item 1",
     image: "",
     price: 10,
-    quantity: 12, 
+    quantity: 12,
   },
   {
     id: 2,
@@ -47,7 +57,6 @@ const vegetables = [
   },
 ];
 
-
 const validateVeg = (veg) => {
   const schema = joi.object({
     name: joi.string().min(5).required(),
@@ -56,43 +65,58 @@ const validateVeg = (veg) => {
   });
 
   return schema.validate(veg);
-}
+};
 
 //create routes
 
-router.get("/", (req, res) => {
-  const searchStr = req.query.search;
+router.get("/", async (req, res) => {
+  const searchStr = req.body.search || req.query.search;
 
-	if(searchStr){
-		const data = vegetables.filter(veg => {
-			return veg.name.toLowerCase().includes(searchStr.toLowerCase());
-		});
-		res.json(data);
-	}
-	else
-  	res.json(vegetables);
+  // if(searchStr){
+  // 	const data = vegetables.filter(veg => {
+  // 		return veg.name.toLowerCase().includes(searchStr.toLowerCase());
+  // 	});
+  // 	res.json(data);
+  // }
+  // else
+  // 	res.json(vegetables);
 
+  try {
+    const result = await Vegetable.find({
+      name: {
+        $regex: searchStr,
+        $options: "i",
+      },
+    });
+    res.json(result);
+  } catch {
+    res.status(400);
+  }
 });
 
 router.get("/:id", (req, res) => {
   const q = parseInt(req.params.id);
-  const veg = vegetables.find(v => v.id === q);
+  const veg = vegetables.find((v) => v.id === q);
 
-  if(!veg)
-    res.status(400).send("Invalid Key");
-  else
-    res.json(veg);
-})
+  if (!veg) res.status(400).send("Invalid Key");
+  else res.json(veg);
+});
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   const { error } = validateVeg(req.body);
 
-  if(error)
-    return res.status(400).send(error.details[0].message);
+  if (error) return res.status(400).send(error.details[0].message);
 
-  const newVeg = { id: vegetables.length + 1, ...req.body, image: "" };
-  vegetables.push(newVeg);
-  res.json(newVeg);
+  // const newVeg = { id: vegetables.length + 1, ...req.body, image: "" };
+  // vegetables.push(newVeg);
+
+  try {
+    let newVeg = new Vegetable(req.body);
+    newVeg = await newVeg.save();
+    res.json(newVeg);
+  } catch {
+    res.status(400).send("Something wet wrong");
+  }
 });
 
 //Export router
