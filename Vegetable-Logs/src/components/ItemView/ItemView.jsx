@@ -1,4 +1,5 @@
 import {useState, useEffect, useContext} from 'react'
+import { useParams } from 'react-router-dom';
 import Logo from '../../assets/logo.webp'
 import { ShopContext } from '../../context/shop-context'
 import {Grid, Button, Container, Typography } from '@mui/material/'
@@ -6,39 +7,36 @@ import {Grid, Button, Container, Typography } from '@mui/material/'
 import './ItemView.css'
 import vegetableService from "../../services/vegetable-service";
 
-const createMarkup=(text)=>{
-    return {_html: text};
-};
-
 const ItemView = () => {
 
-
+    const {updateCartItemCount} = useContext(ShopContext);
     const [product, setProduct] = useState({});
     const [quantity, setQuantity] = useState(1);
-
-    
+    const params = useParams();
 
     useEffect(()=>{
-        vegetableService.get(1)
+        // const pathStr=window.location.pathname.split("/");
+        // const id = pathStr[2]
+
+    vegetableService.get(params.id)
     .then((res) => {
       setProduct(
         {...res.data}
         );
-        console.log(product.image)
+        // console.log(product.image)
     })
     .catch((err) => {
       console.log(err,"error");
     });
     },[]);
 
-    const {addToCart, cartItems} = useContext(ShopContext);
-
     const handleQuantity = (param) => {
-        if(param=='decrease' && param > 1){
-            setQuantity(quantity-1);
+        console.log()
+        if(param === 'decrease' && param > 1){
+            setQuantity(quantity -1);
         }
-        else if(param=='increase' && param < 10){
-            setQuantity(quantity+1);
+        else if(param ==='increase' && param < 10){
+            setQuantity(quantity +1);
         }
     }
     let imgSrc=Logo
@@ -62,7 +60,7 @@ const ItemView = () => {
                 <Typography variant='h2' >{product.name}</Typography>
                 {/* <Typography
                     variant='p'
-                    dangerouslySetInnerHTML={createMarkup(product.description)}
+                    dangerouslySetInnerHTML={product.description}
                 /> */}
                 <Typography variant='h3'> Price:{product.price}</Typography>
                 <Grid container spacing={4} >
@@ -96,7 +94,7 @@ const ItemView = () => {
                             size='large'
                             className='customButton'
                             onClick={()=>{
-                                //addProduct(product.id, quantity)
+                                updateCartItemCount(quantity, params.id)
                             }}
                         >
                             {/* <ShoppingCart /> */}
@@ -106,7 +104,6 @@ const ItemView = () => {
                 </Grid>
             </Grid>
         </Grid>
-        {console.log(product.image)}
     </Container>
   )
 }

@@ -1,7 +1,7 @@
 import React, {createContext, useState} from 'react'
 import vegetableService from "../services/vegetable-service";
 
-let products = {}
+let products = [];
 vegetableService.getAll("").then((res) => {
     products = res.data
     console.log(res.data)
@@ -41,7 +41,9 @@ export const ShopContextProvider = (props) =>{
         let total=0;
         for(const item in cartItems){
             if(cartItems[item] > 0){
-                let itemInfo = products.find((product)=>product.id === Number(item));
+                console.log("item: ", item);
+                let itemInfo = products.find((product)=> product._id === Number(item));
+                console.log("item info", itemInfo);
                 total += cartItems[item] * itemInfo.price; 
             }
         }

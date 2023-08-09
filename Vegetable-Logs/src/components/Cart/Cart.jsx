@@ -12,13 +12,16 @@ const Cart = () => {
 
   return (
     <div className='cart' >
-      <div>
+      { totalAmt>0?
+        <div>
         <h1>Your Cart Items</h1>
-      </div>
+      </div>:
+      <div></div>
+      }
       <div className="cartItems">
         {products.map((prod)=>{
-            if(cartItems[prod.id] !== 0 ){
-                return <CartItem key={prod.id} data={prod} /> 
+            if(cartItems[prod._id] !== 0 ){
+                return <CartItem key={prod._id} data={prod} /> 
             }
         })}
       </div>
@@ -28,7 +31,10 @@ const Cart = () => {
         <button onClick={()=>navigate('/')} >Continue Shopping</button>
         <button>Checkout</button>
       </div>:
-      <h1>Your Cart is Empty!!</h1>
+      <div className='emptyCart' >
+        <h1>Your Cart is Empty!!</h1>
+        <button onClick={()=>navigate('/')} >Continue Shopping</button>
+      </div>
       }
     </div>
   )
