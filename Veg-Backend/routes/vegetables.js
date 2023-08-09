@@ -88,7 +88,6 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   const q = req.params.id;
-  const veg = vegetables.find((v) => v.id === q);
 
   try {
     const result = await Vegetable.find({_id: q});
