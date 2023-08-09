@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const VegetableCard = ({ vegetable }) => {
   return (
-    <div className="card mx-2 mb-4" onClick={() => {console.log("here")}}>
+    <div className="card mx-2 mb-4">
       <img src={ vegetable.image ? vegetable.image : logo} className="card-img-top" alt="..." />
       <div className="card-body">
         <h5 className="card-title">{vegetable.name}</h5>
@@ -19,4 +19,5 @@ const VegetableCard = ({ vegetable }) => {
     </div>
   );
 };
+
 export default VegetableCard;

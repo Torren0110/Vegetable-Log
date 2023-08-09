@@ -20,7 +20,7 @@ function App() {
           <Route path='/' element={<Catalogue />} />
           <Route path='/cart' element={<Cart />}/>
           <Route path='/sellform' element={<SellForm />}/>
-          <Route path='/itemview' element={<ItemView />}/>
+          <Route path='/itemview/:id' element={<ItemView />}/>
         </Routes>
         <Footer />
       </Router>
