@@ -115,7 +115,7 @@ router.post("/", async (req, res) => {
     newVeg = await newVeg.save();
     res.json(newVeg);
   } catch {
-    res.status(400).send("Something wet wrong");
+    res.status(400).send("Something went wrong");
   }
 });
 
