@@ -1,17 +1,12 @@
 import VegetableCard from "./VegetableCard";
+import { Grid } from "@mui/material";
 
 const VegetableGrid = ({ isLoading, vegetables }) => {
   return (
-    <div className="d-flex w-100 flex-wrap">
-      {isLoading && (
-        <div className="spinner-border text-primary" role="status">
-          <span className="sr-only"></span>
-        </div>
-      )}
-
-      {!isLoading &&
+    <Grid container  spacing={3} >
+    {!isLoading &&
         vegetables.map((veg) => <VegetableCard key={veg.id} vegetable={veg} />)}
-    </div>
+    </Grid>
   );
 };
 
