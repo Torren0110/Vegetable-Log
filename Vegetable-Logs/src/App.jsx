@@ -6,11 +6,13 @@ import ItemView from './components/ItemView/ItemView'
 import Cart from './components/Cart/Cart'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
+import {ShopContextProvider} from './context/shop-context'
 
 function App() {
 
   return (
     <div>
+      <ShopContextProvider>
       <Router>
         <Header />
         <br /><br /><br /><br /><br />
@@ -22,7 +24,7 @@ function App() {
         </Routes>
         <Footer />
       </Router>
-      
+      </ShopContextProvider>
     </div>
   )
 }
