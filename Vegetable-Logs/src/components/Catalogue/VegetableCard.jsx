@@ -1,5 +1,6 @@
 import "./style.css";
 import logo from "../../assets/logo.webp";
+import { Link } from 'react-router-dom';
 
 const VegetableCard = ({ vegetable }) => {
   return (
@@ -9,11 +10,11 @@ const VegetableCard = ({ vegetable }) => {
         <h5 className="card-title">{vegetable.name}</h5>
         <p className="card-text">
           Price: {vegetable.price}
-          img: {vegetable.image}
+          {/* img: {vegetable.image} */}
         </p>
-        <a href="#" className="btn btn-primary">
+        <Link to={`/itemview/${vegetable.id}`} className="btn btn-primary">
           View Veggie
-        </a>
+        </Link>
       </div>
     </div>
   );
