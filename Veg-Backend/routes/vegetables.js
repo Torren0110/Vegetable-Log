@@ -94,12 +94,18 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id", (req, res) => {
-  const q = parseInt(req.params.id);
+router.get("/:id", async (req, res) => {
+  const q = req.params.id;
   const veg = vegetables.find((v) => v.id === q);
 
-  if (!veg) res.status(400).send("Invalid Key");
-  else res.json(veg);
+  try {
+    const result = await Vegetable.find({_id: q});
+    res.json(result);
+  }
+  catch {
+    res.status(400).send("Invalid Key");
+  }
+
 });
 
 router.post("/", async (req, res) => {
