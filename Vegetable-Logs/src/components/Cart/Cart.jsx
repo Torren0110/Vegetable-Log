@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React,{useContext, useEffect, useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 import { ShopContext } from '../../context/shop-context'
 import CartItem from './CartItem';
@@ -6,10 +6,30 @@ import './Cart.css'
 
 const Cart = () => {
 
-    const {products, cartItems, getTotalCartAmount} = useContext(ShopContext);
-    const totalAmt = getTotalCartAmount();
+    const {cart} = useContext(ShopContext);
+    console.log("cart : ",cart)
+    const [totalAmt,setTotalAmt] = useState(0);
+    
+    useEffect(()=>{
+      let total=0;
+      console.log("called get total")
+      console.log("cart when called: ",cart)
+      for(const item of cart){
+          console.log("cart in loop: ",cart)
+          console.log("item in loop: ",item)
+          if(item.quantity > 0){
+              console.log("item: ", item);
+              let price = item.vegID.price;
+              console.log("item price", price);
+              total += item.quantity * price; 
+          }
+      }
+      setTotalAmt(total);
+  },[cart]);
     const navigate = useNavigate()
 
+    // {console.log(cart)}
+    // {console.log(totalAmt)}
   return (
     <div className='cart' >
       { totalAmt>0?
@@ -19,10 +39,13 @@ const Cart = () => {
       <div></div>
       }
       <div className="cartItems">
-        {products.map((prod)=>{
-            if(cartItems[prod._id] !== 0 ){
-                return <CartItem key={prod._id} data={prod} /> 
-            }
+        {cart.map((prod)=>{
+            if(prod.quantity !== 0 ){
+              const container={}
+              container.qty=prod.quantity
+              container.vegInfo=prod.vegID
+                return <CartItem key={prod._id} data={container} /> 
+        }
         })}
       </div>
       {totalAmt>0 ?
