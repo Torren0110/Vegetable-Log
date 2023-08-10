@@ -1,6 +1,11 @@
 import React from 'react';
 import './Header.css';
 import logo from "../../assets/logo.jpeg";
+import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { BiLogIn } from 'react-icons/bi';
+import { BiRegistered } from 'react-icons/bi';
+import {Link} from "react-router-dom";
+
 
 
 const Header = () => {
@@ -11,21 +16,20 @@ const Header = () => {
       <span>Veggies</span>
     </div>
     <nav className="navbar">
-      <a className="active" href="#home">
-        home
-      </a>
-      <a href="#about">about</a>
-      <a href="#pricing">Prices</a>
-      <a href="#trainers">Review</a>
-      <a href="#book">Contact</a>
+      <Link className="active" to="/home">home</Link>
+      <Link to="/">about</Link>
+      <Link to="/">Prices</Link>
+      <Link to="/">Review</Link>
+      <Link to="/">Contact</Link>
     </nav>
     <div className="icons">
-      <i className="fa-solid fa-cart-shopping" />
-      <i className="fa-solid fa-right-to-bracket" />
-      <i className="fa-solid fa-registered" />
+      <Link to="/cart"> <AiOutlineShoppingCart  className='icon'/></Link>
+      <Link to="/login"> <BiLogIn className='icon'/></Link>
+      <Link to="/register">  <BiRegistered className='icon'/></Link>
     </div>
   </header>
   )
 }
 
 export default Header
+
