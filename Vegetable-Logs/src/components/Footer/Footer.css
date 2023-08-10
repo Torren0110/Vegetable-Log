@@ -26,23 +26,26 @@
     .footer .box-container .box h3{
     font-size: 1.5rem;
     padding: 1rem 0;
+    font-weight: 800;
     text-transform: uppercase;
     }
     
-    .footer .box-container .box a{
+    .footer .box-container .box .link{
     display: block;
-    font-size: 1rem;
+    font-size: 1.2rem;
     padding: 1rem 0;
     color:#333;
+    text-decoration: none;
     }
     
-    .footer .box-container .box a i{
+    .footer .box-container .box .link i{
     padding-right: .4rem;
     }
-    
-    .footer .box-container .box a:hover i{
-    padding-right:1.6rem;
-    }
+ 
+    .footer .box-container .box .link:hover {
+font-weight: 800; 
+cursor: pointer;
+}
     
     .footer .credit{
     padding: 0rem;
@@ -67,11 +70,12 @@
     border:none;
     width:250px;
     border-bottom:1.5px solid #333;
-    padding-bottom:5px;
+    padding-bottom:10px;
     }
     .footer .box#contact input[type="submit"]{
     
     margin-bottom:25px;
+    margin-top:15px;
     border:1.5px solid #222;
     padding:10px 30px;
     border-radius: 50px;

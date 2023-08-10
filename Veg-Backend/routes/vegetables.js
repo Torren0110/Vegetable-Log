@@ -2,15 +2,7 @@ const express = require("express");
 const router = express.Router();
 const joi = require("joi");
 const mongoose = require("mongoose");
-
-const vegetableSchema = new mongoose.Schema({
-  name: { type: String, required: true, minlength: 3 },
-  price: { type: Number, required: true, min: 1 },
-  quantity: { type: Number, required: true, min: 1 },
-  image: { type: String, default: "" },
-});
-
-const Vegetable = new mongoose.model("Vegetable", vegetableSchema);
+const Vegetable = require("../models/vagetableModel");
 
 const vegetables = [
   {
@@ -96,7 +88,6 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   const q = req.params.id;
-  const veg = vegetables.find((v) => v.id === q);
 
   try {
     const result = await Vegetable.find({_id: q});
