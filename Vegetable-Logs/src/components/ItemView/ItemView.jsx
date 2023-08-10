@@ -20,8 +20,8 @@ const ItemView = () => {
 
     vegetableService.get(params.id)
     .then((res) => {
-        console.log(params.id)
-        console.log(res.data)
+        // console.log(params.id)
+        // console.log(res.data)
       setProduct(
         {...res.data[0]}
         );
@@ -33,7 +33,7 @@ const ItemView = () => {
     },[]);
 
     const handleQuantity = (param) => {
-        console.log()
+        // console.log()
         if(param === 'decrease' && quantity > 1){
             setQuantity(quantity -1);
         }

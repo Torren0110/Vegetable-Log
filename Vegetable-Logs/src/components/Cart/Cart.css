@@ -44,3 +44,20 @@
     margin: 10px;
     cursor: pointer;
   }
+
+  .emptyCart{
+    margin: 120px;
+  }
+
+  .emptyCart button {
+    padding: 2px;
+    width: 150px;
+    height: 50px;
+    background-color: rgb(19, 19, 19);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin: 50px;
+    margin-left: 100px;
+    cursor: pointer;
+  }
