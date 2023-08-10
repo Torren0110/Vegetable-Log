@@ -12,8 +12,6 @@ router.get("/", async (req, res) => {
 
   try {
 		const cartItems = await Cart.find({ userID: uid }).populate('vegID').select(["vegID", "quantity"]);
-
-
 		
     res.json(cartItems);
   } catch(err) {
@@ -33,17 +31,20 @@ router.post("/", async (req, res) => {
     const user = await User.findOne({ _id: uid });
     let veg = await Vegetable.findOne({ _id: vid });
 
-    if (veg.quantity < quantity) throw new Error("Invalid Quantity");
+    if (veg.quantity + quantity < 0) throw new Error("Invalid Quantity");
     
     
     let cartItem = await Cart.findOne({ userID: uid, vegID: vid });
     
     if(cartItem) {
-      if(cartItem.quantity + quantity < 0) return new Error("Invalid Quantity2");
+      if(cartItem.quantity + quantity < 0) return res.status(400).send("Invalid Quantity");
       veg.quantity -= quantity;
       veg = await veg.save();
       cartItem.quantity += quantity;
       cartItem = await cartItem.save();
+    }
+    else if(quantity <= 0) {
+      return res.status(400).send("Invalid Quantity");
     }
     else {
       veg.quantity -= quantity;
