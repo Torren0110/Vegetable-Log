@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
   const vid = req.body.vid;
   const quantity = parseInt(req.body.quantity);
 
-  if (!uid || !vid || !quantity || quantity <= 0)
+  if (!uid || !vid || !quantity)
     return res.status(400).send("Invalid request");
 
   try {
@@ -34,18 +34,20 @@ router.post("/", async (req, res) => {
     let veg = await Vegetable.findOne({ _id: vid });
 
     if (veg.quantity < quantity) throw new Error("Invalid Quantity");
-
-    veg.quantity -= quantity;
-    veg = await veg.save();
-
+    
+    
     let cartItem = await Cart.findOne({ userID: uid, vegID: vid });
-
-
+    
     if(cartItem) {
+      if(cartItem.quantity + quantity < 0) return new Error("Invalid Quantity2");
+      veg.quantity -= quantity;
+      veg = await veg.save();
       cartItem.quantity += quantity;
       cartItem = await cartItem.save();
     }
     else {
+      veg.quantity -= quantity;
+      veg = await veg.save();
       cartItem = new Cart({ userID: uid, vegID: vid, quantity: quantity });
       cartItem = await cartItem.save();
     }
