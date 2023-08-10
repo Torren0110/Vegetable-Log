@@ -6,20 +6,16 @@ const Vegetable = require("../models/vagetableModel");
 const Cart = require("../models/cartModel");
 
 router.get("/", async (req, res) => {
-  const uid = req.body.uid;
+  const uid = req.query.uid;
 
 	if(!uid) return res.status(400).send("User id not present");
 
   try {
-		const cartItems = await Cart.find({ userID: uid }).select(["userID", "vegID"]);
-		let cart = [];
+		const cartItems = await Cart.find({ userID: uid }).populate('vegID').select(["vegID", "quantity"]);
 
-		cartItems.forEach(async (item) => {
-			const veg = await Vegetable.find({_id: item.vegID}).select(["name", "price"]);
-			cart.push({ ...item, vegetable: veg });
-		});
+
 		
-    res.json(cart);
+    res.json(cartItems);
   } catch(err) {
 		res.status(400).send("Something went wrong");
 	}
@@ -39,10 +35,20 @@ router.post("/", async (req, res) => {
 
     if (veg.quantity < quantity) throw new Error("Invalid Quantity");
 
-    let cartItem = new Cart({ userID: uid, vegID: vid, quantity: quantity });
     veg.quantity -= quantity;
-    veg = veg = await veg.save();
-    cartItem = await cartItem.save();
+    veg = await veg.save();
+
+    let cartItem = await Cart.findOne({ userID: uid, vegID: vid });
+
+
+    if(cartItem) {
+      cartItem.quantity += quantity;
+      cartItem = await cartItem.save();
+    }
+    else {
+      cartItem = new Cart({ userID: uid, vegID: vid, quantity: quantity });
+      cartItem = await cartItem.save();
+    }
     res.json(cartItem);
   } catch (err) {
     res.status(400).send(err.message);
