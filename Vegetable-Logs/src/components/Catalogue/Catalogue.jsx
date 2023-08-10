@@ -16,13 +16,7 @@ const Catalogue = () => {
 
 
   return (
-    <div onClick={() => {
-      cartService.addToCart("64d3c85791bf3bd7cea4af89", "64d3877e0127fc3290df6710", -2)
-    .then((res) => {
-      console.log("data", res.data);
-    })
-    .catch(err => console.log(err))
-    }}>
+    <div >
       <VegetableSearchBar onSearch = {(str) => { setSearchString(str) }} />
       <VegetableGrid isLoading={isLoading} vegetables={vegetables} />
     </div>
