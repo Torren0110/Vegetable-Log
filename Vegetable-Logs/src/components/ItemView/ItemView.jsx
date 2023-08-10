@@ -9,7 +9,7 @@ import vegetableService from "../../services/vegetable-service";
 
 const ItemView = () => {
 
-    const {updateCartItemCount} = useContext(ShopContext);
+    const {addToCart} = useContext(ShopContext);
     const [product, setProduct] = useState({});
     const [quantity, setQuantity] = useState(1);
     const params = useParams();
@@ -20,8 +20,10 @@ const ItemView = () => {
 
     vegetableService.get(params.id)
     .then((res) => {
+        console.log(params.id)
+        console.log(res.data)
       setProduct(
-        {...res.data}
+        {...res.data[0]}
         );
         // console.log(product.image)
     })
@@ -32,10 +34,10 @@ const ItemView = () => {
 
     const handleQuantity = (param) => {
         console.log()
-        if(param === 'decrease' && param > 1){
+        if(param === 'decrease' && quantity > 1){
             setQuantity(quantity -1);
         }
-        else if(param ==='increase' && param < 10){
+        else if(param ==='increase' && quantity < 10){
             setQuantity(quantity +1);
         }
     }
@@ -94,7 +96,7 @@ const ItemView = () => {
                             size='large'
                             className='customButton'
                             onClick={()=>{
-                                updateCartItemCount(quantity, params.id)
+                                addToCart(params.id, quantity)
                             }}
                         >
                             {/* <ShoppingCart /> */}
