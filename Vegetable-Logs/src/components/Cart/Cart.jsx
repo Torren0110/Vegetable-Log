@@ -7,20 +7,20 @@ import './Cart.css'
 const Cart = () => {
 
     const {cart} = useContext(ShopContext);
-    console.log("cart : ",cart)
+    // console.log("cart : ",cart)
     const [totalAmt,setTotalAmt] = useState(0);
     
     useEffect(()=>{
       let total=0;
-      console.log("called get total")
-      console.log("cart when called: ",cart)
+      // console.log("called get total")
+      // console.log("cart when called: ",cart)
       for(const item of cart){
-          console.log("cart in loop: ",cart)
-          console.log("item in loop: ",item)
+          // console.log("cart in loop: ",cart)
+          // console.log("item in loop: ",item)
           if(item.quantity > 0){
-              console.log("item: ", item);
+              // console.log("item: ", item);
               let price = item.vegID.price;
-              console.log("item price", price);
+              // console.log("item price", price);
               total += item.quantity * price; 
           }
       }
