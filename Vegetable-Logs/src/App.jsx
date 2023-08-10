@@ -7,6 +7,8 @@ import Cart from './components/Cart/Cart'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import {ShopContextProvider} from './context/shop-context'
+import Login from './components/Login/Login'
+import Register from './components/Register/Register'
 
 function App() {
 
@@ -21,6 +23,9 @@ function App() {
           <Route path='/cart' element={<Cart />}/>
           <Route path='/sellform' element={<SellForm />}/>
           <Route path='/itemview/:id' element={<ItemView />}/>
+          <Route path='/login' element={<Login />}/>
+          <Route path='/register' element={<Register />}/>
+          
         </Routes>
         <Footer />
       </Router>
