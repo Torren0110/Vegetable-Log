@@ -37,7 +37,7 @@ const ItemView = () => {
         if(param === 'decrease' && quantity > 1){
             setQuantity(quantity -1);
         }
-        else if(param ==='increase' && quantity < 10){
+        else if(param ==='increase' && quantity < product.quantity){
             setQuantity(quantity +1);
         }
     }
