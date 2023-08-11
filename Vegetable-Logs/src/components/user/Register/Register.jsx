@@ -1,13 +1,17 @@
-import React from "react";
-import { Link } from 'react-router-dom'
+import React,{useState} from "react";
+import { Link, useNavigate } from 'react-router-dom'
 import { useFormik } from "formik";
 import { registerschema } from "../Registerschema/Registerschema";
 import "./register.css"
 import userService from "../../../services/user-service";
-
+import { Alert } from "@mui/material";
 
 
 const Register = () => {
+
+    const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+    const [showAlert, setAlert] = useState(false);
+    const navigate = useNavigate()
     const initialValues = {
         username: "",
         phone:"",
@@ -19,7 +23,7 @@ const Register = () => {
     useFormik({
       initialValues,
       validationSchema: registerschema,
-      onSubmit: (values, action) => {
+      onSubmit:async (values, action) => {
         console.log(values);
         const data={
           username: values.username,
@@ -36,6 +40,9 @@ const Register = () => {
           console.log("err", err);
         })
         action.resetForm();
+        setAlert(true);
+        await delay(1000);
+        navigate('/login')
       },
     });
   return (
@@ -47,6 +54,13 @@ const Register = () => {
                 <h1 className="model-title">Registration Form</h1>
                 
                 <form onSubmit={handleSubmit}>
+                  {showAlert && (
+                      <Alert
+                        onClose={() => {
+                          setAlert(false);
+                          }}
+                      >Registered Successfully!!
+                      </Alert>)}
                   <div className="input-block">
                     <label htmlFor="username" className="input-label">
                       Username
@@ -66,23 +80,23 @@ const Register = () => {
                     ) : null}
                   </div>
                  <div className="input-block">
-  <label htmlFor="phone" className="input-label">
-    Phone
-  </label>
-  <input
-    type="number" 
-    autoComplete="off"
-    name="phone"
-    id="phone"
-    placeholder="Phone" 
-    value={values.phone}
-    onChange={handleChange}
-    onBlur={handleBlur}
-  />
-  {errors.phone && touched.phone ? (
-    <p className="form-error">{errors.phone}</p>
-  ) : null}
-</div>
+                    <label htmlFor="phone" className="input-label">
+                      Phone
+                    </label>
+                    <input
+                      type="number" 
+                      autoComplete="off"
+                      name="phone"
+                      id="phone"
+                      placeholder="Phone" 
+                      value={values.phone}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    {errors.phone && touched.phone ? (
+                      <p className="form-error">{errors.phone}</p>
+                    ) : null}
+                  </div>
                   <div className="input-block">
                     <label htmlFor="email" className="input-label">
                       Email

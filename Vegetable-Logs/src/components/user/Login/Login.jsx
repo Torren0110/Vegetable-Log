@@ -1,13 +1,17 @@
-import React, { useContext } from "react";
-import { Link } from 'react-router-dom'
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from 'react-router-dom'
 import "./login.css"
 import { useFormik } from "formik";
 import { loginschema } from "../LoginSchema/Loginschema";
 import { ShopContext } from "../../../context/shop-context";
 import userService from "../../../services/user-service";
+import { Alert } from "@mui/material";
    
 const Login = () => {
 
+    const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+    const [showAlert, setAlert] = useState(false);
+    const navigate = useNavigate()
     const { setUid } = useContext(ShopContext);
 
     const initialValues = {
@@ -21,7 +25,7 @@ const Login = () => {
           validationSchema: loginschema,
           validateOnChange: true,
           validateOnBlur: false,
-          onSubmit: (values, action) => {
+          onSubmit:async (values, action) => {
             console.log( values);
           userService.logIn(values)
         .then((res) => {
@@ -31,9 +35,16 @@ const Login = () => {
         .catch((err) => {
           console.log("err", err);
         });
-            action.resetForm();
+        action.resetForm();
+          setAlert(true);
+          await delay(1000);
+            navigate('/')
           },
         });
+
+        
+        
+
   return (
     <>
         <div className="continer">
@@ -43,6 +54,15 @@ const Login = () => {
                 <h1 className="model-title">Login Form</h1>
                 
                 <form onSubmit={handleSubmit}>
+                  {showAlert && (
+                      <Alert
+                        onClose={() => {
+                          setAlert(false);
+                        }}
+                      >
+                        Logged In Successfully!!
+                      </Alert>
+                    )}
                  
                   <div className="input-block">
                     <label htmlFor="username" className="input-label">
