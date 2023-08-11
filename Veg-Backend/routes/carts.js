@@ -38,8 +38,6 @@ router.post("/", async (req, res) => {
     
     if(cartItem) {
       if(cartItem.quantity + quantity < 0) return res.status(400).send("Invalid Quantity");
-      veg.quantity -= quantity;
-      veg = await veg.save();
       cartItem.quantity += quantity;
       cartItem = await cartItem.save();
     }
@@ -47,8 +45,6 @@ router.post("/", async (req, res) => {
       return res.status(400).send("Invalid Quantity");
     }
     else {
-      veg.quantity -= quantity;
-      veg = await veg.save();
       cartItem = new Cart({ userID: uid, vegID: vid, quantity: quantity });
       cartItem = await cartItem.save();
     }

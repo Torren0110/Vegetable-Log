@@ -9,13 +9,23 @@ const Catalogue = () => {
   const [ searchString, setSearchString ] = useState("");
   const { vegetables, isLoading } = useVegetable(searchString);
 
-  // cartService.get("64d3c85791bf3bd7cea4af89")
-  //   .then((res) => {
-  //     console.log(res.data);
-  //   })
-  //   .catch(err => console.log(err));
-
+  
   useEffect(() => {
+    // cartService.get("64d3c85791bf3bd7cea4af89")
+    //   .then((res) => {
+    //     console.log(res.data);
+    //   })
+    //   .catch(err => console.log(err));
+
+    // cartService.addToCart("64d4b2d56af8180b0bd5c316", "64d3877e0127fc3290df6710", -1)
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log("err", err);
+    //   })
+
+
     // userService.register({ username: "user test", email: "test@gmail.com", password1: "12345678", password2: "12345678" })
     //   .then((res) => {
     //     console.log(res);
