@@ -7,9 +7,9 @@ import Cart from './components/Cart/Cart'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import {ShopContextProvider} from './context/shop-context'
-import Login from './components/Login/Login'
-import Register from './components/Register/Register'
-
+import Register from './components/user/register/register'
+import About from './components/About/About'
+import Login from './components/user/Login/Login'
 function App() {
 
   return (
@@ -24,12 +24,15 @@ function App() {
           <Route path='/sellform' element={<SellForm />}/>
           <Route path='/itemview/:id' element={<ItemView />}/>
           <Route path='/login' element={<Login />}/>
-          <Route path='/register' element={<Register />}/>
+          <Route path='/register' element={<Register />}/> 
+          <Route path='/about' element={<About />}/>
           
         </Routes>
         <Footer />
       </Router>
       </ShopContextProvider>
+   
+
     </div>
   )
 }

@@ -30,6 +30,7 @@ display: flex;
 font-size:1.6rem;
 display: inline-block;
 margin-top:25px;
+color:#333;
 }
 .header .logo img{
 mix-blend-mode: multiply;
