@@ -33,16 +33,16 @@ const Register = () => {
         }
         // console.log(data)
         userService.register(data)
-        .then((res) => {
+        .then(async (res) => {
           console.log(res);
+          setAlert(true);
+          await delay(1000); 
+          navigate("/login")
         })
         .catch((err) => {
           console.log("err", err);
         })
         action.resetForm();
-        setAlert(true);
-        await delay(1000);
-        navigate('/login')
       },
     });
   return (

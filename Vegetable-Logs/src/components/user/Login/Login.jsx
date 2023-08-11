@@ -25,20 +25,20 @@ const Login = () => {
           validationSchema: loginschema,
           validateOnChange: true,
           validateOnBlur: false,
-          onSubmit:async (values, action) => {
+          onSubmit: (values, action) => {
             console.log( values);
           userService.logIn(values)
-        .then((res) => {
+        .then(async (res) => {
           console.log(res.data);
           setUid(res.data);
+          setAlert(true);
+          await delay(1000); 
+          navigate("/")
         })
         .catch((err) => {
           console.log("err", err);
         });
         action.resetForm();
-          setAlert(true);
-          await delay(1000);
-            navigate('/')
           },
         });
 
