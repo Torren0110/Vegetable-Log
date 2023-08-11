@@ -14,10 +14,7 @@ const ItemView = () => {
     const [quantity, setQuantity] = useState(1);
     const params = useParams();
 
-    useEffect(()=>{
-        // const pathStr=window.location.pathname.split("/");
-        // const id = pathStr[2]
-
+    // useEffect(()=>{
     vegetableService.get(params.id)
     .then((res) => {
         // console.log(params.id)
@@ -30,7 +27,7 @@ const ItemView = () => {
     .catch((err) => {
       console.log(err,"error");
     });
-    },[]);
+    // },[]);
 
     const handleQuantity = (param) => {
         // console.log()
@@ -43,7 +40,7 @@ const ItemView = () => {
     }
     let imgSrc=Logo
     if(product.image && product.image.length){
-        imgSrc=product.image[0]
+        imgSrc=product.image
     }
   return (
     <Container className='ProductView' >
