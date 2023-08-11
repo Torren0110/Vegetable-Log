@@ -1,14 +1,14 @@
 import React, {createContext, useEffect, useState} from 'react'
 import vegetableService from "../services/vegetable-service";
 import cartService from "../services/cart-service";
-
-const uid="64d4b2d56af8180b0bd5c316"
+import userService from '../services/user-service';
 
 export const ShopContext = createContext(null);
 
 export const ShopContextProvider = (props) =>{
 
     const [cart,setCart] = useState([]);
+    const [uid,setUid] = useState("64d4b2d56af8180b0bd5c316");
     
     useEffect(()=>{
     cartService.get(uid).then((res) => {
@@ -18,7 +18,22 @@ export const ShopContextProvider = (props) =>{
         .catch((err) => {
             console.log(err, "error in fetching user cart")
         });
-    },[cart]);
+    },[cart,uid]);
+
+    const setUser = (param)=>{
+        const data={
+            username: param.username,
+            password: param.password
+        }
+        userService.logIn(data)
+      .then((res) => {
+        console.log(res.data);
+        setUid(res.data);
+      })
+      .catch((err) => {
+        console.log("err", err);
+      })
+    }
     
     const addToCart = (vid, qty)=>{
         cartService.addToCart(uid, vid, qty).then((res) => {
@@ -31,6 +46,7 @@ export const ShopContextProvider = (props) =>{
 
     const contextValue = {cart,
                         addToCart,
+                        setUser,
                     }
 
     return <ShopContext.Provider value={contextValue} >{props.children}</ShopContext.Provider>
