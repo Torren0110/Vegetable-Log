@@ -33,7 +33,7 @@ const VegetableCard = ({ vegetable }) => {
       </div> */}
       
       <Grid item>
-        <Card sx={{ minWidth: 345 }}>
+        <Card sx={{ width: 345 }}>
         {/* <Link to={`/itemview/${vegetable._id}`}> */}
           <CardActionArea onClick={() => { window.location.href = `/itemview/${vegetable._id}` }}>
             <CardMedia

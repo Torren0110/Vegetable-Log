@@ -2,13 +2,20 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import vegetableService from "../../services/vegetable-service";
-import { useState } from 'react';
-import { Alert } from '@mui/material';
+import { useState } from "react";
+import { Alert } from "@mui/material";
 
 const schema = z.object({
   name: z.string().min(5).nonempty(),
   price: z.number().positive(),
   quantity: z.number().int().positive(),
+  image: z.custom((data) => {
+    if ( data.length === 0 || data[0] instanceof File && data[0].type.startsWith("image/")) {
+      return true;
+    } else {
+      return false;
+    }
+  }),
 });
 
 const SellForm = () => {
@@ -19,23 +26,40 @@ const SellForm = () => {
     reset,
   } = useForm({ resolver: zodResolver(schema) });
 
-  const [ showAlert, setAlert ] = useState(false);
+  const [showAlert, setAlert] = useState(false);
 
   const onSubmit = (data) => {
-    vegetableService.create(data);
-    setAlert(true);
+    const formData = new FormData();
+    formData.append("name", data.name);
+    formData.append("price", data.price);
+    formData.append("quantity", data.quantity);
+    formData.append("image", data.image[0]);
+
+    vegetableService.create(formData)
+      .then((res) => {
+        setAlert(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
     <form
-      onSubmit={
-        handleSubmit((data) => {
-          onSubmit(data);
-          reset();
-        })
-      }
+      onSubmit={handleSubmit((data) => {
+        onSubmit(data);
+        reset();
+      })}
     >
-      { showAlert && <Alert onClose={() => {setAlert(false)}}>Item Successfully Posted!!</Alert> }
+      {showAlert && (
+        <Alert
+          onClose={() => {
+            setAlert(false);
+          }}
+        >
+          Item Successfully Posted!!
+        </Alert>
+      )}
       <div className="mb-3">
         <label htmlFor="name" className="form-label">
           Name
@@ -73,6 +97,18 @@ const SellForm = () => {
         {errors.quantity && (
           <p className="text-danger">{errors.quantity.message}</p>
         )}
+      </div>
+      <div className="mb-3">
+        <label htmlFor="image" className="form-label">
+          Image
+        </label>
+        <input
+          {...register("image")}
+          type="file"
+          id="image"
+          className="form-control"
+        />
+        {errors.image && <p className="text-danger">{errors.image.message}</p>}
       </div>
 
       <button className="btn btn-primary" type="submit">

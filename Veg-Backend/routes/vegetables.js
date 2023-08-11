@@ -1,53 +1,25 @@
 const express = require("express");
-const router = express.Router();
 const joi = require("joi");
 const mongoose = require("mongoose");
 const Vegetable = require("../models/vagetableModel");
+const multer = require("multer");
+const path = require("path");
+const fs = require("fs");
+const router = express.Router();
+const { v4: uuidv4 } = require('uuid');
+const imageURLBase = "http://localhost:3000/api/vegetables/image/";
 
-const vegetables = [
-  {
-    id: 1,
-    name: "item 1",
-    image: "",
-    price: 10,
-    quantity: 12,
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, './public/imgs');
   },
-  {
-    id: 2,
-    name: "vegetable 2",
-    image: "",
-    price: 10,
-    quantity: 12,
+  filename: (req, file, cb) => {
+    const uniqueFilename = uuidv4();
+    cb(null, uniqueFilename + '-' + file.originalname);
   },
-  {
-    id: 3,
-    name: "Bhindi 3",
-    image: "",
-    price: 20,
-    quantity: 12,
-  },
-  {
-    id: 4,
-    name: "Aaloo 4",
-    image: "",
-    price: 20,
-    quantity: 12,
-  },
-  {
-    id: 5,
-    name: "Methi 5",
-    image: "",
-    price: 20,
-    quantity: 12,
-  },
-  {
-    id: 6,
-    name: "Muli 6",
-    image: "",
-    price: 20,
-    quantity: 12,
-  },
-];
+});
+
+const upload = multer({ storage: storage });
 
 const validateVeg = (veg) => {
   const schema = joi.object({
@@ -63,15 +35,6 @@ const validateVeg = (veg) => {
 
 router.get("/", async (req, res) => {
   const searchStr = req.body.search || req.query.search;
-
-  // if(searchStr){
-  // 	const data = vegetables.filter(veg => {
-  // 		return veg.name.toLowerCase().includes(searchStr.toLowerCase());
-  // 	});
-  // 	res.json(data);
-  // }
-  // else
-  // 	res.json(vegetables);
 
   try {
     const result = await Vegetable.find({
@@ -99,16 +62,28 @@ router.get("/:id", async (req, res) => {
 
 });
 
-router.post("/", async (req, res) => {
-  const { error } = validateVeg(req.body);
+router.get("/image/:filename", (req, res) => {
+  const filename = req.params.filename;
+  const imagePath = path.join(__dirname, "../public/imgs", filename);
 
+  res.sendFile(imagePath);
+});
+
+router.post("/", upload.single('image') , async (req, res) => {
+  const imgFile = req.file;
+
+  const vegData = { name: req.body.name, price: req.body.price, quantity: req.body.quantity };
+
+  const { error } = validateVeg( vegData );
   if (error) return res.status(400).send(error.details[0].message);
 
-  // const newVeg = { id: vegetables.length + 1, ...req.body, image: "" };
-  // vegetables.push(newVeg);
-
+  if(imgFile) {
+    vegData.image = imageURLBase + imgFile.filename;
+  }
+  
   try {
-    let newVeg = new Vegetable(req.body);
+
+    let newVeg = new Vegetable(vegData);
     newVeg = await newVeg.save();
     res.json(newVeg);
   } catch {
