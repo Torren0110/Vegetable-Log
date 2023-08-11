@@ -4,10 +4,11 @@ import "./login.css"
 import { useFormik } from "formik";
 import { loginschema } from "../LoginSchema/Loginschema";
 import { ShopContext } from "../../../context/shop-context";
+import userService from "../../../services/user-service";
    
 const Login = () => {
 
-    const { setUser } = useContext(ShopContext);
+    const { setUid } = useContext(ShopContext);
 
     const initialValues = {
         username: "",
@@ -22,7 +23,14 @@ const Login = () => {
           validateOnBlur: false,
           onSubmit: (values, action) => {
             console.log( values);
-            setUser(values);
+          userService.logIn(values)
+        .then((res) => {
+          console.log(res.data);
+          setUid(res.data);
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
             action.resetForm();
           },
         });
