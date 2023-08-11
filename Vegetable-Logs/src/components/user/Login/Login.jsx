@@ -5,7 +5,7 @@ import { loginschema } from "../LoginSchema/Loginschema";
    
 const Login = () => {
     const initialValues = {
-        email: "",
+        username: "",
         password: "",
       };
     
@@ -31,21 +31,21 @@ const Login = () => {
                 <form onSubmit={handleSubmit}>
                  
                   <div className="input-block">
-                    <label htmlFor="email" className="input-label">
-                      Email
+                    <label htmlFor="username" className="input-label">
+                      Username
                     </label>
                     <input
-                      type="email"
+                      type="name"
                       autoComplete="off"
-                      name="email"
-                      id="email"
-                      placeholder="Email"
-                      value={values.email}
+                      name="username"
+                      id="username"
+                      placeholder="username"
+                      value={values.username}
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
-                    {errors.email && touched.email ? (
-                      <p className="form-error">{errors.email}</p>
+                    {errors.username && touched.username ? (
+                      <p className="form-error">{errors.username}</p>
                     ) : null}
                   </div>
                   <div className="input-block">
