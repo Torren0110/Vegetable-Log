@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 import { useFormik } from "formik";
 import { registerschema } from "../Registerschema/Registerschema";
 import "./register.css"
+import userService from "../../../services/user-service";
 
 
 
@@ -19,6 +21,20 @@ const Register = () => {
       validationSchema: registerschema,
       onSubmit: (values, action) => {
         console.log(values);
+        const data={
+          username: values.username,
+          email: values.email,
+          password1: values.password,
+          password2: values.confirm_password
+        }
+        // console.log(data)
+        userService.register(data)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log("err", err);
+        })
         action.resetForm();
       },
     });
@@ -136,7 +152,7 @@ const Register = () => {
                   </div>
                 </form>
                 <p className="sign-up">
-                  Already have an account? <a href="#">Login</a>
+                  Already have an account? <Link to="/login">Login</Link>
                 </p>
               </div>
               <div className="model-right">

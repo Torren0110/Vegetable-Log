@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from 'react-router-dom'
 import "./login.css"
 import { useFormik } from "formik";
 import { loginschema } from "../LoginSchema/Loginschema";
@@ -86,7 +87,7 @@ const Login = () => {
                   </div>
                 </form>
                 <p className="sign-up">
-                  Don't have an account? <a href="#">Register</a>
+                  Don't have an account? <Link to="/register">Register</Link>
                 </p>
               
               </div>
