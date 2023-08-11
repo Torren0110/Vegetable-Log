@@ -10,11 +10,11 @@ const CartItem = (props) => {
 
     const handleQuantity = (param) => {
       console.log()
-      if(param === 'decrease' && quantity > 1){
+      if(param === 'decrease' && quantity >= 1){
           addToCart(vegInfo._id,-1)
           setQuantity(quantity -1);
       }
-      else if(param ==='increase' && quantity < 10){
+      else if(param ==='increase' && quantity < vegInfo.quantity){
           addToCart(vegInfo._id,1)
           setQuantity(quantity +1);
       }
