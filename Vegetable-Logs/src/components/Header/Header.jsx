@@ -12,12 +12,15 @@ const Header = () => {
   return (
     <header className="header">
     <div className="logo">
+      <Link to="/">
       <img src={logo} alt="" />
       <span>Veggies</span>
+      </Link>
+      
     </div>
     <nav className="navbar">
       <Link className="active" to="/home">home</Link>
-      <Link to="/">about</Link>
+      <Link to="/about">about</Link>
       <Link to="/">Prices</Link>
       <Link to="/">Review</Link>
       <Link to="/">Contact</Link>
