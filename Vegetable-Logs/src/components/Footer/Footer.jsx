@@ -37,9 +37,9 @@ const Footer = () => {
     </div>
     <div className="box" id="contact">
       <h3>Contact Us</h3>
-      <input type="text" name="" placeholder="Your name..." id="" /> <br />
-      <input type="email" name="" placeholder="Your email..." id="" /> <br />
-      <input type="text" name="" placeholder="Enter your message here..." id="" />
+      <input type="text" name="" placeholder="Your name..." id="name" /> <br />
+      <input type="email" name="" placeholder="Your email..." id="email" /> <br />
+      <input type="text" name="" placeholder="Enter your message here..." id="message" />
       <br />
       <input type="submit" defaultValue="Submit" />
     </div>

@@ -7,7 +7,7 @@ import "./register.css"
 
 const Register = () => {
     const initialValues = {
-        name: "",
+        username: "",
         phone:"",
         email: "",
         password: "",
@@ -32,21 +32,21 @@ const Register = () => {
                 
                 <form onSubmit={handleSubmit}>
                   <div className="input-block">
-                    <label htmlFor="name" className="input-label">
-                      Name
+                    <label htmlFor="username" className="input-label">
+                      Username
                     </label>
                     <input
                       type="name"
                       autoComplete="off"
-                      name="name"
-                      id="name"
+                      name="username"
+                      id="username"
                       placeholder="Name"
-                      value={values.name}
+                      value={values.username}
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
-                    {errors.name && touched.name ? (
-                      <p className="form-error">{errors.name}</p>
+                    {errors.username && touched.username ? (
+                      <p className="form-error">{errors.username}</p>
                     ) : null}
                   </div>
                  <div className="input-block">
