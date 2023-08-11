@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./login.css"
 import { useFormik } from "formik";
 import { loginschema } from "../LoginSchema/Loginschema";
+import { ShopContext } from "../../../context/shop-context";
    
 const Login = () => {
+
+    const { setUser } = useContext(ShopContext);
+
     const initialValues = {
         username: "",
         password: "",
@@ -17,6 +21,7 @@ const Login = () => {
           validateOnBlur: false,
           onSubmit: (values, action) => {
             console.log( values);
+            setUser(values);
             action.resetForm();
           },
         });
