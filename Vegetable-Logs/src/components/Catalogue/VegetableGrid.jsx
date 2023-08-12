@@ -7,8 +7,8 @@ const VegetableGrid = ({ isLoading, vegetables }) => {
   return (
     <Grid container justifyContent="center" spacing={3}>
       {isLoading && skeletons.map((val) => (
-        <Grid item>
-          <Card sx={{ width: 345 }} key={val}>
+        <Grid item key={val}>
+          <Card sx={{ width: 345 }} >
             <CardActionArea>
               <Skeleton variant="rounded" height={270} width={345}/>
               <CardContent>
