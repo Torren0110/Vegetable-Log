@@ -33,7 +33,7 @@ export const ShopContextProvider = (props) =>{
             });
     }
 
-    const [uid,setUid] = useState("64d4b2d56af8180b0bd5c316");
+    const [uid,setUid] = useState("");
     useEffect(()=>{
         cartService.get(uid).then((res) => {
             //console.log("Cart-info:",res.data)

@@ -4,14 +4,31 @@ import { useFormik } from "formik";
 import { registerschema } from "../Registerschema/Registerschema";
 import "./register.css"
 import userService from "../../../services/user-service";
-import { Alert } from "@mui/material";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Register = () => {
 
     const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-    const [showAlert, setAlert] = useState(false);
     const navigate = useNavigate()
+    const showToastMessage =(msg) => {
+      // console.log("called ",msg)
+      if(msg === "success"){
+        toast.success('REGISTERED SUCCESSFULLY !', {
+            position: toast.POSITION.BOTTOM_CENTER,
+            autoClose: 1000,
+            pauseOnHover: false,
+        });
+      }
+      else{
+        toast.warning(msg, {
+            position: toast.POSITION.BOTTOM_CENTER,
+            autoClose: 1000,
+            pauseOnHover: false,
+        });
+      }
+      };
     const initialValues = {
         username: "",
         phone:"",
@@ -19,6 +36,7 @@ const Register = () => {
         password: "",
         confirm_password: "",
       };
+
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues,
@@ -35,18 +53,20 @@ const Register = () => {
         userService.register(data)
         .then(async (res) => {
           console.log(res);
-          setAlert(true);
-          await delay(1000); 
+          showToastMessage("success");
+          await delay(2000); 
           navigate("/login")
         })
         .catch((err) => {
-          console.log("err", err);
+          console.log("err: ", err.response.data);
+          showToastMessage(err.response.data);
         })
         action.resetForm();
       },
     });
   return (
     <>
+    <ToastContainer/>
     <div className="maindiv">
           <div className="model">
             <div className="model-container">
@@ -54,13 +74,6 @@ const Register = () => {
                 <h1 className="model-title">Registration Form</h1>
                 
                 <form onSubmit={handleSubmit}>
-                  {showAlert && (
-                      <Alert
-                        onClose={() => {
-                          setAlert(false);
-                          }}
-                      >Registered Successfully!!
-                      </Alert>)}
                   <div className="input-block">
                     <label htmlFor="username" className="input-label">
                       Username
