@@ -1,18 +1,36 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom'
 import "./login.css"
 import { useFormik } from "formik";
 import { loginschema } from "../LoginSchema/Loginschema";
 import { ShopContext } from "../../../context/shop-context";
 import userService from "../../../services/user-service";
-import { Alert } from "@mui/material";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
    
 const Login = () => {
 
     const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-    const [showAlert, setAlert] = useState(false);
     const navigate = useNavigate()
     const { setUid } = useContext(ShopContext);
+
+    const showToastMessage =(msg) => {
+      // console.log("called ",msg)
+      if(msg === "success"){
+        toast.success('LOGIN SUCCESSFUL !', {
+            position: toast.POSITION.BOTTOM_CENTER,
+            autoClose: 1000,
+            pauseOnHover: false,
+        });
+      }
+      else if(msg === "failed"){
+        toast.warning('Incorrect UserName or Password !', {
+            position: toast.POSITION.BOTTOM_CENTER,
+            autoClose: 1000,
+            pauseOnHover: false,
+        });
+      }
+      };
 
     const initialValues = {
         username: "",
@@ -31,22 +49,21 @@ const Login = () => {
         .then(async (res) => {
           console.log(res.data);
           setUid(res.data);
-          setAlert(true);
-          await delay(1000); 
+          showToastMessage("success");
+          await delay(2000); 
           navigate("/")
         })
         .catch((err) => {
-          console.log("err", err);
+          console.log("err ", err.response.data);
+          showToastMessage("failed");
         });
         action.resetForm();
-          },
-        });
-
-        
-        
+      },
+    });
 
   return (
     <>
+        <ToastContainer/>
         <div className="continer">
           <div className="model">
             <div className="model-container">
@@ -54,16 +71,6 @@ const Login = () => {
                 <h1 className="model-title">Login Form</h1>
                 
                 <form onSubmit={handleSubmit}>
-                  {showAlert && (
-                      <Alert
-                        onClose={() => {
-                          setAlert(false);
-                        }}
-                      >
-                        Logged In Successfully!!
-                      </Alert>
-                    )}
-                 
                   <div className="input-block">
                     <label htmlFor="username" className="input-label">
                       Username
