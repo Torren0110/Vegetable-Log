@@ -1,38 +1,71 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Header.css';
 import logo from "../../assets/logo.jpeg";
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { BiLogIn } from 'react-icons/bi';
-import { BiRegistered } from 'react-icons/bi';
+import { BiLogIn,BiRegistered } from 'react-icons/bi';
+import { FaBars } from 'react-icons/fa';
 import {Link} from "react-router-dom";
 
-
-
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
   return (
-    <header className="header">
-    <div className="logo">
+    
+    <header>
+   <div className="logo">
       <Link to="/">
       <img src={logo} alt="" />
       <span>Veggies</span>
       </Link>
       
     </div>
-    <nav className="navbar">
-      <Link className="active" to="/home">home</Link>
-      <Link to="/about">about</Link>
-      <Link to="/">Prices</Link>
-      <Link to="/">Review</Link>
-      <Link to="/">Contact</Link>
-    </nav>
-    <div className="icons">
-      <Link to="/cart"> <AiOutlineShoppingCart  className='icon'/></Link>
+   <nav id="navbar">
+ <Link className="links active" to="/home">home</Link>
+ <Link className="links" to="/about">about</Link>
+ <Link className="links" to="/">Items</Link>
+ <Link className="links" to="/sellform">Sell</Link>
+</nav>
+    
+   
+    <div className="imglinks">
+    <div className="dropdown-container" ref={dropdownRef}>
+      <div className="toggle-icon" onClick={toggleDropdown}>
+      <Link><FaBars className='icon bars' /></Link>
+      </div>
+      {isOpen && (
+        <ul className="item-list">
+            <Link className="links active" to="/home">home</Link>
+ <Link className="links" to="/about">about</Link>
+ <Link className="links" to="/">Prices</Link>
+ <Link className="links" to="/sellform">Sell</Link>
+        </ul>
+      )}
+</div>
+      <Link to="/cart"> <AiOutlineShoppingCart className='icon'/></Link>
       <Link to="/login"> <BiLogIn className='icon'/></Link>
       <Link to="/register">  <BiRegistered className='icon'/></Link>
     </div>
-  </header>
+</header>
+
   )
 }
 
 export default Header
-

@@ -11,6 +11,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom:280px;
 }
 .or{
     text-align:center;
@@ -105,7 +106,7 @@
 
   .sign-up {
     margin: 40px 0 0;
-    font-size: 25px;
+    font-size: 22px;
     text-align: center;
   }
   .sign-up a {
