@@ -34,11 +34,9 @@ const CartItem = (props) => {
 
   return (
     <div className='cartItem' >
-      <div className="image">
-        <img src={Logo} alt="image" />
-        </div>
+        <img src={imgSrc} alt="image" />
         <div className="description">
-            <p className='veg-name'><b>{vegInfo.name}</b></p>
+            <p><b>{vegInfo.name}</b></p>
             <p>Rs.{vegInfo.price}</p> 
             <div className='countHandler' >
               <button onClick={()=>{handleQuantity("decrease")}} >-</button>

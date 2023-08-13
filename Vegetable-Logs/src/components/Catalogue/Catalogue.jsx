@@ -4,7 +4,6 @@ import VegetableGrid from "./VegetableGrid";
 import VegetableSearchBar from "./VegetableSearchBar";
 import cartService from "../../services/cart-service";
 import userService from "../../services/user-service";
-import "./style.css"
 
 const Catalogue = () => {
   const [ searchString, setSearchString ] = useState("");
@@ -48,11 +47,8 @@ const Catalogue = () => {
 
   return (
     <div >
-      <VegetableSearchBar  onSearch = {(str) => { setSearchString(str) }} />
-      <h2 className="heading">Listed Items</h2>
-      <VegetableGrid isLoading={isLoading} vegetables={vegetables} />
-      {/* <VegetableSearchBar onSearch = {(str) => { setSearchString(str) }} />
-        <VegetableGrid isLoading={isLoading} vegetables={vegetables} /> */}
+      <VegetableSearchBar onSearch = {(str) => { setSearchString(str) }} />
+        <VegetableGrid isLoading={isLoading} vegetables={vegetables} />
     </div>
   );
 };
