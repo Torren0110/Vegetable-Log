@@ -1,6 +1,5 @@
-import "./style.css";
 import logo from "../../assets/logo.webp";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import {
   Grid,
   Card,
@@ -9,6 +8,7 @@ import {
   CardContent,
   Typography,
 } from "@mui/material";
+import "./style.css";
 
 const VegetableCard = ({ vegetable }) => {
 
@@ -31,30 +31,31 @@ const VegetableCard = ({ vegetable }) => {
           </Link>
         </div>
       </div> */}
-      
-      <Grid item>
-        <Card sx={{ width: 345 }}>
+      <div className="vegetable-card">
+      <Grid item >
+        <Card sx={{ width: 330, margin: '5px'}} >
         {/* <Link to={`/itemview/${vegetable._id}`}> */}
-          <CardActionArea onClick={() => { window.location.href = `/itemview/${vegetable._id}` }}>
+          <CardActionArea  onClick={() => { window.location.href = `/itemview/${vegetable._id}` }}>
             <CardMedia
               component="img"
-              height="270"
+              height="250"
               image={vegetable.image ? vegetable.image : logo}
               alt={vegetable.name}
             />
-            <CardContent>
+            <CardContent >
               <Typography gutterBottom variant="h5" component="div">
-                {vegetable.name}
+             <p className="vegname">{vegetable.name}</p>   
               </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Price: ₹{vegetable.price} <br />
-                Quantity: {vegetable.quantity}
+              <Typography variant="body2" color="text.secondary" sx={{ display: 'flex' }}>
+              <p className="vegprice">Price: ₹{vegetable.price}</p>   
+              <p className="quantity"> Quantity: {vegetable.quantity}</p> 
               </Typography>
             </CardContent>
           </CardActionArea>
           {/* </Link> */}
         </Card>
       </Grid>
+      </div>
     </>
   );
 };

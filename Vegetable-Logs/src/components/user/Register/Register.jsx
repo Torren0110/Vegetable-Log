@@ -1,8 +1,8 @@
 import React from "react";
 import { useFormik } from "formik";
 import { registerschema } from "../Registerschema/Registerschema";
-import "./register.css"
-
+import "./register.css";
+import {Link} from "react-router-dom";
 
 
 const Register = () => {
@@ -136,7 +136,7 @@ const Register = () => {
                   </div>
                 </form>
                 <p className="sign-up">
-                  Already have an account? <a href="#">Login</a>
+                  Already have an account? <Link to="/login">Login</Link> 
                 </p>
               </div>
               <div className="model-right">

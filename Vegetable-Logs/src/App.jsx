@@ -10,6 +10,7 @@ import {ShopContextProvider} from './context/shop-context'
 import Register from './components/user/register/register'
 import About from './components/About/About'
 import Login from './components/user/Login/Login'
+import Home from './components/Home/Home'
 function App() {
 
   return (
@@ -26,7 +27,7 @@ function App() {
           <Route path='/login' element={<Login />}/>
           <Route path='/register' element={<Register />}/> 
           <Route path='/about' element={<About />}/>
-          
+          <Route path='/home' element={<Home/>}/>
         </Routes>
         <Footer />
       </Router>
