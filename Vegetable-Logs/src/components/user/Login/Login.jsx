@@ -3,15 +3,12 @@ import { Link, useNavigate } from 'react-router-dom'
 import "./login.css"
 import { useFormik } from "formik";
 import { loginschema } from "../LoginSchema/Loginschema";
-<<<<<<< HEAD
-import {Link} from "react-router-dom";
 
-=======
+
 import { ShopContext } from "../../../context/shop-context";
 import userService from "../../../services/user-service";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
->>>>>>> 854a2f80c374e6517cf4e6f36510a19caa76f227
    
 const Login = () => {
 
@@ -127,11 +124,7 @@ const Login = () => {
                   </div>
                 </form>
                 <p className="sign-up">
-<<<<<<< HEAD
                   Don't have an account?  <Link to="/register">Register</Link>  
-=======
-                  Don't have an account? <Link to="/register">Register</Link>
->>>>>>> 854a2f80c374e6517cf4e6f36510a19caa76f227
                 </p>
               
               </div>
