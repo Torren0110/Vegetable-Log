@@ -1,11 +1,34 @@
-import React from "react";
+import React,{useState} from "react";
+import { Link, useNavigate } from 'react-router-dom'
 import { useFormik } from "formik";
 import { registerschema } from "../Registerschema/Registerschema";
-import "./register.css";
-import {Link} from "react-router-dom";
+import "./register.css"
+import userService from "../../../services/user-service";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Register = () => {
+
+    const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+    const navigate = useNavigate()
+    const showToastMessage =(msg) => {
+      // console.log("called ",msg)
+      if(msg === "success"){
+        toast.success('REGISTERED SUCCESSFULLY !', {
+            position: toast.POSITION.BOTTOM_CENTER,
+            autoClose: 1000,
+            pauseOnHover: false,
+        });
+      }
+      else{
+        toast.warning(msg, {
+            position: toast.POSITION.BOTTOM_CENTER,
+            autoClose: 1000,
+            pauseOnHover: false,
+        });
+      }
+      };
     const initialValues = {
         username: "",
         phone:"",
@@ -13,17 +36,37 @@ const Register = () => {
         password: "",
         confirm_password: "",
       };
+
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues,
       validationSchema: registerschema,
-      onSubmit: (values, action) => {
+      onSubmit:async (values, action) => {
         console.log(values);
+        const data={
+          username: values.username,
+          email: values.email,
+          password1: values.password,
+          password2: values.confirm_password
+        }
+        // console.log(data)
+        userService.register(data)
+        .then(async (res) => {
+          console.log(res);
+          showToastMessage("success");
+          await delay(2000); 
+          navigate("/login")
+        })
+        .catch((err) => {
+          console.log("err: ", err.response.data);
+          showToastMessage(err.response.data);
+        })
         action.resetForm();
       },
     });
   return (
     <>
+    <ToastContainer/>
     <div className="maindiv">
           <div className="model">
             <div className="model-container">
@@ -50,23 +93,23 @@ const Register = () => {
                     ) : null}
                   </div>
                  <div className="input-block">
-  <label htmlFor="phone" className="input-label">
-    Phone
-  </label>
-  <input
-    type="number" 
-    autoComplete="off"
-    name="phone"
-    id="phone"
-    placeholder="Phone" 
-    value={values.phone}
-    onChange={handleChange}
-    onBlur={handleBlur}
-  />
-  {errors.phone && touched.phone ? (
-    <p className="form-error">{errors.phone}</p>
-  ) : null}
-</div>
+                    <label htmlFor="phone" className="input-label">
+                      Phone
+                    </label>
+                    <input
+                      type="number" 
+                      autoComplete="off"
+                      name="phone"
+                      id="phone"
+                      placeholder="Phone" 
+                      value={values.phone}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    {errors.phone && touched.phone ? (
+                      <p className="form-error">{errors.phone}</p>
+                    ) : null}
+                  </div>
                   <div className="input-block">
                     <label htmlFor="email" className="input-label">
                       Email
@@ -136,7 +179,7 @@ const Register = () => {
                   </div>
                 </form>
                 <p className="sign-up">
-                  Already have an account? <Link to="/login">Login</Link> 
+                  Already have an account? <Link to="/login">Login</Link>
                 </p>
               </div>
               <div className="model-right">

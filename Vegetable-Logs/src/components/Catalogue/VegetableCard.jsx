@@ -1,5 +1,5 @@
 import logo from "../../assets/logo.webp";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   Grid,
   Card,
@@ -34,8 +34,8 @@ const VegetableCard = ({ vegetable }) => {
       <div className="vegetable-card">
       <Grid item >
         <Card sx={{ width: 330, margin: '5px'}} >
-        {/* <Link to={`/itemview/${vegetable._id}`}> */}
-          <CardActionArea  onClick={() => { window.location.href = `/itemview/${vegetable._id}` }}>
+        <Link to={`/itemview/${vegetable._id}`}>
+          {/* <CardActionArea  onClick={() => { window.location.href = `/itemview/${vegetable._id}` }}> */}
             <CardMedia
               component="img"
               height="250"
@@ -51,8 +51,8 @@ const VegetableCard = ({ vegetable }) => {
               <p className="quantity"> Quantity: {vegetable.quantity}</p> 
               </Typography>
             </CardContent>
-          </CardActionArea>
-          {/* </Link> */}
+          {/* </CardActionArea> */}
+          </Link>
         </Card>
       </Grid>
       </div>
