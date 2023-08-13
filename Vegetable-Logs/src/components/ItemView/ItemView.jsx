@@ -1,32 +1,16 @@
 import {useState, useEffect, useContext} from 'react'
 import { useParams } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import Logo from '../../assets/logo.webp'
 import { ShopContext } from '../../context/shop-context'
-import { Button, Container, Typography } from '@mui/material/'
-import AddShoppingCartRoundedIcon from '@mui/icons-material/AddShoppingCartRounded';
+import {  Typography } from '@mui/material/'
+// import {ShoppingCart } from '@mui/material/'
 import './ItemView.css'
 import vegetableService from "../../services/vegetable-service";
+import sold from "../../assets/smart-bazaar-tag.svg"
+import {MdModeEdit} from "react-icons/md"
 
 const ItemView = () => {
-    const showToastMessage =(msg) => {
-        // console.log("called ",msg)
-        if(msg === "success"){
-          toast.success('ADDED TO CART !', {
-              position: toast.POSITION.BOTTOM_CENTER,
-              autoClose: 2000,
-              pauseOnHover: false,
-          });
-        }
-        else if(msg === "failed"){
-          toast.warning('FAILED TO ADD TO CART !', {
-              position: toast.POSITION.BOTTOM_CENTER,
-              autoClose: 2000,
-              pauseOnHover: false,
-          });
-        }
-    };
+
     const {addToCart} = useContext(ShopContext);
     const [product, setProduct] = useState({});
     const [quantity, setQuantity] = useState(1);
@@ -44,7 +28,7 @@ const ItemView = () => {
     })
     .catch((err) => {
       console.log(err,"error");
-    });
+});
     // },[]);
 
     const handleQuantity = (param) => {
@@ -61,9 +45,9 @@ const ItemView = () => {
         imgSrc=product.image
     }
   return (
-    <Container className='ProductView' >
-        <div className='ItemContainer' >
-            <div className="imageWrapper">
+    <div  >
+        <div className='ProductView'>
+            <div  className="imageWrapper">
                 
                 {<img
                     // onLoad={()=>{
@@ -72,57 +56,73 @@ const ItemView = () => {
                     src={imgSrc}
                     alt={product.name}
                 />}
+                 <button
+                            size='large'
+                            className='basketbtn'
+                            onClick={()=>{
+                                addToCart(params.id, quantity)
+                            }}
+                        >
+                            {/* <ShoppingCart /> */}
+                            Add to basket
+                        </button>
             </div>
-            <div className="text">
-                <Typography variant='h2' >{product.name}</Typography>
+            <div  className="prod-details">
+                <Typography className='head' variant='h2' >{product.name} 1 kg</Typography>
                 {/* <Typography
                     variant='p'
                     dangerouslySetInnerHTML={product.description}
                 /> */}
-                <Typography variant='h3'> Price:{product.price}</Typography>
-                <div >
-                    <div>
-                        <Button
+                <Typography className='rate' variant='h3'> M.R.P: <span className="realprice"> ₹{product.price} </span>(₹{product.price/4}/250 g)(Incl. of all taxes)</Typography>
+                <div className='quant' >
+                    
+                    <div  >
+                        <Typography variant='h3' className="quantity">
+                            Quantity:
+                            <button
                             size='small'
                             variant='contained'
                             className='increaseQuant'
                             onClick={()=>{
                                 handleQuantity("increase")
                             }}
-                        >+</Button>
-                    </div>
-                    <div >
-                        <Typography variant='h3' className="quantity">
-                            Quantity:{quantity}
-                        </Typography>
-                    </div>
-                    <div>
-                        <Button
+                        >+</button>
+                            {quantity}
+                            <button
                             size='small'
                             color='secondary'
                             variant='contained'
+                            className='decreaseQuant'
                             onClick={()=>{
                                 handleQuantity("decrease")
                             }}
-                        >-</Button>
+                        >-</button>
+                        </Typography>
                     </div>
-                    <div>
-                        <Button
-                            size='large'
-                            className='customButton'
-                            onClick={()=>{
-                               const msg=addToCart(params.id, quantity)
-                               console.log("here", msg)
-                            }}
-                        >
-                            <AddShoppingCartRoundedIcon />
-                            Add to basket
-                        </Button>
+                    
+                </div>
+                <p className='delivery'>Delivery Between 15th Aug to 18th Aug</p>
+                <div className="sold">
+                <p>Sold by:</p>
+<img src={sold} alt="" />
+                </div>
+                <div className="deliver">
+                    <p>Deliver To</p>
+                    <div className="address">
+                    <p> Dehradun </p>
+                    <p>[ 248007 ]</p>
+                    <MdModeEdit className='edit' />
                     </div>
+                   
+                    <div className="stock">
+                    <p className='available'>In Stock</p>
+                    <p className='date'> Delivery Between 15th Aug to 18th Aug</p>
+                    </div>
+                    
                 </div>
             </div>
         </div>
-    </Container>
+    </div>
   )
 }
 

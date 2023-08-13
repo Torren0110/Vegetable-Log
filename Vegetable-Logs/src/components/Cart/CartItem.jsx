@@ -27,16 +27,13 @@ const CartItem = (props) => {
       }
     }
 
-    let imgSrc=Logo
-    if(vegInfo.image && vegInfo.image.length){
-        imgSrc=vegInfo.image
-    }
-
   return (
     <div className='cartItem' >
-        <img src={imgSrc} alt="image" />
+      <div className="image">
+        <img src={Logo} alt="image" />
+        </div>
         <div className="description">
-            <p><b>{vegInfo.name}</b></p>
+            <p className='veg-name'><b>{vegInfo.name}</b></p>
             <p>Rs.{vegInfo.price}</p> 
             <div className='countHandler' >
               <button onClick={()=>{handleQuantity("decrease")}} >-</button>
