@@ -1,14 +1,32 @@
 import {useState, useEffect, useContext} from 'react'
 import { useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Logo from '../../assets/logo.webp'
 import { ShopContext } from '../../context/shop-context'
-import {Grid, Button, Container, Typography } from '@mui/material/'
-// import {ShoppingCart } from '@mui/material/'
+import { Button, Container, Typography } from '@mui/material/'
+import AddShoppingCartRoundedIcon from '@mui/icons-material/AddShoppingCartRounded';
 import './ItemView.css'
 import vegetableService from "../../services/vegetable-service";
 
 const ItemView = () => {
-
+    const showToastMessage =(msg) => {
+        // console.log("called ",msg)
+        if(msg === "success"){
+          toast.success('ADDED TO CART !', {
+              position: toast.POSITION.BOTTOM_CENTER,
+              autoClose: 2000,
+              pauseOnHover: false,
+          });
+        }
+        else if(msg === "failed"){
+          toast.warning('FAILED TO ADD TO CART !', {
+              position: toast.POSITION.BOTTOM_CENTER,
+              autoClose: 2000,
+              pauseOnHover: false,
+          });
+        }
+    };
     const {addToCart} = useContext(ShopContext);
     const [product, setProduct] = useState({});
     const [quantity, setQuantity] = useState(1);
@@ -44,8 +62,8 @@ const ItemView = () => {
     }
   return (
     <Container className='ProductView' >
-        <Grid container spacing={4} >
-            <Grid item xs={12} md={8} className="imageWrapper">
+        <div className='ItemContainer' >
+            <div className="imageWrapper">
                 
                 {<img
                     // onLoad={()=>{
@@ -54,16 +72,16 @@ const ItemView = () => {
                     src={imgSrc}
                     alt={product.name}
                 />}
-            </Grid>
-            <Grid item xs={12} md={8} className="text">
+            </div>
+            <div className="text">
                 <Typography variant='h2' >{product.name}</Typography>
                 {/* <Typography
                     variant='p'
                     dangerouslySetInnerHTML={product.description}
                 /> */}
                 <Typography variant='h3'> Price:{product.price}</Typography>
-                <Grid container spacing={4} >
-                    <Grid item xs={12} >
+                <div >
+                    <div>
                         <Button
                             size='small'
                             variant='contained'
@@ -72,13 +90,13 @@ const ItemView = () => {
                                 handleQuantity("increase")
                             }}
                         >+</Button>
-                    </Grid>
-                    <Grid item xs={12} >
+                    </div>
+                    <div >
                         <Typography variant='h3' className="quantity">
                             Quantity:{quantity}
                         </Typography>
-                    </Grid>
-                    <Grid item xs={12} >
+                    </div>
+                    <div>
                         <Button
                             size='small'
                             color='secondary'
@@ -87,22 +105,23 @@ const ItemView = () => {
                                 handleQuantity("decrease")
                             }}
                         >-</Button>
-                    </Grid>
-                    <Grid item xs={12} >
+                    </div>
+                    <div>
                         <Button
                             size='large'
                             className='customButton'
                             onClick={()=>{
-                                addToCart(params.id, quantity)
+                               const msg=addToCart(params.id, quantity)
+                               console.log("here", msg)
                             }}
                         >
-                            {/* <ShoppingCart /> */}
+                            <AddShoppingCartRoundedIcon />
                             Add to basket
                         </Button>
-                    </Grid>
-                </Grid>
-            </Grid>
-        </Grid>
+                    </div>
+                </div>
+            </div>
+        </div>
     </Container>
   )
 }
