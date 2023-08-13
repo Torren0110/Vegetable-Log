@@ -1,11 +1,9 @@
 import logo from "../../assets/logo.webp";
 import { Link } from "react-router-dom";
 import {
-  Grid,
-  Card,
+ 
   CardActionArea,
   CardMedia,
-  CardContent,
   Typography,
 } from "@mui/material";
 import "./style.css";
@@ -32,8 +30,7 @@ const VegetableCard = ({ vegetable }) => {
         </div>
       </div> */}
       <div className="vegetable-card">
-      <Grid item >
-        <Card sx={{ width: 330, margin: '5px'}} >
+        <div >
         <Link to={`/itemview/${vegetable._id}`}>
           {/* <CardActionArea  onClick={() => { window.location.href = `/itemview/${vegetable._id}` }}> */}
             <CardMedia
@@ -42,7 +39,7 @@ const VegetableCard = ({ vegetable }) => {
               image={vegetable.image ? vegetable.image : logo}
               alt={vegetable.name}
             />
-            <CardContent >
+            <div >
               <Typography gutterBottom variant="h5" component="div">
              <p className="vegname">{vegetable.name}</p>   
               </Typography>
@@ -50,11 +47,10 @@ const VegetableCard = ({ vegetable }) => {
               <p className="vegprice">Price: ₹{vegetable.price}</p>   
               <p className="quantity"> Quantity: {vegetable.quantity}</p> 
               </Typography>
-            </CardContent>
+            </div>
           {/* </CardActionArea> */}
           </Link>
-        </Card>
-      </Grid>
+        </div>
       </div>
     </>
   );

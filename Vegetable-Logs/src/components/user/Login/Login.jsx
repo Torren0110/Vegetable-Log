@@ -3,10 +3,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import "./login.css"
 import { useFormik } from "formik";
 import { loginschema } from "../LoginSchema/Loginschema";
-
-
 import { ShopContext } from "../../../context/shop-context";
 import userService from "../../../services/user-service";
+import { saveToken } from "../../../services/user-service";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
    
@@ -21,14 +20,14 @@ const Login = () => {
       if(msg === "success"){
         toast.success('LOGIN SUCCESSFUL !', {
             position: toast.POSITION.BOTTOM_CENTER,
-            autoClose: 1000,
+            autoClose: 2000,
             pauseOnHover: false,
         });
       }
       else if(msg === "failed"){
         toast.warning('Incorrect UserName or Password !', {
             position: toast.POSITION.BOTTOM_CENTER,
-            autoClose: 1000,
+            autoClose: 2000,
             pauseOnHover: false,
         });
       }
@@ -51,8 +50,9 @@ const Login = () => {
         .then(async (res) => {
           console.log(res.data);
           setUid(res.data);
+          saveToken({"uid": res.data});
           showToastMessage("success");
-          await delay(2000); 
+          await delay(3000); 
           navigate("/")
         })
         .catch((err) => {
@@ -124,7 +124,7 @@ const Login = () => {
                   </div>
                 </form>
                 <p className="sign-up">
-                  Don't have an account?  <Link to="/register">Register</Link>  
+                  Don't have an account? <Link to="/register">Register</Link>
                 </p>
               
               </div>

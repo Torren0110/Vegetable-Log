@@ -1,9 +1,16 @@
 
 .vegetable-card{
     padding:30px 20px;
-    padding: 16px;
-    padding-left:40px;
+    border:1px solid #ccc;
+    margin:20px 15px;
+    background-color: #fcfcfc;
+    border-radius: 8px;
+    transition: 0.5s;
 }
+.vegetable-card:hover{
+    transform: scale(1.05);
+}
+
 .heading{
     text-align: center;
     font-size:2rem;
