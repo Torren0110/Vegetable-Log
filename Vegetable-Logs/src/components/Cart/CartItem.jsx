@@ -27,11 +27,6 @@ const CartItem = (props) => {
       }
     }
 
-    let imgSrc=Logo
-    if(vegInfo.image && vegInfo.image.length){
-        imgSrc=vegInfo.image
-    }
-
   return (
     <div className='cartItem' >
       <div className="image">

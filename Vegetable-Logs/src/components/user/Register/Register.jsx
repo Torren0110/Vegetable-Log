@@ -17,14 +17,14 @@ const Register = () => {
       if(msg === "success"){
         toast.success('REGISTERED SUCCESSFULLY !', {
             position: toast.POSITION.BOTTOM_CENTER,
-            autoClose: 2000,
+            autoClose: 1000,
             pauseOnHover: false,
         });
       }
       else{
         toast.warning(msg, {
             position: toast.POSITION.BOTTOM_CENTER,
-            autoClose: 2000,
+            autoClose: 1000,
             pauseOnHover: false,
         });
       }
@@ -54,7 +54,7 @@ const Register = () => {
         .then(async (res) => {
           console.log(res);
           showToastMessage("success");
-          await delay(3000); 
+          await delay(2000); 
           navigate("/login")
         })
         .catch((err) => {
