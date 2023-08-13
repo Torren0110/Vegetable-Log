@@ -1,6 +1,8 @@
 import React, {useContext, useState} from 'react'
 import Logo from '../../assets/logo.jpeg'
 import { ShopContext } from '../../context/shop-context'
+import CloseIcon from '@mui/icons-material/Close';
+import IconButton from '@mui/material/IconButton'
 
 const CartItem = (props) => {
 
@@ -18,7 +20,12 @@ const CartItem = (props) => {
           addToCart(vegInfo._id,1)
           setQuantity(quantity +1);
       }
-  }
+      else if(param ==='empty' && quantity){
+          const newQuant= quantity*-1;
+          addToCart(vegInfo._id,newQuant)
+          setQuantity(0);
+      }
+    }
 
   return (
     <div className='cartItem' >
@@ -32,6 +39,9 @@ const CartItem = (props) => {
               <button onClick={()=>{handleQuantity("increase")}} >+</button>
             </div>
         </div>
+        <IconButton className='closeIcon' onClick={()=>{handleQuantity("empty")}} >
+            <CloseIcon />
+        </IconButton>
     </div>
   )
 }

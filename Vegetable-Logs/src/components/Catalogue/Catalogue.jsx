@@ -27,7 +27,7 @@ const Catalogue = () => {
     //   })
 
 
-    // userService.register({ username: "user test", email: "test@gmail.com", password1: "12345678", password2: "12345678" })
+    // userService.register({ username: "user test1", email: "test2@gmail.com", password1: "12345678", password2: "12345678" })
     //   .then((res) => {
     //     console.log(res);
     //   })
@@ -48,9 +48,14 @@ const Catalogue = () => {
 
   return (
     <div >
+<<<<<<< HEAD
       <VegetableSearchBar  onSearch = {(str) => { setSearchString(str) }} />
       <h2 className="heading">Listed Items</h2>
       <VegetableGrid isLoading={isLoading} vegetables={vegetables} />
+=======
+      <VegetableSearchBar onSearch = {(str) => { setSearchString(str) }} />
+        <VegetableGrid isLoading={isLoading} vegetables={vegetables} />
+>>>>>>> 854a2f80c374e6517cf4e6f36510a19caa76f227
     </div>
   );
 };
