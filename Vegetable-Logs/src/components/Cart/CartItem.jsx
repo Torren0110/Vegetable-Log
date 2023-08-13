@@ -27,9 +27,14 @@ const CartItem = (props) => {
       }
     }
 
+    let imgSrc=Logo
+    if(vegInfo.image && vegInfo.image.length){
+        imgSrc=vegInfo.image
+    }
+
   return (
     <div className='cartItem' >
-        <img src={Logo} alt="image" />
+        <img src={imgSrc} alt="image" />
         <div className="description">
             <p><b>{vegInfo.name}</b></p>
             <p>Rs.{vegInfo.price}</p> 

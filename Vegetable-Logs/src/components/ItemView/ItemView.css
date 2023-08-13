@@ -1,0 +1,33 @@
+/* .ProductView{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+
+.ItemContainer{
+    padding: 20px;
+    width: 60rem;
+    height: 40rem;
+    display: flex;
+    flex-direction: row !important;
+    position: relative;
+    align-items: center;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    margin: 30px;
+}
+
+.imageWrapper{
+    width: 100px;
+    height: 400px;
+    margin: 20px;
+}
+
+.imageWrapper img{
+    width: 100%;
+}
+
+.text{
+    align-items: center;
+}
