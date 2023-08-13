@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Domine&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* font-family: "Poppins", sans-serif; */
+  font-family: 'Domine',sans-serif,"Segoe UI",Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+:root {
+  --green: #16a085;
+  --black: #192a56;
+  --light-color: #666;
+  --text-shadow:.4rem .4rem 0 rgba(0, 0, 0, .15);
+  --border:.2rem solid var(--green);
+  }
+.about .heading{
+  text-align: center;
+  /* text-shadow: var(--text-shadow); */
+  text-transform: uppercase;
+  color:var(--black);
+  /* margin:0; */
+  font-size: 2.4rem;
+  font-weight:900;
+  letter-spacing: 0.1rem;
+  }
+  .about{
+    overflow-x: hidden;
+  }
+ .about .heading span{
+  text-transform: uppercase;
+  color:var(--green);
+  }
+ 
+.about .row{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap:2rem;
+  padding-bottom:1rem;
+  /* margin-top:100px; */
+}
+.about h1{
+  padding-bottom:.2rem;
+}
+.about .row .image{
+  flex:1 1 15rem;
+  margin-right:3rem;
+  padding-left:3rem;
+  margin-bottom:6rem;
+  padding-top:3rem;
+}
+
+.about .row .image img{
+  width: 90%;
+  height:350px;
+}
+
+.about .row .content{
+  flex:1 1 20rem;
+  margin-top:2.5rem;
+ 
+}
+
+.about .row .content h3{
+  color: var(--black);
+  font-size: 1.8rem;
+}
+
+.about .row .content p{
+  color: var(--light-color);
+  padding:1rem 0;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  margin-bottom:30px;
+}
+.about .row .content .btn{
+  padding:15px 20px;
+  /* margin-bottom:-200px; */
+  background-color: #16a085;
+  color:#fff;
+  border-radius: 5px;
+}
+.sect {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  margin-top:50px;
+}
+.sect .section-heading{
+  text-transform: uppercase;
+  font-weight:bolder;
+  margin-bottom:2rem;
+}
+.sect .row {
+  margin-top:2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0px;
+}
+.sect .column {
+  width: 100%;
+  padding: 0 1em 1em 1em;
+  text-align: center;
+}
+.sect .card {
+  width: 100%;
+  height: 100%;
+  padding: 2em 1.5em;
+  background: linear-gradient(#ffffff 50%, #16a085 50%);
+  background-size: 100% 200%;
+  background-position: 0 2.5%;
+  border-radius: 5px;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: 0.5s;
+}
+.sect h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f194c;
+  margin: 1em 0;
+  text-transform: uppercase;
+}
+.sect p {
+  color: #575a7b;
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+}
+.sect .icon-wrapper {
+  background-color: #16a085;
+  position: relative;
+  margin: auto;
+  font-size: 30px;
+  height: 2.2em;
+  width: 2.2em;
+  margin-bottom:30px;
+  color: #ffffff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: 0.5s;
+}
+.sect .card:hover {
+  background-position: 0 100%;
+}
+.sect .card:hover .icon-wrapper {
+  background-color: #ffffff;
+  color: #16a085;
+}
+.sect .card:hover h3 {
+  color: #ffffff;
+}
+.sect .card:hover p {
+  color: #f0f0f0;
+}
+@media screen and (min-width: 768px) {
+  .sect {
+    padding: 0 2em;
+  }
+ .sect .column {
+    flex: 0 50%;
+    max-width: 50%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .sect {
+    padding: 1em 3em;
+  }
+  .sect .column {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+
+}

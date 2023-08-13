@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import vegetableService from "../../services/vegetable-service";
 import { useState } from "react";
 import { Alert } from "@mui/material";
+import "./sellform.css"
 
 const schema = z.object({
   name: z.string().min(5).nonempty(),
@@ -46,6 +47,7 @@ const SellForm = () => {
 
   return (
     <form
+    className="sell-form"
       onSubmit={handleSubmit((data) => {
         onSubmit(data);
         reset();
@@ -60,39 +62,43 @@ const SellForm = () => {
           Item Successfully Posted!!
         </Alert>
       )}
+      <h2 className="item-heading">Sell Item</h2>
       <div className="mb-3">
         <label htmlFor="name" className="form-label">
-          Name
+          Name:
         </label>
         <input
           {...register("name")}
           type="text"
           id="name"
           className="form-control"
+          autoComplete="off"
         />
         {errors.name && <p className="text-danger">{errors.name.message}</p>}
       </div>
       <div className="mb-3">
         <label htmlFor="price" className="form-label">
-          Price
+          Price:
         </label>
         <input
           {...register("price", { valueAsNumber: true })}
           type="number"
           id="price"
           className="form-control"
+          autoComplete="off"
         />
         {errors.price && <p className="text-danger">{errors.price.message}</p>}
       </div>
       <div className="mb-3">
         <label htmlFor="quantity" className="form-label">
-          Quantity
+          Quantity:
         </label>
         <input
           {...register("quantity", { valueAsNumber: true })}
           type="number"
           id="quantity"
           className="form-control"
+          autoComplete="off"
         />
         {errors.quantity && (
           <p className="text-danger">{errors.quantity.message}</p>
@@ -100,13 +106,14 @@ const SellForm = () => {
       </div>
       <div className="mb-3">
         <label htmlFor="image" className="form-label">
-          Image
+          Image:
         </label>
         <input
           {...register("image")}
           type="file"
           id="image"
           className="form-control"
+          autoComplete="off"
         />
         {errors.image && <p className="text-danger">{errors.image.message}</p>}
       </div>
