@@ -9,7 +9,7 @@ import { ShopContext } from '../../context/shop-context';
 
 const Header = () => {
 
-  const { logout } = useContext(ShopContext);
+  const { uid, logout } = useContext(ShopContext);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -41,11 +41,11 @@ const Header = () => {
       
     </div>
    <nav id="navbar">
- <Link className="links active" to="/home">home</Link>
- <Link className="links" to="/about">about</Link>
- <Link className="links" to="/">Items</Link>
- <Link className="links" to="/sellform">Sell</Link>
-</nav>
+    <Link className="links active" to="/home">home</Link>
+    <Link className="links" to="/about">about</Link>
+    <Link className="links" to="/">Items</Link>
+    <Link className="links" to="/sellform">Sell</Link>
+   </nav>
     
    
     <div className="imglinks">
@@ -56,16 +56,20 @@ const Header = () => {
       {isOpen && (
         <ul className="item-list">
             <Link className="links active" to="/home">home</Link>
- <Link className="links" to="/about">about</Link>
- <Link className="links" to="/">Prices</Link>
- <Link className="links" to="/sellform">Sell</Link>
+            <Link className="links" to="/about">about</Link>
+            <Link className="links" to="/">Prices</Link>
+            <Link className="links" to="/sellform">Sell</Link>
         </ul>
       )}
-</div>
-      <Link to="/cart"> <AiOutlineShoppingCart className='icon'/></Link>
-      <Link to="/login"> <BiLogIn className='icon'/></Link>
-      <Link to="/register">  <BiRegistered className='icon'/></Link>
-      <button onClick={logout}>  <AiOutlineLogout className='icon'/></button>
+     </div>
+      {
+        uid === '' ?
+        [<Link to="/login"> <BiLogIn className='icon'/></Link>,
+        <Link to="/register">  <BiRegistered className='icon'/></Link>]
+        :
+        [<Link to="/cart"> <AiOutlineShoppingCart className='icon'/></Link>,
+        <button onClick={logout}>  <AiOutlineLogout className='icon'/></button>]
+      }
     </div>
 </header>
 
