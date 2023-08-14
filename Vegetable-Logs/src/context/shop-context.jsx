@@ -21,12 +21,10 @@ export const ShopContextProvider = (props) =>{
     const addToCart = (vid, qty)=>{
         cartService.addToCart(uid, vid, qty).then((res) => {
             console.log(res.data)
-            return "error"
-          })
-          .catch((err) => {
-              console.log(err, "error in fetching user cart")
-              return "error"
-            });
+        })
+        .catch((err) => {
+            console.log(err, "error in fetching user cart")
+        });
     }
     useEffect(()=>{
         const res = checkToken();
