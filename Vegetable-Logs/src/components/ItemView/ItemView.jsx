@@ -40,6 +40,7 @@ const ItemView = () => {
             setQuantity(quantity +1);
         }
     }
+    
     let imgSrc=Logo
     if(product.image && product.image.length){
         imgSrc=product.image

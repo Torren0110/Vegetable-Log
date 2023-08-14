@@ -1,12 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import './Header.css';
 import logo from "../../assets/logo.jpeg";
-import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { AiOutlineShoppingCart, AiOutlineLogout } from 'react-icons/ai';
 import { BiLogIn,BiRegistered } from 'react-icons/bi';
 import { FaBars } from 'react-icons/fa';
 import {Link} from "react-router-dom";
+import { ShopContext } from '../../context/shop-context';
 
 const Header = () => {
+
+  const { logout } = useContext(ShopContext);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -62,6 +65,7 @@ const Header = () => {
       <Link to="/cart"> <AiOutlineShoppingCart className='icon'/></Link>
       <Link to="/login"> <BiLogIn className='icon'/></Link>
       <Link to="/register">  <BiRegistered className='icon'/></Link>
+      <button onClick={logout}>  <AiOutlineLogout className='icon'/></button>
     </div>
 </header>
 
