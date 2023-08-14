@@ -3,20 +3,39 @@ import { useParams } from 'react-router-dom';
 import Logo from '../../assets/logo.webp'
 import { ShopContext } from '../../context/shop-context'
 import {  Typography } from '@mui/material/'
-// import {ShoppingCart } from '@mui/material/'
-import './ItemView.css'
 import vegetableService from "../../services/vegetable-service";
+import cartService from '../../services/cart-service';
 import sold from "../../assets/smart-bazaar-tag.svg"
 import {MdModeEdit} from "react-icons/md"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './ItemView.css'
 
 const ItemView = () => {
 
-    const {addToCart} = useContext(ShopContext);
+    const {uid} = useContext(ShopContext);
     const [product, setProduct] = useState({});
     const [quantity, setQuantity] = useState(1);
     const params = useParams();
+    const showToastMessage =(msg) => {
+        // console.log("called ",msg)
+        if(msg === "success"){
+          toast.success('ADDED TO CART !', {
+              position: toast.POSITION.BOTTOM_CENTER,
+              autoClose: 1000,
+              pauseOnHover: false,
+          });
+        }
+        else if(msg === "failed"){
+          toast.warning('FAILED TO ADD TO CART !', {
+              position: toast.POSITION.BOTTOM_CENTER,
+              autoClose: 1000,
+              pauseOnHover: false,
+          });
+        }
+        };
 
-    // useEffect(()=>{
+    useEffect(()=>{
     vegetableService.get(params.id)
     .then((res) => {
         // console.log(params.id)
@@ -28,8 +47,19 @@ const ItemView = () => {
     })
     .catch((err) => {
       console.log(err,"error");
-});
-    // },[]);
+    });
+    },[]);
+
+    const addToCart = (vid, qty)=>{
+        cartService.addToCart(uid, vid, qty).then((res) => {
+            console.log(res.data)
+            showToastMessage("success");
+        })
+        .catch((err) => {
+            console.log(err, "error in fetching user cart")
+            showToastMessage("failed");
+        });
+    }
 
     const handleQuantity = (param) => {
         // console.log()
@@ -40,12 +70,14 @@ const ItemView = () => {
             setQuantity(quantity +1);
         }
     }
+    
     let imgSrc=Logo
     if(product.image && product.image.length){
         imgSrc=product.image
     }
   return (
     <div  >
+        <ToastContainer/>
         <div className='ProductView'>
             <div  className="imageWrapper">
                 

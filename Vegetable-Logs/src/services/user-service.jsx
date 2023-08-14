@@ -40,3 +40,7 @@ export function checkToken(){
     }
     return Token.uid
 }
+
+export function clearToken(){
+    localStorage.removeItem('userDetails')
+}
