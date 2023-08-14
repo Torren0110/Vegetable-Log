@@ -1,8 +1,10 @@
 import React, {useContext, useState} from 'react'
 import Logo from '../../assets/logo.jpeg'
 import { ShopContext } from '../../context/shop-context'
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from '@mui/icons-material/Close'
 import IconButton from '@mui/material/IconButton'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const CartItem = (props) => {
 
@@ -24,6 +26,12 @@ const CartItem = (props) => {
           const newQuant= quantity*-1;
           addToCart(vegInfo._id,newQuant)
           setQuantity(0);
+          toast.success('ITEM REMOVED !', {
+            position: toast.POSITION.BOTTOM_CENTER,
+            hideProgressBar: true,
+            autoClose: 1000,
+            pauseOnHover: false,
+        });
       }
     }
 
@@ -34,6 +42,7 @@ const CartItem = (props) => {
 
   return (
     <div className='cartItem' >
+      <ToastContainer/>
       <div className="image">
         <img src={imgSrc} alt="image" />
         </div>

@@ -6,12 +6,26 @@ import { BiLogIn,BiRegistered } from 'react-icons/bi';
 import { FaBars } from 'react-icons/fa';
 import {Link} from "react-router-dom";
 import { ShopContext } from '../../context/shop-context';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Header = () => {
 
+  const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
   const { uid, logout } = useContext(ShopContext);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+
+  const LogOut =async ()=>{
+    toast.success('LOGGED OUT!', {
+      position: toast.POSITION.BOTTOM_CENTER,
+      hideProgressBar: true,
+      autoClose: 1000,
+      pauseOnHover: false,
+    });
+    await delay(1000)
+    logout()
+  }
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -31,8 +45,8 @@ const Header = () => {
     };
   }, []);
   return (
-    
     <header>
+      <ToastContainer/>
    <div className="logo">
       <Link to="/">
       <img src={logo} alt="" />
@@ -68,7 +82,7 @@ const Header = () => {
         <Link to="/register">  <BiRegistered className='icon'/></Link>]
         :
         [<Link to="/cart"> <AiOutlineShoppingCart className='icon'/></Link>,
-        <button onClick={logout}>  <AiOutlineLogout className='icon'/></button>]
+        <button onClick={LogOut}>  <AiOutlineLogout className='icon'/></button>]
       }
     </div>
 </header>
