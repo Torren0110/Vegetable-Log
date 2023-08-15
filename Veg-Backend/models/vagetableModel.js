@@ -5,6 +5,7 @@ const vegetableSchema = new mongoose.Schema({
     price: { type: Number, required: true, min: 1 },
     quantity: { type: Number, required: true, min: 1 },
     image: { type: String, default: "" },
+    username: { type: String, required: true, minlength: 3 }
   });
   
   const Vegetable = new mongoose.model("Vegetable", vegetableSchema);

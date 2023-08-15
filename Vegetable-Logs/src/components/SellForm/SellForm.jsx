@@ -4,7 +4,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import vegetableService from "../../services/vegetable-service";
 import { useState } from "react";
 import { Alert } from "@mui/material";
-import "./sellform.css"
+import "./sellform.css";
+import { ShopContext } from "../../context/shop-context";
+import { useContext } from "react";
+
 
 const schema = z.object({
   name: z.string().min(5).nonempty(),
@@ -20,6 +23,7 @@ const schema = z.object({
 });
 
 const SellForm = () => {
+  const { uid } = useContext(ShopContext);
   const {
     register,
     handleSubmit,
@@ -29,12 +33,14 @@ const SellForm = () => {
 
   const [showAlert, setAlert] = useState(false);
 
+
   const onSubmit = (data) => {
     const formData = new FormData();
     formData.append("name", data.name);
     formData.append("price", data.price);
     formData.append("quantity", data.quantity);
     formData.append("image", data.image[0]);
+    formData.append("uid", uid);
 
     vegetableService.create(formData)
       .then((res) => {

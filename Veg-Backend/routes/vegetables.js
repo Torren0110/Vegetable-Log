@@ -2,6 +2,7 @@ const express = require("express");
 const joi = require("joi");
 const mongoose = require("mongoose");
 const Vegetable = require("../models/vagetableModel");
+const User = require("../models/userModel");
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
@@ -80,8 +81,12 @@ router.post("/", upload.single('image') , async (req, res) => {
   if(imgFile) {
     vegData.image = imageURLBase + imgFile.filename;
   }
+
+  
   
   try {
+    const user = await User.findOne({ _id: req.body.uid });
+    vegData.username = user.username;
 
     let newVeg = new Vegetable(vegData);
     newVeg = await newVeg.save();
