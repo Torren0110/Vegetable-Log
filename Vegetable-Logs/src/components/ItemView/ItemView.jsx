@@ -22,13 +22,23 @@ const ItemView = () => {
         if(msg === "success"){
           toast.success('ADDED TO CART !', {
               position: toast.POSITION.BOTTOM_CENTER,
+              hideProgressBar: true,
               autoClose: 1000,
               pauseOnHover: false,
           });
         }
-        else if(msg === "failed"){
-          toast.warning('FAILED TO ADD TO CART !', {
+        else if(msg === "Invalid request"){
+          toast.warning('LOGIN REQUIRED !', {
               position: toast.POSITION.BOTTOM_CENTER,
+              hideProgressBar: true,
+              autoClose: 1000,
+              pauseOnHover: false,
+          });
+        }
+        else{
+          toast.error('FAILED TO ADD TO CART !', {
+              position: toast.POSITION.BOTTOM_CENTER,
+              hideProgressBar: true,
               autoClose: 1000,
               pauseOnHover: false,
           });
@@ -56,8 +66,8 @@ const ItemView = () => {
             showToastMessage("success");
         })
         .catch((err) => {
-            console.log(err, "error in fetching user cart")
-            showToastMessage("failed");
+            // console.log("error :",err.response.data)
+            showToastMessage(err.response.data);
         });
     }
 

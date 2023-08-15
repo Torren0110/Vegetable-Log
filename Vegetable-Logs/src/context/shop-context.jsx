@@ -11,11 +11,11 @@ export const ShopContextProvider = (props) =>{
     const [cart,setCart] = useState([]);
  
     const logout = ()=>{
-        // console.log("called logout")
+        console.log("called logout")
         clearToken()
         setUid('')
         window.location.reload()
-        console.log(uid)
+        // console.log(uid)
     }
     
     const addToCart = (vid, qty)=>{
