@@ -41,14 +41,13 @@
     color:#fff;
     border-radius: 10px;
   }
-  
+ 
   .slider-controler .slider-arrow:hover{
       background: #1c2e5f;
   }
   .slider-controler .slider-arrow:hover.slider-arrow ion-icon{
       color:#fff;
   }
-  
   
   .contain .swiper-slide-shadow-left,
   .contain .swiper-slide-shadow-right {

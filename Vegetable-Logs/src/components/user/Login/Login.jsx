@@ -51,7 +51,8 @@ const Login = () => {
         .then(async (res) => {
           console.log(res.data);
           setUid(res.data);
-          saveToken({"uid": res.data});
+          if(values.check === true){
+          saveToken({"uid": res.data});}
           showToastMessage("success");
           await delay(3000); 
           navigate("/")
@@ -113,9 +114,10 @@ const Login = () => {
                  
                   <div className="model-item">
                     <a href="#" className="">
-                      <input type="checkbox" name="check" id="check" value={values.check}
+                      <input type="checkbox" name="check" id="check"
+                      value={values.check}
                       onChange={handleChange}
-                      onBlur={handleBlur}/>
+                      onBlur={handleBlur} />
                       <label htmlFor="check">Remember me</label>
                        </a>
                     <a href="" className="forgot">Forgot Password?</a>

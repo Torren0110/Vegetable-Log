@@ -35,7 +35,8 @@ const VegetableCard = ({ vegetable }) => {
           {/* <CardActionArea  onClick={() => { window.location.href = `/itemview/${vegetable._id}` }}> */}
             <CardMedia
               component="img"
-              height="250"
+              height="200"
+              width="240"
               image={vegetable.image ? vegetable.image : logo}
               alt={vegetable.name}
             />

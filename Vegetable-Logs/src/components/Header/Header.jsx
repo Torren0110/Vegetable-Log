@@ -1,3 +1,5 @@
+
+
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import './Header.css';
 import logo from "../../assets/logo.jpeg";
@@ -45,8 +47,9 @@ const Header = () => {
     };
   }, []);
   return (
-    <header>
+    <>
       <ToastContainer/>
+    <header>
    <div className="logo">
       <Link to="/">
       <img src={logo} alt="" />
@@ -55,9 +58,9 @@ const Header = () => {
       
     </div>
    <nav id="navbar">
-    <Link className="links active" to="/home">home</Link>
+    <Link className="links active" to="/">home</Link>
     <Link className="links" to="/about">about</Link>
-    <Link className="links" to="/">Items</Link>
+    <Link className="links" to="/prices">Items</Link>
     <Link className="links" to="/sellform">Sell</Link>
    </nav>
     
@@ -82,12 +85,11 @@ const Header = () => {
         <Link to="/register">  <BiRegistered className='icon'/></Link>]
         :
         [<Link to="/cart"> <AiOutlineShoppingCart className='icon'/></Link>,
-        <button onClick={logout}>  <BiLogOut className=' logout'/></button>]
-
+        <button onClick={LogOut} className='logout' >  <BiLogOut /></button>]
       }
     </div>
 </header>
-
+</>
   )
 }
 
