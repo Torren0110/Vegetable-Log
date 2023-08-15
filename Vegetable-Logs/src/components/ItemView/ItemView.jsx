@@ -113,15 +113,6 @@ const ItemView = () => {
                             Quantity:
                             <button
                             size='small'
-                            variant='contained'
-                            className='increaseQuant'
-                            onClick={()=>{
-                                handleQuantity("increase")
-                            }}
-                        >+</button>
-                            {quantity}
-                            <button
-                            size='small'
                             color='secondary'
                             variant='contained'
                             className='decreaseQuant'
@@ -129,6 +120,16 @@ const ItemView = () => {
                                 handleQuantity("decrease")
                             }}
                         >-</button>
+                            {quantity}
+                            <button
+                            size='small'
+                            variant='contained'
+                            className='increaseQuant'
+                            onClick={()=>{
+                                handleQuantity("increase")
+                            }}
+                        >+</button>
+                            
                         </Typography>
                     </div>
                     

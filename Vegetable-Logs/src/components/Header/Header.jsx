@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import './Header.css';
 import logo from "../../assets/logo.jpeg";
-import { AiOutlineShoppingCart, AiOutlineLogout } from 'react-icons/ai';
-import { BiLogIn,BiRegistered } from 'react-icons/bi';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { BiLogIn,BiRegistered,BiLogOut } from 'react-icons/bi';
 import { FaBars } from 'react-icons/fa';
 import {Link} from "react-router-dom";
 import { ShopContext } from '../../context/shop-context';
@@ -68,7 +68,7 @@ const Header = () => {
         <Link to="/register">  <BiRegistered className='icon'/></Link>]
         :
         [<Link to="/cart"> <AiOutlineShoppingCart className='icon'/></Link>,
-        <button onClick={logout}>  <AiOutlineLogout className='icon'/></button>]
+        <button onClick={logout}>  <BiLogOut className=' logout'/></button>]
       }
     </div>
 </header>

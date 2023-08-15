@@ -36,6 +36,7 @@ const Login = () => {
     const initialValues = {
         username: "",
         password: "",
+        check:"",
       };
     
       const { values, handleBlur, handleChange, handleSubmit, errors, touched } =
@@ -112,8 +113,10 @@ const Login = () => {
                  
                   <div className="model-item">
                     <a href="#" className="">
-                      <input type="checkbox" name="" id="" />
-                      <label htmlFor="">Remember me</label>
+                      <input type="checkbox" name="check" id="check" value={values.check}
+                      onChange={handleChange}
+                      onBlur={handleBlur}/>
+                      <label htmlFor="check">Remember me</label>
                        </a>
                     <a href="" className="forgot">Forgot Password?</a>
                   </div>

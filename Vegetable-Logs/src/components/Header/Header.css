@@ -142,7 +142,22 @@ display: none;
 }
 
 
-
- 
-  
- 
+header button{
+    border:none;
+    background-color: transparent;
+    margin-top:-20px;
+    
+}
+header .logout{
+    font-size:2.8rem;
+    color:#000;
+    margin-right:.5rem;
+    border:1px solid #333;
+    border-radius: 50%;
+    padding:.6rem;
+    }
+    header .logout:hover{
+    color:#fff;
+    background-color: #222;
+    border:1px solid transparent; 
+    }

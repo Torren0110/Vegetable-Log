@@ -148,3 +148,12 @@ del {
   color: black; 
 }
 
+.offer .view{
+  padding:20px 25px;
+  color:#fff;
+  background-color:#16a085;
+  border-radius: 8px;
+}
+.offer .view:hover{
+  background-color:#10856d;
+}
