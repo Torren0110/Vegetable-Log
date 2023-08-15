@@ -58,7 +58,7 @@ const Header = () => {
       
     </div>
    <nav id="navbar">
-    <Link className="links active" to="/">home</Link>
+    <Link className="links " to="/">home</Link>
     <Link className="links" to="/about">about</Link>
     <Link className="links" to="/prices">Items</Link>
     <Link className="links" to="/sellform">Sell</Link>
