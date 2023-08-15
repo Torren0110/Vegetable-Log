@@ -8,13 +8,15 @@ import "./sellform.css";
 import { ShopContext } from "../../context/shop-context";
 import { useContext } from "react";
 
-
 const schema = z.object({
   name: z.string().min(5).nonempty(),
   price: z.number().positive(),
   quantity: z.number().int().positive(),
   image: z.custom((data) => {
-    if ( data.length === 0 || data[0] instanceof File && data[0].type.startsWith("image/")) {
+    if (
+      data.length === 0 ||
+      (data[0] instanceof File && data[0].type.startsWith("image/"))
+    ) {
       return true;
     } else {
       return false;
@@ -32,7 +34,7 @@ const SellForm = () => {
   } = useForm({ resolver: zodResolver(schema) });
 
   const [showAlert, setAlert] = useState(false);
-
+  const [showError, setError] = useState(false);
 
   const onSubmit = (data) => {
     const formData = new FormData();
@@ -42,18 +44,19 @@ const SellForm = () => {
     formData.append("image", data.image[0]);
     formData.append("uid", uid);
 
-    vegetableService.create(formData)
+    vegetableService
+      .create(formData)
       .then((res) => {
         setAlert(true);
       })
       .catch((err) => {
-        console.log(err);
+        setError(true);
       });
   };
 
   return (
     <form
-    className="sell-form"
+      className="sell-form"
       onSubmit={handleSubmit((data) => {
         onSubmit(data);
         reset();
@@ -66,6 +69,18 @@ const SellForm = () => {
           }}
         >
           Item Successfully Posted!!
+        </Alert>
+      )}
+
+      {showError && (
+        <Alert
+          onClose={() => {
+            setError(false);
+          }}
+
+          severity="error"
+        >
+          SignIn to sell an Item
         </Alert>
       )}
       <h2 className="item-heading">Sell Item</h2>
