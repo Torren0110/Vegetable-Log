@@ -6,7 +6,7 @@
     background-color: #fcfcfc;
     border-radius: 8px;
     transition: 0.5s;
-    max-width: 400px;
+    width: 310px;
 }
 .vegetable-card:hover{
     transform: scale(1.05);
