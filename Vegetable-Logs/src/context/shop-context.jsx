@@ -1,5 +1,6 @@
 import React, {createContext, useEffect, useState} from 'react'
 import cartService from "../services/cart-service";
+import userService from '../services/user-service';
 import { checkToken, clearToken } from '../services/user-service';
 
 
@@ -9,6 +10,7 @@ export const ShopContextProvider = (props) =>{
     
     const [uid,setUid] = useState("");
     const [cart,setCart] = useState([]);
+    const [user, setUser] = useState({});
  
     const logout = ()=>{
         console.log("called logout")
@@ -23,7 +25,7 @@ export const ShopContextProvider = (props) =>{
             console.log(res.data)
         })
         .catch((err) => {
-            console.log(err, "error in fetching user cart")
+            // console.log(err, "error in fetching user cart")
         });
     }
     useEffect(()=>{
@@ -38,12 +40,20 @@ export const ShopContextProvider = (props) =>{
             setCart(res.data);
             })
             .catch((err) => {
-                console.log(err, "error in fetching user cart")
+                // console.log(err, "error in fetching user cart")
             });
+
+            userService.getInfo(uid).then((res) => {
+                // console.log(res.data);
+                setUser(res.data)
+              }).catch((err) => {
+                // console.log("error", err);
+              })
         },[uid,addToCart]);
 
     const contextValue = {
                         uid,
+                        user,
                         cart,
                         addToCart,
                         setUid,
