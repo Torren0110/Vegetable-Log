@@ -64,26 +64,21 @@
     background: #f7f7f7;
 }
 
-  .model-right {
+  .model-rightt {
     flex: 2;
     font-size: 0;
     transition: 0.3s;
     overflow: hidden;
   }
-  .model-right img {
+  .model-rightt img {
     width: 100%;
     height: 100%;
-    transform: scale(1);
     -o-object-fit: cover;
     object-fit: cover;
     transition-duration: 1.2s;
   }
 
-  .model.is-open .model-left {
-    transform: translateY(0);
-    opacity: 1;
-    transition-delay: 0.1s;
-  }
+ 
   .model-item {
     display: flex;
     justify-content: space-between;
@@ -161,7 +156,6 @@
   .input-block label {
    
     font-size: 16px;
-    /* color:#444; */
   }
   .input-block input {
     outline: 0;
@@ -196,7 +190,7 @@
       max-width: 90vw;
     }
 
-    .model-right {
+    .model-rightt {
       display: none;
     }
   }

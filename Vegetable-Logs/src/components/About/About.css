@@ -24,6 +24,7 @@
   font-size: 2.4rem;
   font-weight:900;
   letter-spacing: 0.1rem;
+  margin-top:20px;
   }
   .about{
     overflow-x: hidden;
@@ -41,16 +42,13 @@
   padding-bottom:1rem;
   /* margin-top:100px; */
 }
-.about h1{
-  padding-bottom:.2rem;
-}
+
 .about .row .image{
   flex:1 1 10rem;
   margin-right:3rem;
   padding-left:3rem;
   margin-left:3rem;
-  /* margin-bottom:8rem; */
-  padding-top:3rem;
+  padding-top:1rem;
 }
 
 .about .row .image img{
@@ -61,8 +59,7 @@
 
 .about .row .content{
   flex:1 1 30rem;
-  padding-top:3rem;
- /* height:600px; */
+ 
 }
 
 .about .row .content h3{

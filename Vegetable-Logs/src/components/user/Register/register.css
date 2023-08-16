@@ -74,11 +74,7 @@ margin-bottom: 150px;
     transition-duration: 1.2s;
   }
 
-  .maindiv .model.is-open .model-left {
-    transform: translateY(0);
-    opacity: 1;
-    transition-delay: 0.1s;
-  }
+ 
  .maindiv  .model-buttons {
     display: flex;
     justify-content: space-between;

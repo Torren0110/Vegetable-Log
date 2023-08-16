@@ -86,7 +86,7 @@ const ItemView = () => {
         imgSrc=product.image
     }
   return (
-    <div  >
+    <div className='singleproduct'>
         <ToastContainer/>
         <div className='ProductView'>
             <div  className="imageWrapper">
@@ -151,7 +151,7 @@ const ItemView = () => {
 
                 </div>
                 <div className="deliver">
-                    <p>Deliver To</p>
+                    <p>Deliver To:</p>
                     <div className="address">
                     <p> Dehradun </p>
                     <p>[ 248007 ]</p>

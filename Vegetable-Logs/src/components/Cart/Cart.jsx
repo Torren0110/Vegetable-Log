@@ -26,7 +26,7 @@ const Cart = () => {
     <div className='cart' >
       { totalAmt>0?
         <div>
-        <h1>Your Cart Items</h1>
+        <h1 id="head"> CART ITEMS</h1>
       </div>:
       <div></div>
       }
@@ -44,7 +44,7 @@ const Cart = () => {
       <div className="checkout">
         <p>Subtotal: Rs. {totalAmt}</p>
         <button onClick={()=>navigate('/')} >Continue Shopping</button>
-        <button>Checkout</button>
+        {/* <button>Checkout</button> */}
       </div>:
       <div className='emptyCart' >
         <h1>Your Cart is Empty!!</h1>

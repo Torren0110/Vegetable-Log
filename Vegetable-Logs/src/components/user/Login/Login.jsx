@@ -134,7 +134,7 @@ const Login = () => {
                 </p>
               
               </div>
-              <div className="model-right">
+              <div className="model-rightt">
                 <img
                   src={loginimg}
                   alt=""
