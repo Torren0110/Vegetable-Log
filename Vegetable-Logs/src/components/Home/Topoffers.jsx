@@ -108,7 +108,7 @@ const Topoffers = () => {
           </div>
         </div>
       </div>
-      <Link to="/" className='view'>View All</Link>
+      <Link to="/prices" className='view'>View All</Link>
     </div>
   </div>
     </>
