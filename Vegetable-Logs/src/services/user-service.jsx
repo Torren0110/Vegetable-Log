@@ -17,6 +17,11 @@ class UserService {
         return request;
     }
 
+    getInfo(uid) {
+        const request = apiClient.post(this.endpoint + "/get", { uid : uid });
+        return request;
+    }
+
 }
 
 export default new UserService();

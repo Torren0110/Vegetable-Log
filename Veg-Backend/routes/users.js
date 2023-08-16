@@ -36,6 +36,20 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.post("/get", async (req, res) => {
+  const uid = req.body.uid;
+
+  try {
+    const user = await User.findOne({ _id: uid });
+
+    res.json(user);
+  }
+  catch (err) {
+    res.status(400).send(err);
+  }
+
+})
+
 router.post("/login", async (req, res) => {
 	const username = req.body.username;
 	const password = req.body.password;

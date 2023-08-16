@@ -43,6 +43,12 @@ const Catalogue = () => {
     //     console.log("err", err);
     //   })
 
+    // userService.getInfo("64dc8e2b2782b1cd4d89013e").then((res) => {
+    //   console.log(res);
+    // }).catch((err) => {
+    //   console.log("error", err);
+    // })
+
   }, []);
 
 
