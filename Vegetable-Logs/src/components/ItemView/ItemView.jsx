@@ -5,7 +5,7 @@ import { ShopContext } from '../../context/shop-context'
 import {  Typography } from '@mui/material/'
 import vegetableService from "../../services/vegetable-service";
 import cartService from '../../services/cart-service';
-import {MdModeEdit} from "react-icons/md"
+// import {MdModeEdit} from "react-icons/md"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './ItemView.css'
@@ -154,7 +154,7 @@ const ItemView = () => {
                     <div className="address">
                     <p> {user.address} </p>
                     {/* <p>[ 248007 ]</p> */}
-                    <MdModeEdit className='edit' />
+                    {/* <MdModeEdit className='edit' /> */}
                     </div>
                    
                     <div className="stock">
