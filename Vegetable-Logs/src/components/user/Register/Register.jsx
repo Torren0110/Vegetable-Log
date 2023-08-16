@@ -49,7 +49,8 @@ const Register = () => {
           username: values.username,
           email: values.email,
           password1: values.password,
-          password2: values.confirm_password
+          password2: values.confirm_password,
+          address: values.address
         }
         // console.log(data)
         userService.register(data)
