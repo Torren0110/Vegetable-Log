@@ -6,6 +6,7 @@ import "./register.css"
 import userService from "../../../services/user-service";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import registerimg from "../../../assets/loginimg.avif";
 
 
 const Register = () => {
@@ -33,6 +34,7 @@ const Register = () => {
         username: "",
         phone:"",
         email: "",
+        address:"",
         password: "",
         confirm_password: "",
       };
@@ -129,6 +131,24 @@ const Register = () => {
                     ) : null}
                   </div>
                   <div className="input-block">
+                    <label htmlFor="address" className="input-label">
+                      Address
+                    </label>
+                    <input
+                      type="text"
+                      autoComplete="off"
+                      name="address"
+                      id="address"
+                      placeholder="address"
+                      value={values.address}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    {errors.address && touched.address ? (
+                      <p className="form-error">{errors.address}</p>
+                    ) : null}
+                  </div>
+                  <div className="input-block">
                     <label htmlFor="password" className="input-label">
                       Password
                     </label>
@@ -184,7 +204,7 @@ const Register = () => {
               </div>
               <div className="model-right">
                 <img
-                  src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=dfd2ec5a01006fd8c4d7592a381d3776&auto=format&fit=crop&w=1000&q=80"
+                  src={registerimg}
                   alt=""
                 />
               </div>
