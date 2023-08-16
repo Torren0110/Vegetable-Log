@@ -53,7 +53,7 @@ const Header = () => {
    <div className="logo">
       <Link to="/">
       <img src={logo} alt="" />
-      <span>Veggies</span>
+      {/* <span>Veggies</span> */}
       </Link>
       
     </div>
@@ -72,9 +72,9 @@ const Header = () => {
       </div>
       {isOpen && (
         <ul className="item-list">
-            <Link className="links active" to="/home">home</Link>
+            <Link className="links active" to="/">home</Link>
             <Link className="links" to="/about">about</Link>
-            <Link className="links" to="/">Prices</Link>
+            <Link className="links" to="/prices">Prices</Link>
             <Link className="links" to="/sellform">Sell</Link>
         </ul>
       )}

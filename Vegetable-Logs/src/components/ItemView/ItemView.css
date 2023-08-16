@@ -95,6 +95,9 @@ background-color: #000;
 .prod-details .deliver .address .edit{
     font-size:1.7rem;
 }
+.prod-details .deliver .stock{
+    margin-top:10px;
+}
 .prod-details .deliver .stock .date{
     font-size:1.2rem;
 }
