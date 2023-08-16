@@ -5,7 +5,6 @@ import { ShopContext } from '../../context/shop-context'
 import {  Typography } from '@mui/material/'
 import vegetableService from "../../services/vegetable-service";
 import cartService from '../../services/cart-service';
-import sold from "../../assets/smart-bazaar-tag.svg"
 import {MdModeEdit} from "react-icons/md"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,7 +12,7 @@ import './ItemView.css'
 
 const ItemView = () => {
 
-    const {uid} = useContext(ShopContext);
+    const {uid, user} = useContext(ShopContext);
     const [product, setProduct] = useState({});
     const [quantity, setQuantity] = useState(1);
     const params = useParams();
@@ -153,8 +152,8 @@ const ItemView = () => {
                 <div className="deliver">
                     <p>Deliver To:</p>
                     <div className="address">
-                    <p> Dehradun </p>
-                    <p>[ 248007 ]</p>
+                    <p> {user.address} </p>
+                    {/* <p>[ 248007 ]</p> */}
                     <MdModeEdit className='edit' />
                     </div>
                    

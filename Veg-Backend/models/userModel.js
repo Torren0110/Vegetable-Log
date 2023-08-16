@@ -13,6 +13,7 @@ const userSchema = mongoose.Schema({
     unique: true,
   },
   password: { type: String, minlength: 8, required: true },
+  address: {  type: String, minlength: 10, required: true }
 });
 
 const User = new mongoose.model("User", userSchema);

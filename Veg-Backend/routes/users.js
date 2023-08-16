@@ -10,6 +10,7 @@ function validateUser(user) {
     email: joi.string().email().required(),
     password1: joi.string().min(8).required(),
     password2: joi.string().min(8).required().valid(joi.ref("password1")),
+    address: joi.string().min(10).required()
   });
 
   return schema.validate(user);
@@ -25,6 +26,7 @@ router.post("/", async (req, res) => {
       username: req.body.username,
       email: req.body.email,
       password: req.body.password1,
+      address: req.body.address
     });
     newUser = await newUser.save();
     res.json(newUser);
@@ -32,6 +34,20 @@ router.post("/", async (req, res) => {
     res.status(400).send("Err Something went wrong");
   }
 });
+
+router.post("/get", async (req, res) => {
+  const uid = req.body.uid;
+
+  try {
+    const user = await User.findOne({ _id: uid });
+
+    res.json(user);
+  }
+  catch (err) {
+    res.status(400).send(err);
+  }
+
+})
 
 router.post("/login", async (req, res) => {
 	const username = req.body.username;
