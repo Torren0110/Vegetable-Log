@@ -9,9 +9,9 @@ const Footer = () => {
   <div className="box-container">
     <div className="box" data-aos="fade-right">
       <h3>quick links</h3>
-      <Link className='link' to="/home"><i className="fas fa-chevron-right" /> Home</Link>
-      <Link className='link' to="/"><i className="fas fa-chevron-right" /> About</Link>
-      <Link className='link' to="/"><i className="fas fa-chevron-right" /> Prices</Link>
+      <Link className='link' to="/"><i className="fas fa-chevron-right" /> Home</Link>
+      <Link className='link' to="/about"><i className="fas fa-chevron-right" /> About</Link>
+      <Link className='link' to="/prices"><i className="fas fa-chevron-right" /> Prices</Link>
       <Link className='link' to="/"><i className="fas fa-chevron-right" /> Review</Link>
       <Link className='link' to="/"><i className="fas fa-chevron-right" /> Contact</Link>
      

@@ -6,7 +6,6 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // import  { Autoplay } from 'swiper';
-
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
@@ -25,7 +24,7 @@ function Slider() {
   
   return (
     <div className="contain">
-      <h1 className="headingg">Hot deals</h1>
+      <h1 className="headingg">Our Prices</h1>
       <Swiper
         effect={'coverflow'}
         grabCursor={true}
@@ -319,8 +318,6 @@ function Slider() {
          </div>
        </div>
         </SwiperSlide>
-        
-       
 
         <div className="slider-controler">
           <div className="swiper-button-prev slider-arrow">

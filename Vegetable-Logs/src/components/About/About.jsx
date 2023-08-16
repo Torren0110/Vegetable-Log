@@ -1,6 +1,6 @@
 import React from 'react';
 import './About.css';
-import img from "../../assets/about.gif"
+import img from "../../assets/about.png"
 
 function About() {
   return (
@@ -40,72 +40,65 @@ function About() {
   <div className="column">
     <div className="card">
       <div className="icon-wrapper">
-        <i className="fas fa-hammer" />
+      <i className="fa-solid fa-gears"/>
       </div>
-      <h3>Service Heading</h3>
+      <h3>Online Vegetable Marketplaces</h3>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam
-        consequatur necessitatibus eaque.
+      These platforms allow users to buy and sell fresh vegetables online. Farmers and vendors can list their produce, and customers can browse and purchase a variety of vegetables from the comfort of their homes.
       </p>
     </div>
   </div>
   <div className="column">
     <div className="card">
       <div className="icon-wrapper">
-        <i className="fas fa-brush" />
+      <i className="fa-solid fa-gears"/>
       </div>
-      <h3>Service Heading</h3>
+      <h3>Home Delivery Service</h3>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam
-        consequatur necessitatibus eaque.
+      Some platforms may provide home delivery services for fresh vegetables. Customers can place orders online, and the vegetables are delivered to their doorstep.</p>
+    </div>
+  </div>
+  <div className="column">
+    <div className="card">
+      <div className="icon-wrapper">
+      <i className="fa-solid fa-gears"/>
+      </div>
+      <h3>Educational Resources</h3>
+      <p>
+      Online platforms related to vegetables could provide educational content about sustainable farming practices, nutritional benefits of different vegetables, and tips for gardening at home
       </p>
     </div>
   </div>
   <div className="column">
     <div className="card">
       <div className="icon-wrapper">
-        <i className="fas fa-wrench" />
+      <i className="fa-solid fa-gears"/>
       </div>
-      <h3>Service Heading</h3>
+      <h3>Farm-to-Table Services</h3>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam
-        consequatur necessitatibus eaque.
+      Some services focus on connecting consumers directly with local farmers, promoting a farm-to-table concept. Customers can order vegetables that are sourced directly from nearby farms.
       </p>
     </div>
   </div>
   <div className="column">
     <div className="card">
       <div className="icon-wrapper">
-        <i className="fas fa-truck-pickup" />
-      </div>
-      <h3>Service Heading</h3>
+      <i className="fa-solid fa-gears"/>
+            </div>
+      <h3>Environmental Initiatives</h3>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam
-        consequatur necessitatibus eaque.
+      Some platforms may emphasize sustainable and eco-friendly practices, such as promoting organic farming, reducing food waste, and supporting environmentally conscious choices
       </p>
     </div>
   </div>
   <div className="column">
     <div className="card">
       <div className="icon-wrapper">
-        <i className="fas fa-broom" />
+      <i className="fa-solid fa-gears"/>
       </div>
-      <h3>Service Heading</h3>
+      <h3>Subscription Services</h3>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam
-        consequatur necessitatibus eaque.
-      </p>
-    </div>
-  </div>
-  <div className="column">
-    <div className="card">
-      <div className="icon-wrapper">
-        <i className="fas fa-plug" />
-      </div>
-      <h3>Service Heading</h3>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam
-        consequatur necessitatibus eaque.
+      These services offer regular deliveries of fresh vegetables to customers who subscribe. Customers can receive a box of seasonal vegetables at scheduled intervals, which encourages healthy eating habits
       </p>
     </div>
   </div>

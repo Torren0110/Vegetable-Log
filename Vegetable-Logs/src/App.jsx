@@ -20,14 +20,14 @@ function App() {
         <Header />
         <br /><br /><br /><br /><br />
         <Routes>
-          <Route path='/' element={<Catalogue />} />
+          <Route path='/prices' element={<Catalogue />} />
           <Route path='/cart' element={<Cart />}/>
           <Route path='/sellform' element={<SellForm />}/>
           <Route path='/itemview/:id' element={<ItemView />}/>
           <Route path='/login' element={<Login />}/>
           <Route path='/register' element={<Register />}/> 
           <Route path='/about' element={<About />}/>
-          <Route path='/home' element={<Home/>}/>
+          <Route path='/' element={<Home/>}/>
         </Routes>
         <Footer />
       </Router>

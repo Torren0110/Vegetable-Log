@@ -5,7 +5,8 @@ import img3 from "../../assets/cauliflower.jpeg";
 import img4 from "../../assets/brinjal.jpeg";
 import img5 from "../../assets/potato.jpg";
 import img6 from "../../assets/bottlegourd.jpeg";
-import "./Topoffers.css"
+import "./Topoffers.css";
+import {Link} from"react-router-dom";
 
 const Topoffers = () => {
   return (
@@ -107,6 +108,7 @@ const Topoffers = () => {
           </div>
         </div>
       </div>
+      <Link to="/prices" className='view'>View All</Link>
     </div>
   </div>
     </>
