@@ -28,7 +28,6 @@ router.post("/", async (req, res) => {
       password: req.body.password1,
       address: req.body.address
     });
-    console.log(newUser);
     newUser = await newUser.save();
     res.json(newUser);
   } catch {
