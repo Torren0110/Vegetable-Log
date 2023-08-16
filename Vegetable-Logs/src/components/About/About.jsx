@@ -20,12 +20,18 @@ function About() {
         a particular item which they want. Veggies provide the assurance of
         safety and provide a smooth working
         interface&nbsp;for&nbsp;the&nbsp;user.
-        <br />
+        <br /> 
         Veggies helps the users to see the current price of fresh veggies in
         their state. Veggies help farmers to check for MSP so that hey can get
         the unbiased price , veggies also provide the information of seasonal
         plants so they can earn more benefit and also show demanding crops to
         the trader for the increase in supply of that particular veggies.
+        <br /> 
+        Veggies provides the best platform for the user,farmers and traders to
+        know the market price in the whole country and know the market value of
+        a particular item which they want. Veggies provide the assurance of
+        safety and provide a smooth working
+        interface&nbsp;for&nbsp;the&nbsp;user.
       </p>
       <a href="#" className="btn">Learn more</a>
     </div>

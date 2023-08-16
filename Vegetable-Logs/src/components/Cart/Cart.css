@@ -4,7 +4,10 @@
     justify-content: center;
     align-items: center;
   }
- 
+ #head{
+  font-size: 2rem;
+  font-weight: 700;
+ }
   .cartItem {
     width: 700px;
     height: 250px;
@@ -15,7 +18,6 @@
     margin: 30px;
     padding:30px 20px;
     position: relative;
-
   }
   
   .cartItem img {
@@ -50,18 +52,30 @@
     text-align: center;
     font-weight: bolder;
   }
-  
-  .checkout button {
-    width: 150px;
-    height: 50px;
-    background-color: rgb(19, 19, 19);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    margin: 10px;
-    cursor: pointer;
+  .checkout p{
+    font-size:1.5rem;
+    /* margin-left:-180px; */
+    text-align: center;
+    /* margin:0; */
+    font-weight:700;
+    text-transform: uppercase;
   }
 
+  .checkout button {
+   
+    color: rgb(19, 19, 19);
+    background-color: white;
+    border: 1px solid #333;
+    font-size: 1.1rem;
+    border-radius: 7px;
+    margin: 10px;
+    padding:16px 12px;
+    cursor: pointer;
+  }
+.checkout button:hover{
+  background-color: rgb(19, 19, 19);
+    color: white;
+}
   .emptyCart{
     margin: 120px;
   }
@@ -88,4 +102,20 @@
   .description .veg-name{
     font-weight: 700;
     text-transform: uppercase;
+  }
+
+
+  @media screen and (max-width: 770px) {
+    .cartItem {
+      width: 600px;
+
+    }
+  }
+  @media screen and (max-width: 650px) {
+    .cartItem {
+      width: 500px;
+    }
+    .description .veg-name {
+      font-size:1.5rem;
+    }
   }
