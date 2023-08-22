@@ -10,7 +10,8 @@ function validateUser(user) {
     email: joi.string().email().required(),
     password1: joi.string().min(8).required(),
     password2: joi.string().min(8).required().valid(joi.ref("password1")),
-    address: joi.string().min(10).required()
+    address: joi.string().min(10).required(),
+    phone: joi.string().min(10).required()
   });
 
   return schema.validate(user);
@@ -26,11 +27,13 @@ router.post("/", async (req, res) => {
       username: req.body.username,
       email: req.body.email,
       password: req.body.password1,
-      address: req.body.address
+      address: req.body.address,
+      phone: req.body.phone
     });
+
     newUser = await newUser.save();
     res.json(newUser);
-  } catch {
+  } catch(err) {
     res.status(400).send("Err Something went wrong");
   }
 });
