@@ -49,6 +49,14 @@ const Catalogue = () => {
     //   console.log("error", err);
     // })
 
+    // userService.update("64e494c07a7063e1155c3d63", { address: "rtest update address" })
+    //   .then((res) => {
+    //     console.log(res.data);
+    //   })
+    //   .catch((err) => {
+    //     console.log("err", err);
+    //   })
+
   }, []);
 
 
