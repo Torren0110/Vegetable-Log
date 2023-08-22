@@ -47,12 +47,13 @@ const Register = () => {
         console.log(values);
         const data={
           username: values.username,
+          phone:''+values.phone,
           email: values.email,
+          address: values.address,
           password1: values.password,
           password2: values.confirm_password,
-          address: values.address
         }
-        // console.log(data)
+        console.log(data)
         userService.register(data)
         .then(async (res) => {
           console.log(res);
