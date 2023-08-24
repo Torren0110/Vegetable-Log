@@ -96,7 +96,7 @@ const Header = () => {
           </div>
           {Open && (
             <ul className="items">
-                <Link className="links active" to="/">Profile</Link>
+                <Link className="links active" to="/profile">Profile</Link>
                 <Link className="links" to="/">Orders</Link>
                 <button onClick={LogOut} className='logout' >  <BiLogOut /></button>
             </ul>

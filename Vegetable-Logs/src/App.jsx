@@ -11,6 +11,9 @@ import Register from './components/user/Register/Register'
 import About from './components/About/About'
 import Login from './components/user/Login/Login'
 import Home from './components/Home/Home'
+import CheckOut from './components/CheckOut/CheckOut'
+import Profile from './components/Profile/Profile'
+
 function App() {
 
   return (
@@ -27,6 +30,8 @@ function App() {
           <Route path='/login' element={<Login />}/>
           <Route path='/register' element={<Register />}/> 
           <Route path='/about' element={<About />}/>
+          <Route path='/checkout' element={<CheckOut/>}/>
+          <Route path='/profile' element={<Profile/>}/>
           <Route path='/' element={<Home/>}/>
         </Routes>
         <Footer />
