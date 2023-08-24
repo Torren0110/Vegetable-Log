@@ -114,12 +114,11 @@ const ItemView = () => {
                     variant='p'
                     dangerouslySetInnerHTML={product.description}
                 /> */}
-                <Typography className='rate' variant='h3'> M.R.P: <span className="realprice"> ₹{product.price} </span>(₹{product.price/4}/250 g)(Incl. of all taxes)</Typography>
+                <Typography className='rate' variant='h3'> <span className="realprice"> M.R.P:  </span>₹{product.price} (₹{product.price/4}/250 g)(Incl. of all taxes)</Typography>
                 <div className='quant' >
-                    
                     <div  >
                         <Typography variant='h3' className="quantity">
-                            Quantity:
+                         <span> Quantity:</span>  
                             <button
                             size='small'
                             color='secondary'
@@ -145,7 +144,7 @@ const ItemView = () => {
                 </div>
                 <p className='delivery'>Delivery Between 15th Aug to 18th Aug</p>
                 <div className="sold">
-                <p>Sold by: { product.username }</p>
+                <p>Sold by: <span> { product.username }</span></p>
 {/* <img src={sold} alt="" /> */}
 
                 </div>
@@ -153,13 +152,12 @@ const ItemView = () => {
                     <p>Deliver To:</p>
                     <div className="address">
                     <p> {user.address} </p>
-                    {/* <p>[ 248007 ]</p> */}
-                    {/* <MdModeEdit className='edit' /> */}
+                    
                     </div>
                    
                     <div className="stock">
-                    <p className='available'>In Stock</p>
-                    <p className='date'> Delivery Between 15th Aug to 18th Aug</p>
+
+                    <p className='available'>Status: <span>In Stock</span></p>
                     </div>
                     
                 </div>

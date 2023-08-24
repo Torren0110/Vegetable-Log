@@ -78,7 +78,7 @@ function Slider() {
             <div className="swiper-slide">
          
          <div className="slide-content">
-           <h1 className="state">UTTARAKHAND</h1>
+           <h1 className="state">DELHI</h1>
            <div className="content">
             <div>
              <h2>Item Name</h2>
@@ -105,7 +105,7 @@ function Slider() {
             <div className="swiper-slide">
          
          <div className="slide-content">
-           <h1 className="state">UTTARAKHAND</h1>
+           <h1 className="state">MAHARASHTRA</h1>
            <div className="content">
             <div>
              <h2>Item Name</h2>
@@ -132,7 +132,7 @@ function Slider() {
             <div className="swiper-slide">
          
          <div className="slide-content">
-           <h1 className="state">UTTARAKHAND</h1>
+           <h1 className="state">HARYANA</h1>
            <div className="content">
             <div>
              <h2>Item Name</h2>
@@ -159,7 +159,7 @@ function Slider() {
             <div className="swiper-slide">
          
          <div className="slide-content">
-           <h1 className="state">UTTARAKHAND</h1>
+           <h1 className="state">UTTAR PRADESH</h1>
            <div className="content">
             <div>
              <h2>Item Name</h2>
@@ -186,7 +186,7 @@ function Slider() {
             <div className="swiper-slide">
          
          <div className="slide-content">
-           <h1 className="state">UTTARAKHAND</h1>
+           <h1 className="state">GUJARAT</h1>
            <div className="content">
             <div>
              <h2>Item Name</h2>
@@ -213,7 +213,7 @@ function Slider() {
             <div className="swiper-slide">
          
          <div className="slide-content">
-           <h1 className="state">UTTARAKHAND</h1>
+           <h1 className="state">PUNJAB</h1>
            <div className="content">
             <div>
              <h2>Item Name</h2>
@@ -240,7 +240,7 @@ function Slider() {
             <div className="swiper-slide">
          
          <div className="slide-content">
-           <h1 className="state">UTTARAKHAND</h1>
+           <h1 className="state">WEST BENGAL</h1>
            <div className="content">
             <div>
              <h2>Item Name</h2>
@@ -267,7 +267,7 @@ function Slider() {
             <div className="swiper-slide">
          
          <div className="slide-content">
-           <h1 className="state">UTTARAKHAND</h1>
+           <h1 className="state">MANIPUR</h1>
            <div className="content">
             <div>
              <h2>Item Name</h2>
@@ -294,7 +294,7 @@ function Slider() {
             <div className="swiper-slide">
          
          <div className="slide-content">
-           <h1 className="state">UTTARAKHAND</h1>
+           <h1 className="state">GOA</h1>
            <div className="content">
             <div>
              <h2>Item Name</h2>

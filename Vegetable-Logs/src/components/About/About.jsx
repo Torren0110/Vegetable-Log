@@ -45,67 +45,67 @@ function About() {
 <div className="row">
   <div className="column">
     <div className="card">
-      <div className="icon-wrapper">
-      <i className="fa-solid fa-gears"/>
-      </div>
+      
       <h3>Online Vegetable Marketplaces</h3>
       <p>
       These platforms allow users to buy and sell fresh vegetables online. Farmers and vendors can list their produce, and customers can browse and purchase a variety of vegetables from the comfort of their homes.
       </p>
+      <span class="count">1</span>
+
     </div>
   </div>
   <div className="column">
-    <div className="card">
-      <div className="icon-wrapper">
-      <i className="fa-solid fa-gears"/>
-      </div>
+    <div className="card secondcard">
+      
       <h3>Home Delivery Service</h3>
       <p>
       Some platforms may provide home delivery services for fresh vegetables. Customers can place orders online, and the vegetables are delivered to their doorstep.</p>
+      <span class="count">2</span>
+
     </div>
   </div>
   <div className="column">
-    <div className="card">
-      <div className="icon-wrapper">
-      <i className="fa-solid fa-gears"/>
-      </div>
+    <div className="card thirdcard">
+      
       <h3>Educational Resources</h3>
       <p>
       Online platforms related to vegetables could provide educational content about sustainable farming practices, nutritional benefits of different vegetables, and tips for gardening at home
       </p>
+      <span class="count">3</span>
+
     </div>
   </div>
   <div className="column">
-    <div className="card">
-      <div className="icon-wrapper">
-      <i className="fa-solid fa-gears"/>
-      </div>
+    <div className="card fourthcard">
+     
       <h3>Farm-to-Table Services</h3>
       <p>
       Some services focus on connecting consumers directly with local farmers, promoting a farm-to-table concept. Customers can order vegetables that are sourced directly from nearby farms.
       </p>
+      <span class="count">4</span>
+
     </div>
   </div>
   <div className="column">
-    <div className="card">
-      <div className="icon-wrapper">
-      <i className="fa-solid fa-gears"/>
-            </div>
+    <div className="card fifthcard">
+      
       <h3>Environmental Initiatives</h3>
       <p>
       Some platforms may emphasize sustainable and eco-friendly practices, such as promoting organic farming, reducing food waste, and supporting environmentally conscious choices
       </p>
+      <span class="count">5</span>
+
     </div>
   </div>
   <div className="column">
-    <div className="card">
-      <div className="icon-wrapper">
-      <i className="fa-solid fa-gears"/>
-      </div>
+    <div className="card sixthcard">
+     
       <h3>Subscription Services</h3>
       <p>
       These services offer regular deliveries of fresh vegetables to customers who subscribe. Customers can receive a box of seasonal vegetables at scheduled intervals, which encourages healthy eating habits
       </p>
+      <span class="count">6</span>
+
     </div>
   </div>
 </div>

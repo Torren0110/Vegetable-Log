@@ -55,6 +55,7 @@ const SellForm = () => {
   };
 
   return (
+    <div className="form">
     <form
       className="sell-form"
       onSubmit={handleSubmit((data) => {
@@ -143,6 +144,7 @@ const SellForm = () => {
         Submit
       </button>
     </form>
+    </div>
   );
 };
 
