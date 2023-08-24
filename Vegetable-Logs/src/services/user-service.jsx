@@ -17,6 +17,12 @@ class UserService {
         return request;
     }
 
+    update(uid, changes) {
+        const request =apiClient.patch(this.endpoint, { ...changes, uid: uid })
+
+        return request;
+    }
+
     getInfo(uid) {
         const request = apiClient.post(this.endpoint + "/get", { uid : uid });
         return request;

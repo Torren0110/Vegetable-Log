@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef, useContext } from 'react';
 import './Header.css';
 import logo from "../../assets/logo.jpeg";
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { BiLogIn,BiRegistered,BiLogOut } from 'react-icons/bi';
+import { BiLogIn,BiRegistered,BiLogOut, BiUser } from 'react-icons/bi';
 import { FaBars } from 'react-icons/fa';
 import {Link} from "react-router-dom";
 import { ShopContext } from '../../context/shop-context';
@@ -16,6 +16,7 @@ const Header = () => {
   const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
   const { uid, logout } = useContext(ShopContext);
   const [isOpen, setIsOpen] = useState(false);
+  const [Open, setOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   const LogOut =async ()=>{
@@ -31,6 +32,10 @@ const Header = () => {
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
+  };
+
+  const toggleDrop = () => {
+    setOpen(!Open);
   };
 
   useEffect(() => {
@@ -66,18 +71,18 @@ const Header = () => {
     
    
     <div className="imglinks">
-    <div className="dropdown-container" ref={dropdownRef}>
-      <div className="toggle-icon" onClick={toggleDropdown}>
-      <Link><FaBars className='icon bars' /></Link>
-      </div>
-      {isOpen && (
-        <ul className="item-list">
-            <Link className="links active" to="/">home</Link>
-            <Link className="links" to="/about">about</Link>
-            <Link className="links" to="/prices">Prices</Link>
-            <Link className="links" to="/sellform">Sell</Link>
-        </ul>
-      )}
+      <div className="dropdown-container" ref={dropdownRef}>
+        <div className="toggle-icon" onClick={toggleDropdown}>
+        <Link><FaBars className='icon bars' /></Link>
+        </div>
+        {isOpen && (
+          <ul className="item-list">
+              <Link className="links active" to="/">home</Link>
+              <Link className="links" to="/about">about</Link>
+              <Link className="links" to="/prices">Prices</Link>
+              <Link className="links" to="/sellform">Sell</Link>
+          </ul>
+        )}
      </div>
       {
         uid === '' ?
@@ -85,7 +90,19 @@ const Header = () => {
         <Link to="/register">  <BiRegistered className='icon'/></Link>]
         :
         [<Link to="/cart"> <AiOutlineShoppingCart className='icon'/></Link>,
-        <button onClick={LogOut} className='logout' >  <BiLogOut /></button>]
+        <div className="dropdown-container">
+          <div className="toggle-icon" onClick={toggleDrop}>
+          <Link><BiUser className='icon' /></Link>
+          </div>
+          {Open && (
+            <ul className="items">
+                <Link className="links active" to="/">Profile</Link>
+                <Link className="links" to="/">Orders</Link>
+                <button onClick={LogOut} className='logout' >  <BiLogOut /></button>
+            </ul>
+          )}
+        </div>
+        ]
       }
     </div>
 </header>
