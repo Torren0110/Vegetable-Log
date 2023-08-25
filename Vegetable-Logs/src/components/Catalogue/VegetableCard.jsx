@@ -29,29 +29,35 @@ const VegetableCard = ({ vegetable }) => {
           </Link>
         </div>
       </div> */}
+      <div className="cards">
       <div className="vegetable-card">
-        <div >
+        <div  className="main-card">
         <Link to={`/itemview/${vegetable._id}`}>
           {/* <CardActionArea  onClick={() => { window.location.href = `/itemview/${vegetable._id}` }}> */}
+          <div className="icons">
             <CardMedia
               component="img"
               height="200"
               width="240"
+              className="imgg"
               image={vegetable.image ? vegetable.image : logo}
               alt={vegetable.name}
             />
-            <div >
+            </div>
+            <div className="content">
               <Typography gutterBottom variant="h5" component="div">
              <p className="vegname">{vegetable.name}</p>   
               </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ display: 'flex' }}>
+              <Typography variant="body2" color="text.secondary" >
               <p className="vegprice">Price: ₹{vegetable.price}</p>   
               <p className="quantity"> Quantity: {vegetable.quantity}</p> 
               </Typography>
-            </div>
+              <button><Link className="butn" to={`/itemview/${vegetable._id}`}>Buy now</Link></button>
+              </div>
           {/* </CardActionArea> */}
           </Link>
         </div>
+      </div>
       </div>
     </>
   );
