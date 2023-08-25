@@ -17,95 +17,108 @@ const Topoffers = () => {
     </h2>
     <div className="review">
       <div className="wrapper">
-        <div className="box">
+      <div className="box">
+      <Link to="/prices">
           <div className="content">
             <div className="image">
               <img src={img1} alt="" />
             </div>
             <div className="info">
               <p className="name">Tomato</p>
-              <p className="city">City: Dehradun</p>
+              <p className="city"> <span>City:</span> Dehradun</p>
               <p className="price">
-                Offer Price: <br /> <span className="real">₹ 180</span> &nbsp;{" "}
-                <del> ₹ 200</del> <br /> <span>(10% off)</span>
+                Offer Price:  <span className="real">₹ 180</span> 
+                <del> ₹ 200</del>  <span>(10% off)</span>
               </p>
             </div>
           </div>
+</Link>
         </div>
+        
         <div className="box">
+        <Link to="/prices">
           <div className="content">
             <div className="image">
               <img src={img2} alt="" />
             </div>
             <div className="info">
-              <p className="name">Ladyfinger </p>
-              <p className="city">City: Dehradun</p>
+              <p className="name">LadyFinger</p>
+              <p className="city"> <span>City:</span> Dehradun</p>
               <p className="price">
-                Offer Price: <br /> <span className="real">₹ 180</span> &nbsp;{" "}
-                <del> ₹ 200</del> <br /> <span>(10% off)</span>
+                Offer Price:  <span className="real">₹ 180</span> 
+                <del> ₹ 200</del>  <span>(10% off)</span>
               </p>
             </div>
           </div>
+          </Link>
         </div>
         <div className="box">
+        <Link to="/prices">
           <div className="content">
             <div className="image">
               <img src={img3} alt="" />
             </div>
             <div className="info">
-              <p className="name">Cauliflower </p>
-              <p className="city">City: Dehradun</p>
+              <p className="name">Cauliflower</p>
+              <p className="city"> <span>City:</span> Dehradun</p>
               <p className="price">
-                Offer Price: <br /> <span className="real">₹ 180</span> &nbsp;{" "}
-                <del> ₹ 200</del> <br /> <span>(10% off)</span>
+                Offer Price:  <span className="real">₹ 180</span> 
+                <del> ₹ 200</del>  <span>(10% off)</span>
               </p>
             </div>
           </div>
+          </Link>
         </div>
         <div className="box">
+        <Link to="/prices">
           <div className="content">
             <div className="image">
               <img src={img4} alt="" />
             </div>
             <div className="info">
-              <p className="name">Brinjal </p>
-              <p className="city">City: Dehradun</p>
+              <p className="name">Brinjal</p>
+              <p className="city"> <span>City:</span> Dehradun</p>
               <p className="price">
-                Offer Price: <br /> <span className="real">₹ 180</span> &nbsp;{" "}
-                <del> ₹ 200</del> <br /> <span>(10% off)</span>
+                Offer Price:  <span className="real">₹ 180</span> 
+                <del> ₹ 200</del>  <span>(10% off)</span>
               </p>
             </div>
           </div>
+          </Link>
         </div>
         <div className="box">
+        <Link to="/prices">
           <div className="content">
             <div className="image">
               <img src={img5} alt="" />
             </div>
             <div className="info">
-              <p className="name">Potato </p>
-              <p className="city">City: Dehradun</p>
+              <p className="name">Potato</p>
+              <p className="city"> <span>City:</span> Dehradun</p>
               <p className="price">
-                Offer Price: <br /> <span className="real">₹ 180</span> &nbsp;{" "}
-                <del> ₹ 200</del> <br /> <span>(10% off)</span>
+                Offer Price:  <span className="real">₹ 180</span> 
+                <del> ₹ 200</del>  <span>(10% off)</span>
               </p>
             </div>
           </div>
+          </Link>
         </div>
         <div className="box">
+        <Link to="/prices">
           <div className="content">
             <div className="image">
               <img src={img6} alt="" />
             </div>
             <div className="info">
-              <p className="name">Bottle Gourd </p>
-              <p className="city">City: Dehradun</p>
+              <p className="name">Bottle Gourd</p>
+              <p className="city"> <span>City:</span> Dehradun</p>
               <p className="price">
-                Offer Price: <br /> <span className="real">₹ 180</span> &nbsp;{" "}
-                <del> ₹ 200</del> <br /> <span>(10% off)</span>
+                Offer Price:  <span className="real">₹ 180</span> 
+                <del> ₹ 200</del>  <span>(10% off)</span>
               </p>
             </div>
           </div>
+          </Link>
         </div>
       </div>
       <Link to="/prices" className='view'>View All</Link>

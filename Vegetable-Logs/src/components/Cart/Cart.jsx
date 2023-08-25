@@ -49,10 +49,12 @@ const Cart = () => {
             amt:totalAmt,
           },
         })} >Checkout</button>
+        <button onClick={()=>navigate('/prices')} >Continue Shopping</button>
+        {/* <button>Checkout</button> */}
       </div>:
       <div className='emptyCart' >
         <h1>Your Cart is Empty!!</h1>
-        <button onClick={()=>navigate('/')} >Continue Shopping</button>
+        <button onClick={()=>navigate('/prices')} >Continue Shopping</button>
       </div>
       }
     </div>

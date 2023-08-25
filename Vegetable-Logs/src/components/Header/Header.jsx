@@ -42,6 +42,7 @@ const Header = () => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsOpen(false);
+        setOpen(false);
       }
     };
 
@@ -90,7 +91,7 @@ const Header = () => {
         <Link to="/register">  <BiRegistered className='icon'/></Link>]
         :
         [<Link to="/cart"> <AiOutlineShoppingCart className='icon'/></Link>,
-        <div className="dropdown-container">
+        <div className="dropdown-container" ref={dropdownRef}>
           <div className="toggle-icon" onClick={toggleDrop}>
           <Link><BiUser className='icon' /></Link>
           </div>
@@ -98,7 +99,7 @@ const Header = () => {
             <ul className="items">
                 <Link className="links active" to="/profile">Profile</Link>
                 <Link className="links" to="/">Orders</Link>
-                <button onClick={LogOut} className='logout' >  <BiLogOut /></button>
+                <Link onClick={LogOut} className=" links" to="/">Logout</Link>
             </ul>
           )}
         </div>
