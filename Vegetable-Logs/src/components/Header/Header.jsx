@@ -97,7 +97,7 @@ const Header = () => {
           </div>
           {Open && (
             <ul className="items">
-                <Link className="links active" to="/">Profile</Link>
+                <Link className="links active" to="/profile">Profile</Link>
                 <Link className="links" to="/">Orders</Link>
                 <Link onClick={LogOut} className=" links" to="/">Logout</Link>
             </ul>
