@@ -48,6 +48,8 @@ router.patch("/", async (req, res) => {
 
     if(req.body.address) user.address = req.body.address;
     if(req.body.phone) user.phone = req.body.phone;
+    if(req.body.username) user.username = req.body.username;
+    if(req.body.email) user.email = req.body.email;
 
     user = await user.save();
 
