@@ -5,6 +5,7 @@ const vegetableSchema = new mongoose.Schema({
     price: { type: Number, required: true, min: 1 },
     quantity: { type: Number, required: true, min: 1 },
     image: { type: String, default: "" },
+    uid: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
     username: { type: String, required: true, minlength: 3 }
   });
   
