@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
 	if(!uid) return res.status(400).send("User id not present");
 
   try {
-		const cartItems = await Cart.find({ userID: uid }).populate('vegID').select(["vegID", "quantity"]);
+		const cartItems = await Cart.find({ userID: uid, paid: false }).populate('vegID').select(["vegID", "quantity"]);
 		
     res.json(cartItems);
   } catch(err) {
@@ -34,12 +34,16 @@ router.post("/", async (req, res) => {
     if (veg.quantity + quantity < 0) throw new Error("Invalid Quantity");
     
     
-    let cartItem = await Cart.findOne({ userID: uid, vegID: vid });
+    let cartItem = await Cart.findOne({ userID: uid, vegID: vid, paid: false });
     
     if(cartItem) {
       if(cartItem.quantity + quantity < 0) return res.status(400).send("Invalid Quantity");
       cartItem.quantity += quantity;
-      cartItem = await cartItem.save();
+      if(cartItem.quantity === 0) {
+        await Cart.deleteOne({_id: cartItem._id});
+      }else {
+        cartItem = await cartItem.save();
+      }
     }
     else if(quantity <= 0) {
       return res.status(400).send("Invalid Quantity");
@@ -53,5 +57,31 @@ router.post("/", async (req, res) => {
     res.status(400).send(err.message);
   }
 });
+
+
+router.post("/pay", async (req, res) => {
+	let { amount, id } = req.body
+	try {
+		const payment = await stripe.paymentIntents.create({
+			amount,
+			currency: "INR",
+			description: "test description",
+			payment_method: id,
+			confirm: true
+		})
+		console.log("Payment", payment)
+		res.json({
+			message: "Payment successful",
+			success: true
+		})
+	} catch (error) {
+		console.log("Error", error)
+		res.json({
+			message: "Payment failed",
+			success: false
+		})
+	}
+})
+
 
 module.exports = router;
