@@ -99,6 +99,7 @@ const Header = () => {
             <ul className="items">
                 <Link className="links active" to="/profile">Profile</Link>
                 <Link className="links" to="/">Orders</Link>
+                <Link className="links" to="/">Sales</Link>
                 <Link onClick={LogOut} className=" links" to="/">Logout</Link>
             </ul>
           )}
