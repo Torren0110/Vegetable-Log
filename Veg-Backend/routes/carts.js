@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const User = require("../models/userModel");
 const Vegetable = require("../models/vagetableModel");
 const Cart = require("../models/cartModel");
+require("dotenv").config()
+const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST)
 
 router.get("/", async (req, res) => {
   const uid = req.query.uid;
@@ -60,14 +62,15 @@ router.post("/", async (req, res) => {
 
 
 router.post("/pay", async (req, res) => {
-	let { amount, id } = req.body
+	let { amount, id, uid } = req.body
 	try {
 		const payment = await stripe.paymentIntents.create({
 			amount,
 			currency: "INR",
 			description: "test description",
 			payment_method: id,
-			confirm: true
+			confirm: true,
+      payment_method_types: ['card'],
 		})
 		console.log("Payment", payment)
 		res.json({
