@@ -12,7 +12,7 @@ import './ItemView.css'
 
 const ItemView = () => {
 
-    const {uid, user} = useContext(ShopContext);
+    const {uid, user, count, setCount} = useContext(ShopContext);
     const [product, setProduct] = useState({});
     const [quantity, setQuantity] = useState(1);
     const params = useParams();
@@ -62,6 +62,7 @@ const ItemView = () => {
     const addToCart = (vid, qty)=>{
         cartService.addToCart(uid, vid, qty).then((res) => {
             console.log(res.data)
+            setCount(count+1)
             showToastMessage("success");
         })
         .catch((err) => {
