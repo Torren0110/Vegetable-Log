@@ -12,8 +12,7 @@ const useOrder = (uid) => {
         orderService.get(uid)
             .then((res) => {
                 setIsLoading(false);
-
-                console.log(res);
+                setOrders(res.data);
             })
             .catch((err) => {
                 console.log("err", err)

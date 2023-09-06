@@ -8,7 +8,6 @@ const Cart = require("../models/cartModel");
 
 router.get("/", async (req, res) => {
     const uid = req.query.uid;
-    console.log("here");
 
     if(!uid) return res.status(400).send("User ID not present");
 
