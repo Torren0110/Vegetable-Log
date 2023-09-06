@@ -7,8 +7,6 @@ const orders = require("./routes/orders")
 const sales = require("./routes/sales")
 const mongoose = require("mongoose");
 const app = express();
-require("dotenv").config()
-const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST)
 
 mongoose
   .connect("mongodb://0.0.0.0/Veg-Logs")
@@ -22,30 +20,6 @@ app.use("/api/users", users);
 app.use("/api/carts", carts);
 app.use("/api/orders", orders);
 app.use("/api/sales", sales);
-
-app.post("/payment", cors(), async (req, res)=>{
-  let {amount, id} = req.body
-  try{
-    console.log("Entered Payment")
-    const payment = await stripe.paymentIntents.create({
-      amount,
-      currency: "INR",
-      description: "Veggies",
-      payment_method: id,
-      confirm: true,
-    })
-    console.log("Payment: ",payment)
-    res.json({
-      message: "payment successful",
-      success: true
-    })
-  }catch(error){
-      res.json({
-        message: "payment failed",
-        success: false
-      })
-  }
-} )
 
 const port = 3000;
 
