@@ -60,13 +60,15 @@ export default function CheckoutForm(props) {
       const {id} = paymentMethod
       const data={
         amount:props.amount,
-        id
+        id,
+        uid: props.uid,
       }
       console.log("data:",data)
-      const response = await axios.post("http://localhost:3000/payment", data)
+      const response = await axios.post("http://localhost:3000/api/carts/pay", data)
       if(response.data.success){
         console.log(response.data.message)
         setSuccess(true)
+        setLoading(false)
       }
     }
     else{
@@ -153,7 +155,7 @@ export default function CheckoutForm(props) {
         <button className="btn btn-dark w-100" type="submit" disabled={loading}>
           {loading ? <div className="spinner-border spinner-border-sm text-light" role="status"></div> : `PAY ₹${props.amount}`}
         </button>
-        {/* {errorMsg && <div className="text-danger mt-2">{errorMsg}</div>} */}
+        {/* {success && <div className="text-danger mt-2">{success}</div>} */}
       </form>
       </div>
   );
