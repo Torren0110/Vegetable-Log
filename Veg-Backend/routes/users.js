@@ -12,6 +12,7 @@ function validateUser(user) {
     password2: joi.string().min(8).required().valid(joi.ref("password1")),
     address: joi.string().min(10).required(),
     phone: joi.string().min(10).required(),
+    seller: joi.boolean(),
   });
 
   return schema.validate(user);
@@ -29,6 +30,7 @@ router.post("/", async (req, res) => {
       password: req.body.password1,
       address: req.body.address,
       phone: req.body.phone,
+      seller: req.body.seller
     });
 
     newUser = await newUser.save();

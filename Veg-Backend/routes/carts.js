@@ -51,7 +51,7 @@ router.post("/", async (req, res) => {
       return res.status(400).send("Invalid Quantity");
     }
     else {
-      cartItem = new Cart({ userID: uid, vegID: vid, quantity: quantity });
+      cartItem = new Cart({ userID: uid, vegID: vid, quantity: quantity, sellerID: veg.uid });
       cartItem = await cartItem.save();
     }
     res.json(cartItem);

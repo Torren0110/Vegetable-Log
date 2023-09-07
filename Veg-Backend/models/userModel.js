@@ -14,7 +14,8 @@ const userSchema = mongoose.Schema({
   },
   password: { type: String, minlength: 8, required: true },
   address: {  type: String, minlength: 10, required: true },
-  phone: { type: String, minlength: 10, required: true }
+  phone: { type: String, minlength: 10, required: true },
+  seller: { type: Boolean, default: false, required: true },
 });
 
 const User = new mongoose.model("User", userSchema);

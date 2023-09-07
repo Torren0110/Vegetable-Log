@@ -37,7 +37,7 @@ const Register = () => {
         address:"",
         password: "",
         confirm_password: "",
-        seller:""
+        seller:false
       };
 
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
@@ -53,7 +53,7 @@ const Register = () => {
           address: values.address,
           password1: values.password,
           password2: values.confirm_password,
-          seller:values.seller
+          seller:values.seller ? true : false
         }
         console.log(data)
         userService.register(data)
@@ -194,7 +194,7 @@ const Register = () => {
                        value={values.seller}
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      required/>
+                      />
                    <label htmlFor="">Register as seller</label>
                    </div>
                     

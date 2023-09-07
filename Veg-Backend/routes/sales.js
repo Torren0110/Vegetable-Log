@@ -11,15 +11,12 @@ router.get("", async (req, res) => {
   if (!uid) return res.status(400).send("User ID is not present");
 
   try {
-    items = await Cart.find({ paid: true }).populate({
-      path: "vegID",
-      populate: { path: "uid", match: { _id: uid } },
-    });
+    items = await Cart.find({ paid: true, sellerID: uid});
 
     res.json(items);
 
   } catch {
-    res.status(500).send("Something went wrong");
+    res.status(500).send("Invalid User");
   }
 });
 
