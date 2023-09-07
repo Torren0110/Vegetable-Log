@@ -45,6 +45,8 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+
 }
 del {
   text-decoration: line-through !important;
@@ -187,3 +189,4 @@ padding-top:80px;
   background-color:#fff;
   color:#000;
 }
+

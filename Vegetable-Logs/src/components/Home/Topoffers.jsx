@@ -121,6 +121,7 @@ const Topoffers = () => {
           </Link>
         </div>
       </div>
+
       <Link to="/prices" className='view'>View All</Link>
     </div>
   </div>

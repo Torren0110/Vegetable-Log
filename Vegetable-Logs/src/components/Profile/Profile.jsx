@@ -1,7 +1,6 @@
 import React,{useContext, useEffect, useState} from "react";
 import { useFormik } from "formik";
 import "./Profile.css"
-
 import userService from "../../services/user-service";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -87,7 +86,7 @@ const Register = () => {
       return (
         <>
     <ToastContainer/>
-    <div >
+    <div className="profile">
     <div  className="maindiv">
             <div className="model-container">
               <div className="model-left">
@@ -166,7 +165,7 @@ const Register = () => {
             </div>
         </div>
         </div>
-        </>
+    </>
   )
 }
 
