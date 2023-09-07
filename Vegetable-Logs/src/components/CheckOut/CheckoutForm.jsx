@@ -30,7 +30,7 @@ const CARD_ELEMENT_OPTIONS = {
 
 export default function CheckoutForm(props) {
 
-  const { removeAll,cart } = useContext(ShopContext)
+  const { setCount,cart } = useContext(ShopContext)
   const navigate = useNavigate()
   const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
   const [loading, setLoading] = useState(false);
@@ -85,7 +85,7 @@ export default function CheckoutForm(props) {
           autoClose: 1000,
           pauseOnHover: false,
         });
-        // removeAll()
+        setCount(0)
         await delay(3000); 
         navigate("/")
       }
@@ -93,22 +93,8 @@ export default function CheckoutForm(props) {
     else{
       console.log(error.message)
     }
-
-    // stripePaymentMethodHandler({
-    //   result: paymentMethodResult,
-    //   amount: props.amount
-    // }, handleResponse);
   };
 
-  // callback method to handle the response
-  // const handleResponse = response => {
-  //   setLoading(false);
-  //   if (response.error) {
-  //     setErrorMsg(typeof response.error === 'string' ? response.error : response.error.message);
-  //     return;
-  //   }
-  //   props.setPaymentCompleted(response.success ? true : false);
-  // };
 
   return (
       <div className='container'>
@@ -149,25 +135,6 @@ export default function CheckoutForm(props) {
             />
           </div>
         </div>
-
-        {/* <div className="row">
-          <div className="col-md-6 mb-3">
-            <label htmlFor="expiry">Expiry Date</label>
-            <CardExpiryElement
-              id="expiry"
-              className="form-control"
-              options={CARD_ELEMENT_OPTIONS}
-            />
-          </div>
-          <div className="col-md-6 mb-3">
-            <label htmlFor="cvc">CVC</label>
-            <CardCvcElement
-              id="cvc"
-              className="form-control"
-              options={CARD_ELEMENT_OPTIONS}
-            />
-          </div>
-        </div> */}
 
         <hr className="mb-4" />
         <button className="btn btn-dark w-100" type="submit" disabled={loading}>
