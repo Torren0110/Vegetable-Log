@@ -63,8 +63,8 @@ router.post("/", async (req, res) => {
 
 router.post("/pay", async (req, res) => {
 	let { amount, id, uid, cart } = req.body
-  console.log("Uid: ",uid)
-  console.log("Cart: ",cart)
+  // console.log("Uid: ",uid)
+  // console.log("Cart: ",cart)
 	try {
 		const payment = await stripe.paymentIntents.create({
 			amount,
@@ -74,7 +74,16 @@ router.post("/pay", async (req, res) => {
 			confirm: true,
       payment_method_types: ['card'],
 		})
-		console.log("Payment", payment)
+		
+    // console.log("Payment", payment);
+
+    await Cart.updateMany({ userID: uid }, { $set: { paid: true } });
+
+    cart.forEach(async (c) => {
+      await Vegetable.updateMany({ _id: c.vegID._id }, { $inc: { quantity: -c.quantity } });
+    });
+    
+
 		res.json({
 			message: "Payment successful",
 			success: true

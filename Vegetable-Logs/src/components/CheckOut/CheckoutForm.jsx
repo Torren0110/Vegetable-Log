@@ -85,7 +85,7 @@ export default function CheckoutForm(props) {
           autoClose: 1000,
           pauseOnHover: false,
         });
-        removeAll()
+        // removeAll()
         await delay(3000); 
         navigate("/")
       }
