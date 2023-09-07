@@ -11,6 +11,7 @@ export const ShopContextProvider = (props) =>{
     const [uid,setUid] = useState("");
     const [cart,setCart] = useState([]);
     const [user, setUser] = useState({});
+    const [count, setCount] = useState(0);
  
     const logout = ()=>{
         console.log("called logout")
@@ -23,6 +24,7 @@ export const ShopContextProvider = (props) =>{
     const addToCart = (vid, qty)=>{
         cartService.addToCart(uid, vid, qty).then((res) => {
             console.log(res.data)
+            setCount(count+1)
         })
         .catch((err) => {
             // console.log(err, "error in fetching user cart")
@@ -33,6 +35,15 @@ export const ShopContextProvider = (props) =>{
         // console.log("res: ",res)
         setUid(res)
     },[])
+
+    useEffect(()=>{
+        userService.getInfo(uid).then((res) => {
+          // console.log(res.data);
+          setUser(res.data)
+        }).catch((err) => {
+          // console.log("error", err);
+        })
+    },[uid])
     
     useEffect(()=>{
         cartService.get(uid).then((res) => {
@@ -42,14 +53,7 @@ export const ShopContextProvider = (props) =>{
             .catch((err) => {
                 // console.log(err, "error in fetching user cart")
             });
-
-            userService.getInfo(uid).then((res) => {
-                // console.log(res.data);
-                setUser(res.data)
-              }).catch((err) => {
-                // console.log("error", err);
-              })
-        },[uid,addToCart]);
+        },[uid,count]);
 
     const contextValue = {
                         uid,
@@ -58,6 +62,8 @@ export const ShopContextProvider = (props) =>{
                         addToCart,
                         setUid,
                         logout,
+                        count,
+                        setCount,
                     }
 
     return <ShopContext.Provider value={contextValue} >{props.children}</ShopContext.Provider>

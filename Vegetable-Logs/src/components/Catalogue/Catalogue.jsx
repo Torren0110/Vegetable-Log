@@ -5,6 +5,8 @@ import VegetableSearchBar from "./VegetableSearchBar";
 import cartService from "../../services/cart-service";
 import userService from "../../services/user-service";
 import "./style.css"
+import Orders from "../Orders/orders";
+import orderService from "../../services/order-service";
 
 const Catalogue = () => {
   const [ searchString, setSearchString ] = useState("");
@@ -57,11 +59,20 @@ const Catalogue = () => {
     //     console.log("err", err);
     //   })
 
+    // orderService.get("temp")
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log("err", err);
+    //   })
+
   }, []);
 
 
   return (
     <div >
+      {/* <Orders /> */}
       <VegetableSearchBar  onSearch = {(str) => { setSearchString(str) }} />
       <h2 className="heading">Listed Items</h2>
       <VegetableGrid isLoading={isLoading} vegetables={vegetables} />

@@ -1,7 +1,7 @@
 import React,{useContext, useEffect, useState} from "react";
-import { Link, useNavigate } from 'react-router-dom'
 import { useFormik } from "formik";
 import "./Profile.css"
+
 import userService from "../../services/user-service";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,16 +12,18 @@ import * as Yup from "yup";
 const Register = () => {
 
     const { uid, user }  = useContext(ShopContext)
-
-    if(uid === '') return <h1>Login First!!!</h1>
-
+    const [edit, setEdit] = useState(false)
     const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-    const navigate = useNavigate()
+    const toggleEdit = ()=>{
+      setEdit(!edit)
+    }
+
+    
     const showToastMessage =(msg) => {
       // console.log("called ",msg)
       if(msg === "success"){
         toast.success('UPDATED SUCCESSFULLY !', {
-            position: toast.POSITION.BOTTOM_CENTER,
+          position: toast.POSITION.BOTTOM_CENTER,
             autoClose: 1000,
             pauseOnHover: false,
             hideProgressBar: true,
@@ -33,52 +35,57 @@ const Register = () => {
             autoClose: 1000,
             pauseOnHover: false,
             hideProgressBar: true,
-        });
-      }
+          });
+        }
       };
-
-    const { errors, touched, handleSubmit, getFieldProps } =
-    useFormik({
-      initialValues: {
-        username:user.username || "",
-        phone:user.phone || "",
-        email:user.email || "",
-        address:user.address || "",
-      },
-      enableReinitialize: true,
-      validationSchema: Yup.object({
-        username: Yup
+      
+      const { errors, touched, handleSubmit, getFieldProps } =
+      useFormik({
+        initialValues: {
+          username:user.username || "",
+          phone:user.phone || "",
+          email:user.email || "",
+          address:user.address || "",
+        },
+        enableReinitialize: true,
+        validationSchema: Yup.object({
+          username: Yup
           .string()
           .required('Username is required')
           .min(5, 'Username must be at least 5 characters')
           .max(20, 'Username must be at most 20 characters')
           .matches(/^[a-zA-Z0-9_]+$/, 'Username can only contain letters, numbers, and underscores'),
-        phone: Yup.number()
-        .typeError("Phone must be a number")
-        .integer("Phone must be an integer")
-        .min(1000000000, "Phone number must have at least 10 digits")
-        .max(9999999999, "Phone number can have at most 10 digits")
-        .required("Please enter your phone"),
-        email: Yup.string().email().required("Please enter your email"),
-      }),
-      onSubmit:(values) => {
-        console.log("object passed: ",values);
-        userService.update(user._id,values)
-      .then((res) => {
-        console.log("success: ",res.data);
-        showToastMessage("success");
-      })
-      .catch((err) => {
-        console.log("err", err.response.data);
-        showToastMessage(err.response.data);
-      })
-      },
-    });
+          phone: Yup.number()
+          .typeError("Phone must be a number")
+          .integer("Phone must be an integer")
+          .min(1000000000, "Phone number must have at least 10 digits")
+          .max(9999999999, "Phone number can have at most 10 digits")
+          .required("Please enter your phone"),
+          email: Yup.string().email().required("Please enter your email"),
+        }),
+        onSubmit:async(values) => {
+          // await delay(10000)
+          toggleEdit()
+          console.log("object passed: ",values);
+          userService.update(user._id,values)
+          .then((res) => {
+            console.log("success: ",res.data);
+            showToastMessage("success");
+          })
+          .catch((err) => {
+            console.log("err", err.response.data);
+            showToastMessage(err.response.data);
+          })
+        },
+      });
 
 
-  
-  return (
-    <div className="profile">
+
+      
+      if(uid === '') return <h1>Login First!!!</h1>
+      
+      return (
+        <>
     <ToastContainer/>
     <div >
     <div  className="maindiv">
@@ -94,6 +101,7 @@ const Register = () => {
                     <input
                       name='username'
                       {...getFieldProps('username')}
+                      readOnly={edit ? "false" : "true"}
                     />
                     {errors.username && touched.username ? (
                       <p className="form-error">{errors.username}</p>
@@ -106,6 +114,7 @@ const Register = () => {
                     <input
                       name="phone"
                       {...getFieldProps('phone')}
+                      readOnly={edit ? "false" : "true"}
                     />
                     {errors.phone && touched.phone ? (
                       <p className="form-error">{errors.phone}</p>
@@ -118,6 +127,7 @@ const Register = () => {
                     <input
                       name="email"
                       {...getFieldProps('email')}
+                      readOnly={edit ? "false" : "true"}
                     />
                     {errors.email && touched.email ? (
                       <p className="form-error">{errors.email}</p>
@@ -130,6 +140,7 @@ const Register = () => {
                     <input
                       name="address"
                       {...getFieldProps('address')}
+                      readOnly={edit ? "false" : "true"}
                     />
                     {errors.address && touched.address ? (
                       <p className="form-error">{errors.address}</p>
@@ -137,10 +148,17 @@ const Register = () => {
                   </div>
                   
                   <div className="model-buttons">
-                  <button className="input-button" type="submit">
-                      Update
-                    </button>
-                    
+                    {
+                      edit
+                      ?
+                      <button className="input-button" type="submit">
+                        Update
+                      </button>
+                      :
+                      <button className="input-button" onClick={toggleEdit}>
+                        Edit
+                      </button>
+                    }
                   </div>
                 </form>
               </div>
@@ -148,7 +166,7 @@ const Register = () => {
             </div>
         </div>
         </div>
-    </div>
+        </>
   )
 }
 

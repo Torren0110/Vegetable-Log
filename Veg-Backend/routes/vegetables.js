@@ -87,6 +87,7 @@ router.post("/", upload.single('image') , async (req, res) => {
   try {
     const user = await User.findOne({ _id: req.body.uid });
     vegData.username = user.username;
+    vegData.uid = user._id;
 
     let newVeg = new Vegetable(vegData);
     newVeg = await newVeg.save();

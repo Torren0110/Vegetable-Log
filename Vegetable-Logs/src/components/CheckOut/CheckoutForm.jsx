@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import {
   useStripe, useElements,
-  CardNumberElement, CardExpiryElement, CardCvcElement
+  CardElement, CardExpiryElement, CardCvcElement
 } from '@stripe/react-stripe-js';
+import axios from "axios"
 import './Checkout.css'
 
 const CARD_ELEMENT_OPTIONS = {
@@ -46,19 +47,28 @@ export default function CheckoutForm(props) {
 
     const paymentMethodObj = {
       type: 'card',
-      card: elements.getElement(CardNumberElement),
+      card: elements.getElement(CardElement),
       billing_details: {
         name,
         email
       },
     };
-    const {error, paymentMethodResult} = await stripe.createPaymentMethod(paymentMethodObj);
-
+    const {error, paymentMethod} = await stripe.createPaymentMethod(paymentMethodObj);
+    console.log(paymentMethod)
+    
     if(!error){
-      const {id} = paymentMethodResult
+      const {id} = paymentMethod
       const data={
         amount:props.amount,
-        id
+        id,
+        uid: props.uid,
+      }
+      console.log("data:",data)
+      const response = await axios.post("http://localhost:3000/api/carts/pay", data)
+      if(response.data.success){
+        console.log(response.data.message)
+        setSuccess(true)
+        setLoading(false)
       }
     }
     else{
@@ -112,7 +122,7 @@ export default function CheckoutForm(props) {
         <div className="row">
           <div className="col-md-12 mb-3">
             <label htmlFor="cc-number">Card Number</label>
-            <CardNumberElement
+            <CardElement
               id="cc-number"
               className="form-control"
               options={CARD_ELEMENT_OPTIONS}
@@ -120,7 +130,7 @@ export default function CheckoutForm(props) {
           </div>
         </div>
 
-        <div className="row">
+        {/* <div className="row">
           <div className="col-md-6 mb-3">
             <label htmlFor="expiry">Expiry Date</label>
             <CardExpiryElement
@@ -137,13 +147,13 @@ export default function CheckoutForm(props) {
               options={CARD_ELEMENT_OPTIONS}
             />
           </div>
-        </div>
+        </div> */}
 
         <hr className="mb-4" />
         <button className="btn btn-dark w-100" type="submit" disabled={loading}>
           {loading ? <div className="spinner-border spinner-border-sm text-light" role="status"></div> : `PAY ₹${props.amount}`}
         </button>
-        {/* {errorMsg && <div className="text-danger mt-2">{errorMsg}</div>} */}
+        {/* {success && <div className="text-danger mt-2">{success}</div>} */}
       </form>
       </div>
   );
