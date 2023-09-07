@@ -62,7 +62,9 @@ router.post("/", async (req, res) => {
 
 
 router.post("/pay", async (req, res) => {
-	let { amount, id, uid } = req.body
+	let { amount, id, uid, cart } = req.body
+  console.log("Uid: ",uid)
+  console.log("Cart: ",cart)
 	try {
 		const payment = await stripe.paymentIntents.create({
 			amount,
