@@ -11,7 +11,14 @@ class SalesService {
                 uid: uid,
             },
         });
+        return request;
+    }
 
+    update(cid, status) {
+        const request = apiClient.patch(this.endpoint, {
+            cid: cid,
+            status: status
+        })
         return request;
     }
 
