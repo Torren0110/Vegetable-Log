@@ -93,15 +93,15 @@
 .about .row .content .btn{
   padding:15px 20px;
   /* margin-bottom:-200px; */
-  background-color:transparent;
-  color:#fff;
+  background-color: #fff;
+  color:#222;
   font-size: 1.1rem;
   border-radius: 5px;
   border:2px solid #fff;
 }
 .about .row .content .btn:hover{
-  background-color: #fff;
-  color:#222;
+  background-color:transparent;
+  color:#fff;
 }
 .sect {
   width: 100%;
