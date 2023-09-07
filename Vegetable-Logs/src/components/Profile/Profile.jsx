@@ -77,9 +77,6 @@ const Register = () => {
           })
         },
       });
-
-
-
       
       if(uid === '') return <h1>Login First!!!</h1>
       

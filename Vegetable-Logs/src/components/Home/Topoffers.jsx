@@ -17,7 +17,7 @@ const Topoffers = () => {
     </h2>
     <div className="review">
       <div className="wrapper">
-      <div className="box">
+      <div className="box" data-aos="fade-right">
       <Link to="/prices">
           <div className="content">
             <div className="image">
@@ -35,7 +35,7 @@ const Topoffers = () => {
 </Link>
         </div>
         
-        <div className="box">
+        <div className="box" data-aos="fade-in">
         <Link to="/prices">
           <div className="content">
             <div className="image">
@@ -52,7 +52,7 @@ const Topoffers = () => {
           </div>
           </Link>
         </div>
-        <div className="box">
+        <div className="box" data-aos="fade-left">
         <Link to="/prices">
           <div className="content">
             <div className="image">
@@ -69,7 +69,7 @@ const Topoffers = () => {
           </div>
           </Link>
         </div>
-        <div className="box">
+        <div className="box" data-aos="fade-right">
         <Link to="/prices">
           <div className="content">
             <div className="image">
@@ -86,7 +86,7 @@ const Topoffers = () => {
           </div>
           </Link>
         </div>
-        <div className="box">
+        <div className="box" data-aos="fade-in">
         <Link to="/prices">
           <div className="content">
             <div className="image">
@@ -103,7 +103,7 @@ const Topoffers = () => {
           </div>
           </Link>
         </div>
-        <div className="box">
+        <div className="box" data-aos="fade-left">
         <Link to="/prices">
           <div className="content">
             <div className="image">
