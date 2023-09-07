@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Domine&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+*{
+  font-family: 'Domine',sans-serif,"Segoe UI",Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
+}
+  .profile{
+
+      background-color: red;
+      background-image: linear-gradient(to right, #fc5c7d, #6a82fb);
+      background-image: linear-gradient(to right, #00b4db, #0083b0);
+      background: linear-gradient(170deg, rgba(49, 57, 73, 0.8) 20%, rgba(49, 57, 73, 0.5) 20%, rgba(49, 57, 73, 0.5) 35%, rgba(41, 48, 61, 0.6) 35%, rgba(41, 48, 61, 0.8) 45%, rgba(31, 36, 46, 0.5) 45%, rgba(31, 36, 46, 0.8) 75%, rgba(49, 57, 73, 0.5) 75%), linear-gradient(45deg, rgba(20, 24, 31, 0.8) 0%, rgba(41, 48, 61, 0.8) 50%, rgba(82, 95, 122, 0.8) 50%, rgba(133, 146, 173, 0.8) 100%) #313949;
+
+  }
+.maindiv  {
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:-20px;
+    margin-bottom:-20px;
+    padding:50px 30px;
+    padding-top:100px;
+    height:90vh;
+  }
+
+  
+  .maindiv  .model-container {
+    display: flex;
+    max-width: 45vw;
+    width: 100%;
+    border-radius: 7px;
+    overflow: hidden;
+    position: absolute;
+    /* background-color: #0083b0; */
+/* margin-bottom: 150px; */
+    border:1px solid #fff;
+
+    transition-duration: 0.3s;
+  } 
+  .maindiv  .model-title {
+    margin: 0;
+    font-weight: 800;
+    color: #fff;
+    font-size:28px;
+    text-transform:uppercase;
+    margin-bottom:20px;
+    text-align:center;
+  }
+  .maindiv .form-error {
+    font-size: 1rem;
+    color: #b22b27;
+  }
+ 
+  .maindiv .model-left {
+    padding: 40px 30px 20px;
+    background: transparent;
+    flex: 1.5;
+    transition-duration: 0.5s;
+    opacity: 1;
+  }
+
+
+ 
+ .maindiv  .model-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:20px 0;
+  }
+ .maindiv  .model-buttons a {
+    color: rgba(51, 51, 51, 0.6);
+    font-size: 14px;
+  }
+  .maindiv .model-buttons input {
+    margin-right:5px;
+    background-color: #fff;
+  }
+ .maindiv  .model-buttons label {
+    font-size:20px;
+  }
+  
+
+ .maindiv  .sign-up {
+    margin: 10px 0 0;
+    font-size: 18px;
+    text-align: center;
+  }
+ .maindiv  .sign-up a {
+    color: #8c7569;
+  }
+
+ .maindiv  .input-button {
+    padding: 1.4rem 3rem;
+    outline: none;
+    text-transform: uppercase;
+    border: 0;
+    font-size:16px;
+    color: #fff;
+    width:100%;
+    border-radius: 4px;
+    background-image: linear-gradient(to right, #00b4db, #0083b0);
+    transition: 0.3s;
+    cursor: pointer;
+    font-family: "Nunito", sans-serif;
+  }
+ .maindiv  .input-button:hover {
+  background-image: linear-gradient(to right, #0083b0, #00b4db);
+}
+
+  .maindiv  .input-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    color: #8c7569;
+    transition: 0.3s;
+  }
+
+  .maindiv  .input-block {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 8px;
+    /* border: 1px solid #ddd; */
+    border-radius: 4px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+    background-color: #fff;
+  }
+ .maindiv   .input-block input {
+    outline: 0;
+    border: 0;
+    padding: 4px 0 0;
+    font-size: 16px;
+  }
+
+  .maindiv  .input-block input::-moz-placeholder {
+    color: #555;
+    opacity: 1;
+  }
+  .maindiv  .input-block input:-ms-input-placeholder {
+    color: #555;
+    opacity: 1;
+  }
+  .maindiv  .input-block input::placeholder {
+    color: #555;
+    opacity: 1;
+  }
+ .maindiv   .input-block:focus-within {
+    border-color: #8c7569;
+  }
+ .maindiv   .input-block:focus-within .input-label {
+    color: rgba(140, 117, 105, 0.8);
+  }
+
+  @media (max-width: 750px) {
+   .maindiv   .model-container {
+      max-width: 90vw;
+    }
+
+    .maindiv  .model-right {
+      display: none;
+    }
+  }

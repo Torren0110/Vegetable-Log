@@ -1,8 +1,7 @@
 import React,{useContext, useEffect, useState} from "react";
 import { Link, useNavigate } from 'react-router-dom'
 import { useFormik } from "formik";
-import { registerschema } from "../user/Registerschema/Registerschema";
-import "../user/Register/register.css"
+import "./Profile.css"
 import userService from "../../services/user-service";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -79,10 +78,10 @@ const Register = () => {
 
   
   return (
-    <>
+    <div className="profile">
     <ToastContainer/>
-    <div className="maindiv">
-          <div className="model">
+    <div >
+    <div  className="maindiv">
             <div className="model-container">
               <div className="model-left">
                 <h1 className="model-title">User Profile</h1>
@@ -145,16 +144,11 @@ const Register = () => {
                   </div>
                 </form>
               </div>
-              <div className="model-right">
-                <img
-                  src={Logo}
-                  alt=""
-                />
-              </div>
+             
             </div>
-          </div>
         </div>
-    </>
+        </div>
+    </div>
   )
 }
 

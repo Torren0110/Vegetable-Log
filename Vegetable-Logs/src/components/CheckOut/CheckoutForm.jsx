@@ -83,9 +83,7 @@ export default function CheckoutForm(props) {
 
   return (
       <div className='container'>
-      <h4 className="d-flex justify-content-between align-items-center mb-3">
-        <span className="text-muted">Pay with card</span>
-      </h4>
+      <h4> Pay with card      </h4>
       <form onSubmit={handleSubmit}>
 
         <div className="row">
@@ -124,7 +122,7 @@ export default function CheckoutForm(props) {
 
         <div className="row">
           <div className="col-md-6 mb-3">
-            <label htmlFor="expiry">Expiration Date</label>
+            <label htmlFor="expiry">Expiry Date</label>
             <CardExpiryElement
               id="expiry"
               className="form-control"

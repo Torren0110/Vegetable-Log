@@ -11,7 +11,7 @@ const Banner = () => {
         <h2>FRESH AND ORGANIC</h2>
         <h3>VEGETABLE</h3>
         <h4>AT YOUR DOOR</h4>
-           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab nihil quam est blanditiis iure quod sit reiciendis saepe eveniet necessitatibus?</p>
+           {/* <p>Veggies provides the best platform for the user,farmers and traders to know the market price in the whole country and know the market value of a particular item which they want</p> */}
         <button>Order Now</button>
         </div>
        </div>

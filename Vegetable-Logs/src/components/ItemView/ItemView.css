@@ -6,14 +6,9 @@
     transform:scale(1.04);
 }
 .singleproduct{
-    background-image: linear-gradient(to right, #ff9966, #ff5e62); 
-    background-image: linear-gradient(45deg,#33001b 0%,#ff0084 100% );
-    background-image: linear-gradient(45deg,#4ca1af 0%,#2c3e50 100% );
-    background-image: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%); 
-    background-image: linear-gradient(45deg,#614385 0%,#516395 100% );
-    background-image: linear-gradient(45deg,#eecda3 0%,#ef629f 100% );
-    background-image: linear-gradient(45deg,#d66d75 0%,#e29587 100% );
-    background-image: linear-gradient(45deg,#02aab0 0%,#00cdac 100% );
+  background-image: linear-gradient(45deg,#02aab0 0%,#00cdac 100% );
+        background: linear-gradient(170deg, rgba(49, 57, 73, 0.8) 20%, rgba(49, 57, 73, 0.5) 20%, rgba(49, 57, 73, 0.5) 35%, rgba(41, 48, 61, 0.6) 35%, rgba(41, 48, 61, 0.8) 45%, rgba(31, 36, 46, 0.5) 45%, rgba(31, 36, 46, 0.8) 75%, rgba(49, 57, 73, 0.5) 75%), linear-gradient(45deg, rgba(20, 24, 31, 0.8) 0%, rgba(41, 48, 61, 0.8) 50%, rgba(82, 95, 122, 0.8) 50%, rgba(133, 146, 173, 0.8) 100%) #313949;
+
 margin:0;
 padding-top:30px;
 margin-top:-20px;
@@ -64,6 +59,7 @@ border-top-left-radius: 0;
 .prod-details .head{
     color:#ff5e62;
     color:#16a085;
+    color:#027084;
     font-size:2rem;
     text-transform: uppercase;
     font-weight:700;
@@ -76,9 +72,10 @@ border-top-left-radius: 0;
 }
 .prod-details .rate .realprice{
     font-size:1.6rem;
-    /* font-weight: 800; */
+    font-weight: 800;
     color:#ff5e62;
     color:#16a085;
+    color:#027084;
 }
 .prod-details .quant{
     display: flex;
@@ -89,7 +86,9 @@ border-top-left-radius: 0;
     border:1px solid #ff9966;
     border:1px solid #00cdac;
     background-image: linear-gradient(to right, #ff9966, #ff5e62); 
-    background-image: linear-gradient(45deg,#02aab0 0%,#00cdac 100% );
+    background-image: linear-gradient(45deg,#027084 0%,#027084 100% );
+    background: linear-gradient(170deg, rgba(49, 57, 73, 0.8) 20%, rgba(49, 57, 73, 0.5) 20%, rgba(49, 57, 73, 0.5) 35%, rgba(41, 48, 61, 0.6) 35%, rgba(41, 48, 61, 0.8) 45%, rgba(31, 36, 46, 0.5) 45%, rgba(31, 36, 46, 0.8) 75%, rgba(49, 57, 73, 0.5) 75%), linear-gradient(45deg, rgba(20, 24, 31, 0.8) 0%, rgba(41, 48, 61, 0.8) 50%, rgba(82, 95, 122, 0.8) 50%, rgba(133, 146, 173, 0.8) 100%) #313949;
+
     color:#fff;
     width:80%;
     padding:15px 10px;
@@ -108,6 +107,8 @@ background-image: linear-gradient(to right, #00cdac, #02aab0);
 .quant .quantity span{
     color:#ff5e62;
     color:#16a085;
+    color:#027084;
+    font-weight: 800;
 }
 .quant .increaseQuant,.quant .decreaseQuant{
     font-size:1rem;
@@ -130,17 +131,20 @@ background-image: linear-gradient(to right, #00cdac, #02aab0);
     font-size: 1.3rem;
     color:#ff5e62;
     color:#16a085;
+    color:#027084;
     display: inline;
     margin-right: 20px;
+    font-weight: 800;
 }
 .prod-details .sold p span{
     color:#333;
 }
 .prod-details .deliver p{
     font-size:1.4rem;
-    font-weight: 500;
+    font-weight: 800;
     color:#ff5e62;
     color:#16a085;
+    color:#027084;
 }
 .prod-details .deliver div{
     display: flex;
