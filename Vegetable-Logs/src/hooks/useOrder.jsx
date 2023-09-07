@@ -15,7 +15,7 @@ const useOrder = (uid) => {
                 setOrders(res.data);
             })
             .catch((err) => {
-                console.log("err", err)
+                setError(err);
             })
     }, []);
 

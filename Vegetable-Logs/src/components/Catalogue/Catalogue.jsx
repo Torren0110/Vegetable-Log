@@ -7,6 +7,7 @@ import userService from "../../services/user-service";
 import "./style.css"
 import Orders from "../Orders/orders";
 import orderService from "../../services/order-service";
+import Sales from "../Sales/Sales";
 
 const Catalogue = () => {
   const [ searchString, setSearchString ] = useState("");
@@ -73,6 +74,7 @@ const Catalogue = () => {
   return (
     <div className="vegetable-div">
       {/* <Orders /> */}
+      <Sales />
       <h2 className="heading">Listed Items</h2>
       <VegetableSearchBar className="searchbar"  onSearch = {(str) => { setSearchString(str) }} />
       <VegetableGrid isLoading={isLoading} vegetables={vegetables} />
