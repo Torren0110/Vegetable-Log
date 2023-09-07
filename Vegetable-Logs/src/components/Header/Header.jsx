@@ -14,10 +14,11 @@ import 'react-toastify/dist/ReactToastify.css';
 const Header = () => {
 
   const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-  const { uid, logout } = useContext(ShopContext);
+  const { uid, logout, user } = useContext(ShopContext);
   const [isOpen, setIsOpen] = useState(false);
   const [Open, setOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const dropRef = useRef(null);
 
   const LogOut =async ()=>{
     toast.success('LOGGED OUT!', {
@@ -42,6 +43,8 @@ const Header = () => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsOpen(false);
+      }
+      if (dropRef.current && !dropRef.current.contains(event.target)) {
         setOpen(false);
       }
     };
@@ -67,7 +70,7 @@ const Header = () => {
     <Link className="links " to="/">home</Link>
     <Link className="links" to="/about">about</Link>
     <Link className="links" to="/prices">Items</Link>
-    <Link className="links" to="/sellform">Sell</Link>
+    {user.seller ? <Link className="links" to="/sellform">Sell</Link>: <></> }
    </nav>
     
    
@@ -81,7 +84,7 @@ const Header = () => {
               <Link className="links active" to="/">home</Link>
               <Link className="links" to="/about">about</Link>
               <Link className="links" to="/prices">Prices</Link>
-              <Link className="links" to="/sellform">Sell</Link>
+              {user.seller ? <Link className="links" to="/sellform">Sell</Link>: <></> }
           </ul>
         )}
      </div>
@@ -91,15 +94,15 @@ const Header = () => {
         <Link to="/register">  <BiRegistered className='icon'/></Link>]
         :
         [<Link to="/cart"> <AiOutlineShoppingCart className='icon'/></Link>,
-        <div className="dropdown-container" ref={dropdownRef}>
+        <div className="dropdown-container" ref={dropRef}>
           <div className="toggle-icon" onClick={toggleDrop}>
           <Link><BiUser className='icon' /></Link>
           </div>
           {Open && (
             <ul className="items">
                 <Link className="links active" to="/profile">Profile</Link>
-                <Link className="links" to="/">Orders</Link>
-                <Link className="links" to="/">Sales</Link>
+                <Link className="links" to="/orders">Orders</Link>
+                {user.seller ? <Link className="links" to="/sales">Sales</Link>: <></> }
                 <Link onClick={LogOut} className=" links" to="/">Logout</Link>
             </ul>
           )}
