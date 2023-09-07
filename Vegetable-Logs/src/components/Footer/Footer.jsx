@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="footer">
   <div className="box-container">
-    <div className="box" data-aos="fade-right">
+    <div className="box" >
       <h3>quick links</h3>
       <Link className='link' to="/"><i className="fas fa-chevron-right" /> Home</Link>
       <Link className='link' to="/about"><i className="fas fa-chevron-right" /> About</Link>
@@ -16,7 +16,7 @@ const Footer = () => {
       <Link className='link' to="/"><i className="fas fa-chevron-right" /> Contact</Link>
      
     </div>
-    <div className="box" data-aos="fade-right">
+    <div className="box" >
       <h3>Top Cities</h3>
       <Link className='link' to="/" ><i className="fas fa-chevron-right" /> Dehradun</Link>
       <Link className='link' to="/" ><i className="fas fa-chevron-right" /> Delhi</Link>
@@ -26,7 +26,7 @@ const Footer = () => {
 
      
     </div>
-    <div className="box" data-aos="fade-left">
+    <div className="box" >
       <h3>follow us</h3>
       <Link className='link' to="/" ><i className="fab fa-facebook-f" /> facebook</Link>
       <Link className='link' to="/" ><i className="fab fa-twitter" /> twitter</Link>

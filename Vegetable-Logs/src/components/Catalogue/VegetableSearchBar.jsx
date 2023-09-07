@@ -13,15 +13,15 @@ const VegetableSearchBar = ({ onSearch }) => {
       }}
     >
       <input
-        className="form-control me-2 w-50"
+        className="searchbar"
         type="search"
-        placeholder="Search"
+        placeholder="Search Here..."
         aria-label="Search"
         onChange={(event) => {
           setSearch(event.target.value);
         }}
       />
-      <button className="btn btn-outline-primary">Search</button>
+      <button className=" searchbtn">Search </button>
     </form>
   );
 };

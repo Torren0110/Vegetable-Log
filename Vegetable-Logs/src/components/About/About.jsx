@@ -1,11 +1,13 @@
 import React from 'react';
 import './About.css';
-import img from "../../assets/about.png"
+import img from "../../assets/about.png";
+
 
 function About() {
+ 
   return (
 <div className='main-about'>
-<section className="about " id="about">
+<section className="about " id="about" >
   <h1 className="heading">
     <span>about</span> us </h1>
   <div className="row">
@@ -38,12 +40,12 @@ function About() {
   </div>
 </section>
 
-<section className='sect'>
+<section className='sect' >
 <div className="row">
   <h2 className="section-heading">Our Services</h2>
 </div>
 <div className="row">
-  <div className="column">
+  <div className="column" data-aos="fade-right">
     <div className="card">
       
       <h3>Online Vegetable Platform</h3>
@@ -54,7 +56,7 @@ function About() {
 
     </div>
   </div>
-  <div className="column">
+  <div className="column" data-aos="fade-in">
     <div className="card secondcard">
       
       <h3>Home Delivery Service</h3>
@@ -64,7 +66,7 @@ function About() {
 
     </div>
   </div>
-  <div className="column">
+  <div className="column" data-aos="fade-left">
     <div className="card thirdcard">
       
       <h3>Educational Resources</h3>
@@ -75,7 +77,7 @@ function About() {
 
     </div>
   </div>
-  <div className="column">
+  <div className="column" data-aos="fade-right">
     <div className="card fourthcard">
      
       <h3>Farm-to-Table Services</h3>
@@ -86,7 +88,7 @@ function About() {
 
     </div>
   </div>
-  <div className="column">
+  <div className="column" data-aos="fade-in">
     <div className="card fifthcard">
       
       <h3>Environmental Initiatives</h3>
@@ -97,7 +99,7 @@ function About() {
 
     </div>
   </div>
-  <div className="column">
+  <div className="column" data-aos="fade-left">
     <div className="card sixthcard">
      
       <h3>Subscription Services</h3>

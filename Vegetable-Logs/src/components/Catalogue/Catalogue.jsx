@@ -71,13 +71,12 @@ const Catalogue = () => {
 
 
   return (
-    <div >
+    <div className="vegetable-div">
       {/* <Orders /> */}
-      <VegetableSearchBar  onSearch = {(str) => { setSearchString(str) }} />
       <h2 className="heading">Listed Items</h2>
+      <VegetableSearchBar className="searchbar"  onSearch = {(str) => { setSearchString(str) }} />
       <VegetableGrid isLoading={isLoading} vegetables={vegetables} />
-      {/* <VegetableSearchBar onSearch = {(str) => { setSearchString(str) }} />
-        <VegetableGrid isLoading={isLoading} vegetables={vegetables} /> */}
+      
     </div>
   );
 };

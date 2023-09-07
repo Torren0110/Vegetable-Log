@@ -85,21 +85,30 @@
   color: #222;
   background-color: white;
 }
-  .emptyCart{
-    margin: 120px;
+  .emptyCart h1{
+    color:#fff;
   }
-
+.emptyCart{
+  margin-top:100px;
+}
   .emptyCart button {
-    padding: 2px;
-    width: 150px;
-    height: 50px;
-    background-color: rgb(19, 19, 19);
-    color: white;
+    padding: 20px ;
+    
+    background-color: #fff;
+    color:#222;
     border: none;
     border-radius: 8px;
     margin: 50px;
+    margin-bottom:100px;
     margin-left: 100px;
+    font-weight: 700;
+    border:2px solid #fff;
     cursor: pointer;
+  }
+  .emptyCart button:hover{
+   
+    background-color: transparent;
+    color: white;
   }
   .countHandler button{
     width:40px;

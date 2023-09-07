@@ -4,7 +4,8 @@
     text-transform: uppercase;
     margin-top:3rem;
     margin-bottom:3rem;
-    font-weight:900
+    font-weight:900;
+    color:#fff;
 }
 p.vegprice,p.quantity{
     color:#fff;
@@ -12,7 +13,12 @@ p.vegprice,p.quantity{
     margin-left:1.2rem;
 
 }
-
+.vegetable-div{
+    background: linear-gradient(170deg, rgba(49, 57, 73, 0.8) 20%, rgba(49, 57, 73, 0.5) 20%, rgba(49, 57, 73, 0.5) 35%, rgba(41, 48, 61, 0.6) 35%, rgba(41, 48, 61, 0.8) 45%, rgba(31, 36, 46, 0.5) 45%, rgba(31, 36, 46, 0.8) 75%, rgba(49, 57, 73, 0.5) 75%), linear-gradient(45deg, rgba(20, 24, 31, 0.8) 0%, rgba(41, 48, 61, 0.8) 50%, rgba(82, 95, 122, 0.8) 50%, rgba(133, 146, 173, 0.8) 100%) #313949;
+margin-top:-50px;
+margin-bottom:-20px;
+padding-top:40px;
+}
 p.vegname{
     color:#fff;
     text-align: center;
@@ -83,6 +89,19 @@ border:0 none;
 .main-card:nth-child(2){
     background: linear-gradient(to bottom,#24ff72,#9a4eff);
 } 
+.searchbar{
+    background-color: #fff;
+    height:60px;
+    width:750px;
+    border:none;
+    outline: none;
+    border-radius: 5px;
+    padding-left:30px;
+    padding-right:30px;
+}
+.searchbar::placeholder{
+    color:#555;
+}
 .icons{
     position: relative;
     width:140px;
@@ -126,4 +145,21 @@ border:0 none;
 }
 .main-card .content{
     padding-top:40px;
+}
+
+
+.searchbtn {
+    color:#fff;
+    background-color: transparent;
+    border: 2px solid #fff;
+    font-size: 1rem;
+    border-radius: 7px;
+    margin-left: 10px;
+    font-weight:500;
+    padding:16px 20px;
+    cursor: pointer;
+  }
+.searchbtn:hover{
+  color: #222;
+  background-color: white;
 }

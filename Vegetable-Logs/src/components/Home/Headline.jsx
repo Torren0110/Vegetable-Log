@@ -9,10 +9,10 @@ const Headline = () => {
     <div className="highlights">
       <h2 className="heading">Top <span>Highlights</span></h2>
     <section className="home" id="home">
-  <div className="content" data-aos="fade-left">
+  <div className="content" data-aos="fade-right">
   <img src={anchor} alt="" />
   </div>
-  <div className="image" data-aos="fade-right" />
+  <div className="image" data-aos="fade-left" />
 </section>
 </div>
     </>
