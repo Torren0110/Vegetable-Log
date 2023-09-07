@@ -15,6 +15,8 @@ import CheckOut from './components/CheckOut/CheckOut'
 import Profile from './components/Profile/Profile'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
+import Orders from './components/Orders/orders'
+import Sales from './components/Sales/Sales'
 // ..
 
 function App() {
@@ -60,6 +62,8 @@ function App() {
           <Route path='/about' element={<About />}/>
           <Route path='/checkout' element={<CheckOut/>}/>
           <Route path='/profile' element={<Profile/>}/>
+          <Route path='/orders' element={<Orders/>}/>
+          <Route path='/sales' element={<Sales/>}/>
           <Route path='/' element={<Home/>}/>
         </Routes>
         <Footer />
