@@ -43,7 +43,7 @@ const Cart = () => {
       {totalAmt>0 ?
       <div className="checkout">
         <p>Subtotal: Rs. {totalAmt}</p>
-        <button onClick={()=>navigate('/')} >Continue Shopping</button>
+        <button onClick={()=>navigate('/prices')} >Continue Shopping</button>
         <button onClick={()=>navigate('/checkout',{
           state:{
             amt:totalAmt,

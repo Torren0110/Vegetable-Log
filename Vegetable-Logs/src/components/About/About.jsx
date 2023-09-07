@@ -4,7 +4,7 @@ import img from "../../assets/about.png"
 
 function About() {
   return (
-<div>
+<div className='main-about'>
 <section className="about " id="about">
   <h1 className="heading">
     <span>about</span> us </h1>
@@ -46,7 +46,7 @@ function About() {
   <div className="column">
     <div className="card">
       
-      <h3>Online Vegetable Marketplaces</h3>
+      <h3>Online Vegetable Platform</h3>
       <p>
       These platforms allow users to buy and sell fresh vegetables online. Farmers and vendors can list their produce, and customers can browse and purchase a variety of vegetables from the comfort of their homes.
       </p>

@@ -12,11 +12,13 @@
 .offer{
     padding:30px;
     padding-top:65px;
+    /* background: linear-gradient(170deg, rgba(49, 57, 73, 0.8) 20%, rgba(49, 57, 73, 0.5) 20%, rgba(49, 57, 73, 0.5) 35%, rgba(41, 48, 61, 0.6) 35%, rgba(41, 48, 61, 0.8) 45%, rgba(31, 36, 46, 0.5) 45%, rgba(31, 36, 46, 0.8) 75%, rgba(49, 57, 73, 0.5) 75%), linear-gradient(45deg, rgba(20, 24, 31, 0.8) 0%, rgba(41, 48, 61, 0.8) 50%, rgba(82, 95, 122, 0.8) 50%, rgba(133, 146, 173, 0.8) 100%) #313949; */
+
 }
 .offer .heading{
   text-align: center;
   text-transform: uppercase;
-  color:var(--black);
+  color:#fff;
   font-size: 2.4rem;
   font-weight:900;
   letter-spacing: 0.1rem;
@@ -25,7 +27,7 @@
 }
 .offer .heading span{
   text-transform: uppercase;
-  color:var(--green);
+  /* color:var(--green); */
   }
 .offer .review{
   display: grid;
@@ -43,25 +45,28 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+
 }
 del {
   text-decoration: line-through !important;
 }
 .offer .wrapper .box{
   background: #f7f7f7;
+  background: transparent;
   width: calc(32% - 5px);
   margin-bottom:2rem;
   border-radius: 10px;
   transition: 0.5s;
   height:380px;
-  border: 1px solid #eee;
+  border: 3px solid #fff;
 }
 .offer .wrapper .box:hover{
   /* box-shadow: 0px 4px 8px rgba(0,0,0,0.15); */
   transform: scale(1.03);
   cursor: pointer;
   border-radius: 10px;
-  border: 1px solid #444;
+  /* border: 1px solid #444; */
 
 }
 
@@ -82,7 +87,7 @@ padding-top:80px;
 .offer .box .info .name{
   font-weight: 800;
   font-size: 1.7rem;
-  color: var(--green);
+  color: #fff;
   text-transform: uppercase;
   margin-bottom:.5rem;
   text-align: center;
@@ -91,25 +96,25 @@ padding-top:80px;
   font-size: 1.2rem;
   font-weight: 700;
   margin-bottom:5px;
-  color:var(--green);
+  color:#50c3d7;
 }
 .offer .box .info .city span{
-  color:#333;
+  color:#fff;
   font-weight: 900;
   
 }
 .offer .box .info .price {
   font-size: 1.2rem;
   font-weight: 800;
-  color:#333;
+  color:#fff;
 }
 .offer .box .info .price span.real{
-  color: var(--green);
+  color: #50c3d7;
   margin-right:10px;
 }
 .offer .box .info .price del,
   .offer .box .info .price span{
-  color:tomato;
+  color:yellow;
 }
 
 .offer .box .content .image{
@@ -119,11 +124,17 @@ padding-top:80px;
   padding-left:100px;
   padding-top:30px;
   border-radius: 10px;
+  border-bottom: 2px solid #fff;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   background-color: #10856d;
+  background-color: #027084;
+  /* background-color: transparent; */
 
 }
+/* .offer .box .content .image img:hover{
+  transform: scale(1.1);
+} */
 .offer .content .image img{
   height: 150px;
   width: 60%;
@@ -170,12 +181,12 @@ padding-top:80px;
 .offer .view{
   padding:15px 20px;
   color:#fff;
-  background-color:var(--green);
+  background-color:transparent;
   border-radius: 6px;
   border:2px solid #fff;
 }
 .offer .view:hover{
   background-color:#fff;
-  color:var(--green);
-  border:2px solid var(--green);
+  color:#000;
 }
+

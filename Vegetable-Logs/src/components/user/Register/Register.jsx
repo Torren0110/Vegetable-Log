@@ -37,6 +37,7 @@ const Register = () => {
         address:"",
         password: "",
         confirm_password: "",
+        seller:""
       };
 
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
@@ -52,6 +53,7 @@ const Register = () => {
           address: values.address,
           password1: values.password,
           password2: values.confirm_password,
+          seller:values.seller
         }
         console.log(data)
         userService.register(data)
@@ -84,7 +86,7 @@ const Register = () => {
                     </label>
                     <input
                       type="name"
-                      autoComplete="off"
+                      // autoComplete="off"
                       name="username"
                       id="username"
                       placeholder="Name"
@@ -102,7 +104,7 @@ const Register = () => {
                     </label>
                     <input
                       type="number" 
-                      autoComplete="off"
+                      // autoComplete="off"
                       name="phone"
                       id="phone"
                       placeholder="Phone" 
@@ -120,7 +122,7 @@ const Register = () => {
                     </label>
                     <input
                       type="email"
-                      autoComplete="off"
+                      // autoComplete="off"
                       name="email"
                       id="email"
                       placeholder="Email"
@@ -138,7 +140,7 @@ const Register = () => {
                     </label>
                     <input
                       type="text"
-                      autoComplete="off"
+                      // autoComplete="off"
                       name="address"
                       id="address"
                       placeholder="address"
@@ -188,8 +190,12 @@ const Register = () => {
                   </div>
                   <div className="model-buttons">
                     <div>
-                   <input type="checkbox" name="" id="" required/>
-                   <label htmlFor="">I agree with terms and conditions</label>
+                   <input type="checkbox" name="seller" id="seller" 
+                       value={values.seller}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      required/>
+                   <label htmlFor="">Register as seller</label>
                    </div>
                     
                   </div>

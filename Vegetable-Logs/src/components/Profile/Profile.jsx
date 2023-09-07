@@ -1,6 +1,6 @@
 import React,{useContext, useEffect, useState} from "react";
 import { useFormik } from "formik";
-import "../user/Register/register.css"
+import "./Profile.css"
 import userService from "../../services/user-service";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -78,14 +78,16 @@ const Register = () => {
         },
       });
 
+
+
       
       if(uid === '') return <h1>Login First!!!</h1>
       
       return (
         <>
     <ToastContainer/>
-    <div className="maindiv">
-          <div className="model">
+    <div className="profile">
+    <div  className="maindiv">
             <div className="model-container">
               <div className="model-left">
                 <h1 className="model-title">User Profile</h1>
@@ -159,14 +161,9 @@ const Register = () => {
                   </div>
                 </form>
               </div>
-              <div className="model-right">
-                <img
-                  src={Logo}
-                  alt=""
-                />
-              </div>
+             
             </div>
-          </div>
+        </div>
         </div>
     </>
   )
