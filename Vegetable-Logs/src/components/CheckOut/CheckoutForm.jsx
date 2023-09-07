@@ -5,6 +5,11 @@ import {
 } from '@stripe/react-stripe-js';
 import axios from "axios"
 import './Checkout.css'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { useNavigate } from 'react-router-dom';
+import { ShopContext } from '../../context/shop-context';
+import { useContext } from 'react';
 
 const CARD_ELEMENT_OPTIONS = {
   style: {
@@ -24,8 +29,12 @@ const CARD_ELEMENT_OPTIONS = {
 };
 
 export default function CheckoutForm(props) {
+
+  const { removeAll,cart } = useContext(ShopContext)
+  const navigate = useNavigate()
+  const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
+  // const [success, setSuccess] = useState(false);
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -62,13 +71,23 @@ export default function CheckoutForm(props) {
         amount:props.amount,
         id,
         uid: props.uid,
+        cart,
       }
       console.log("data:",data)
       const response = await axios.post("http://localhost:3000/api/carts/pay", data)
       if(response.data.success){
         console.log(response.data.message)
-        setSuccess(true)
+        // setSuccess(true)
         setLoading(false)
+        toast.success('Payment successfull !', {
+          position: toast.POSITION.BOTTOM_CENTER,
+          hideProgressBar: true,
+          autoClose: 1000,
+          pauseOnHover: false,
+        });
+        removeAll()
+        await delay(3000); 
+        navigate("/")
       }
     }
     else{
@@ -93,6 +112,7 @@ export default function CheckoutForm(props) {
 
   return (
       <div className='container'>
+        <ToastContainer/>
       <h4> Pay with card      </h4>
       <form onSubmit={handleSubmit}>
 

@@ -20,7 +20,7 @@ export const ShopContextProvider = (props) =>{
         window.location.reload()
         // console.log(uid)
     }
-    
+
     const addToCart = (vid, qty)=>{
         cartService.addToCart(uid, vid, qty).then((res) => {
             console.log(res.data)
@@ -30,6 +30,18 @@ export const ShopContextProvider = (props) =>{
             // console.log(err, "error in fetching user cart")
         });
     }
+
+    const removeAll = ()=>{
+        for(const item of cart){
+            console.log(item)
+            if(item.quantity > 0){
+                const newQuant= item.quantity*-1;
+                console.log("Sent",item.vegID._id,newQuant)
+                addToCart(item.vegID._id,newQuant)
+            }
+        }
+    }
+
     useEffect(()=>{
         const res = checkToken();
         // console.log("res: ",res)
@@ -64,6 +76,7 @@ export const ShopContextProvider = (props) =>{
                         logout,
                         count,
                         setCount,
+                        removeAll,
                     }
 
     return <ShopContext.Provider value={contextValue} >{props.children}</ShopContext.Provider>
