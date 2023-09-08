@@ -17,7 +17,7 @@ const useOrder = (uid) => {
             .catch((err) => {
                 setError(err);
             })
-    }, []);
+    }, [uid]);
 
     return { orders, error, isLoading };
 }

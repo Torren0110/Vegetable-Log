@@ -1,5 +1,4 @@
 import useSales from "../../hooks/useSales";
-import salesService from "../../services/sales-service";
 import { Stack } from "@mui/material";
 import SaleItem from "./SaleItem";
 import { ShopContext } from "../../context/shop-context";
@@ -20,15 +19,9 @@ const Sales = () => {
       setTotalAmt(total);
     },[sales]);
 
-    // salesService.update("64f9c99375942fd862dd9de7", "shipped") => Takes cart ID and status("paid" || "shipped" || "delivered")
-    //     .then((res) => {
-    //         console.log("res", res.data);
-    //     })
-    //     .catch((err) => {
-    //         console.log("err", err);
-    //     });
-
-    console.log(sales)
+    // console.log(sales)
+    if(loading)
+    return <h1>Loading</h1>
 
     return <>
         <h1>Sales</h1>
