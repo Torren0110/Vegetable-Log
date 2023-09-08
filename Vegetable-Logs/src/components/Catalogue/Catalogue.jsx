@@ -74,7 +74,7 @@ const Catalogue = () => {
   return (
     <div className="vegetable-div">
       {/* <Orders /> */}
-      <Sales />
+      {/* <Sales /> */}
       <h2 className="heading">Listed Items</h2>
       <VegetableSearchBar className="searchbar"  onSearch = {(str) => { setSearchString(str) }} />
       <VegetableGrid isLoading={isLoading} vegetables={vegetables} />
