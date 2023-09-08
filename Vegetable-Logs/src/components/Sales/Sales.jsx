@@ -5,7 +5,7 @@ import { ShopContext } from "../../context/shop-context";
 import { useState, useEffect, useContext } from "react";
 
 const Sales = () => {
-    const { uid } = useContext(ShopContext)
+    const { uid,user } = useContext(ShopContext)
     const { sales, loading, error } = useSales(uid)
     const [totalAmt,setTotalAmt] = useState(0);
     useEffect(()=>{
@@ -18,6 +18,10 @@ const Sales = () => {
       }
       setTotalAmt(total);
     },[sales]);
+
+    if(!user.seller){
+        return <h1> Not a seller account </h1>
+    }
 
     // console.log(sales)
     if(loading)

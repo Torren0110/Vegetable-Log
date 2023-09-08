@@ -25,7 +25,7 @@ const schema = z.object({
 });
 
 const SellForm = () => {
-  const { uid } = useContext(ShopContext);
+  const { uid,user } = useContext(ShopContext);
   const {
     register,
     handleSubmit,
@@ -53,6 +53,10 @@ const SellForm = () => {
         setError(true);
       });
   };
+
+  if(!user.seller){
+    return <h1> Not a seller account </h1>
+  }
 
   return (
     <div className="form">
