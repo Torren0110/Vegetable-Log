@@ -8,6 +8,9 @@ const Orders = () => {
     const { uid } = useContext(ShopContext);
     const { orders, error, isLoading } = useOrder(uid);
     
+    if(isLoading)
+    return <h1>Loading</h1>
+
     return <>
         <h1>Orders</h1>
         <Stack>

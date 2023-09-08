@@ -18,7 +18,7 @@ const useSales = (uid) => {
                 setError(err);
             })
 
-    }, []);
+    }, [uid]);
 
     return { sales, loading, error };
 }
