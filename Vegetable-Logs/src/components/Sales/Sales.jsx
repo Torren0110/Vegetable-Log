@@ -29,10 +29,16 @@ const Sales = () => {
 
     return <>
         <h1>Sales</h1>
-        <Stack>
-            { sales.map(sale => <SaleItem key={sales._id} item={sale} /> ) }
-        </Stack>
-        Total Sale: Rs. {totalAmt}
+        {
+            sales.length
+            ?
+            [<Stack>
+                { sales.map(sale => <SaleItem key={sales._id} item={sale} /> ) }
+            </Stack>,
+            <h5>Total Sale: Rs. ${totalAmt}</h5>]
+            :
+            <h1>You have no Sales!!</h1>
+        }
     </>
 }
 
