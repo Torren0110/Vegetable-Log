@@ -1,7 +1,7 @@
 import { ListItem, ListItemAvatar, ListItemText, Typography, Avatar } from "@mui/material";
 
 const OrderItem = ({ item }) => {
-    console.log(item);
+    // console.log(item);
     return (<ListItem alignItems="flex-start">
     <ListItemAvatar>
       <Avatar alt="Remy Sharp" src={ item.vegID.image } />
@@ -14,9 +14,8 @@ const OrderItem = ({ item }) => {
             variant="body2"
             color="text.primary"
           >
-            Paid
-          </Typography>
           Status: {item.status}
+          </Typography>
         </>
       }
     />

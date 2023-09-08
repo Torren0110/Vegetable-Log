@@ -30,11 +30,10 @@ const CARD_ELEMENT_OPTIONS = {
 
 export default function CheckoutForm(props) {
 
-  const { setCount,cart } = useContext(ShopContext)
+  const { count,setCount,cart } = useContext(ShopContext)
   const navigate = useNavigate()
   const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
   const [loading, setLoading] = useState(false);
-  // const [success, setSuccess] = useState(false);
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -77,21 +76,16 @@ export default function CheckoutForm(props) {
       const response = await axios.post("http://localhost:3000/api/carts/pay", data)
       if(response.data.success){
         console.log(response.data.message)
-        // setSuccess(true)
         setLoading(false)
-        toast.success('Payment successfull !', {
-          position: toast.POSITION.BOTTOM_CENTER,
-          hideProgressBar: true,
-          autoClose: 1000,
-          pauseOnHover: false,
-        });
-        setCount(0)
-        await delay(3000); 
-        navigate("/")
+        setCount(count+1)
+        props.setPaymentRes("success")
       }
     }
     else{
       console.log(error.message)
+      props.setPaymentRes(error.message)
+        await delay(3000); 
+        navigate("/cart")
     }
   };
 
@@ -140,7 +134,6 @@ export default function CheckoutForm(props) {
         <button  type="submit" disabled={loading}>
           {loading ? <div className="spinner-border spinner-border-sm text-light" role="status"></div> : `PAY  ₹${props.amount}`}
         </button>
-        {/* {success && <div className="text-danger mt-2">{success}</div>} */}
       </form>
       </div>
   );
