@@ -77,7 +77,7 @@ router.post("/pay", async (req, res) => {
 		
     // console.log("Payment", payment);
 
-    await Cart.updateMany({ userID: uid }, { $set: { paid: true } });
+    await Cart.updateMany({ userID: uid }, { $set: { paid: true, status: "paid" } });
 
     cart.forEach(async (c) => {
       await Vegetable.updateMany({ _id: c.vegID._id }, { $inc: { quantity: -c.quantity } });
