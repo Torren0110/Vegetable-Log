@@ -35,7 +35,7 @@ const Sales = () => {
             [<Stack>
                 { sales.map(sale => <SaleItem key={sales._id} item={sale} /> ) }
             </Stack>,
-            <h5>Total Sale: Rs. ${totalAmt}</h5>]
+            <h5>Total Sale: Rs. {totalAmt}</h5>]
             :
             <h1>You have no Sales!!</h1>
         }
