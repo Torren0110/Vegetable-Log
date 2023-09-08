@@ -1,12 +1,26 @@
-.heading{
-    text-align: center;
-    font-size:2rem;
+
+.vegetable-div .heading{
     text-transform: uppercase;
-    margin-top:3rem;
-    margin-bottom:3rem;
-    font-weight:900;
     color:#fff;
-}
+    font-size: 2.4rem;
+    font-weight:900;
+    letter-spacing: 0.1rem;
+    position:relative;
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  
+  .vegetable-div .heading::after
+  {
+    content:'';
+    height:5px;
+    border-radius: 7px;
+    width:130px;
+    background:orange;
+    position:absolute;
+    left:calc(56% - 10%);
+    bottom:-12px;
+  }
 p.vegprice,p.quantity{
     color:#fff;
     font-size:1.2rem;
@@ -15,6 +29,9 @@ p.vegprice,p.quantity{
 }
 .vegetable-div{
     background: linear-gradient(170deg, rgba(49, 57, 73, 0.8) 20%, rgba(49, 57, 73, 0.5) 20%, rgba(49, 57, 73, 0.5) 35%, rgba(41, 48, 61, 0.6) 35%, rgba(41, 48, 61, 0.8) 45%, rgba(31, 36, 46, 0.5) 45%, rgba(31, 36, 46, 0.8) 75%, rgba(49, 57, 73, 0.5) 75%), linear-gradient(45deg, rgba(20, 24, 31, 0.8) 0%, rgba(41, 48, 61, 0.8) 50%, rgba(82, 95, 122, 0.8) 50%, rgba(133, 146, 173, 0.8) 100%) #313949;
+    /* background: url('../../assets/background_image.jpg');
+background-size: 100%; */
+
 margin-top:-30px;
 margin-bottom:-20px;
 padding:0;
@@ -58,7 +75,7 @@ border:0 none;
     height:420px;
     margin:30px;
     margin-bottom: 80px;
-    border-radius: 20px;
+    border-radius: 10px;
     border:2px solid #fff;
     background: transparent;
     overflow: hidden;

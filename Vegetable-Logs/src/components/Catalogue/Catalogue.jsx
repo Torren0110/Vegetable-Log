@@ -76,6 +76,7 @@ const Catalogue = () => {
     <div className="vegetable-div">
       {/* <Orders /> */}
       {/* <Sales /> */}
+
       {/* <Prediction /> */}
       <h2 className="heading">Listed Items</h2>
       <VegetableSearchBar className="searchbar"  onSearch = {(str) => { setSearchString(str) }} />

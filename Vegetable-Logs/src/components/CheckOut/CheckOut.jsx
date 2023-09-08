@@ -15,7 +15,7 @@ const CheckOut = () => {
     const [paymentCompleted, setPaymentCompleted] = useState(false);
 
   return (
-    <div>
+    <div className='payment'>
       <Elements stripe={stripePromise}>
               <CheckoutForm amount={amount} uid={uid} setPaymentCompleted={setPaymentCompleted} />
       </Elements>

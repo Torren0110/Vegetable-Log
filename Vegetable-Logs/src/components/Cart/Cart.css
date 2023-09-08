@@ -4,9 +4,31 @@
     justify-content: center;
     align-items: center;
     background: linear-gradient(170deg, rgba(49, 57, 73, 0.8) 20%, rgba(49, 57, 73, 0.5) 20%, rgba(49, 57, 73, 0.5) 35%, rgba(41, 48, 61, 0.6) 35%, rgba(41, 48, 61, 0.8) 45%, rgba(31, 36, 46, 0.5) 45%, rgba(31, 36, 46, 0.8) 75%, rgba(49, 57, 73, 0.5) 75%), linear-gradient(45deg, rgba(20, 24, 31, 0.8) 0%, rgba(41, 48, 61, 0.8) 50%, rgba(82, 95, 122, 0.8) 50%, rgba(133, 146, 173, 0.8) 100%) #313949;
-    margin-top:-20px;
+    margin-top:-40px;
     margin-bottom:-20px;
-    padding:30px;
+    padding:70px 0;
+  }
+#head{
+      text-transform: uppercase;
+    color:#fff;
+    font-size: 2.4rem;
+    font-weight:900;
+    letter-spacing: 0.1rem;
+    margin-top:20px;
+    margin-bottom:40px;
+    position:relative;
+    text-align: center;
+  }
+  
+  #head::after  {
+    content:'';
+    height:5px;
+    border-radius: 7px;
+    width:100px;
+    background:orange;
+    position:absolute;
+    left:calc(40% - 10%);
+    bottom:-13px;
   }
  #head{
   font-size: 2rem;
@@ -15,7 +37,7 @@
  }
   .cartItem {
     width: 700px;
-    height: 250px;
+    height: 260px;
     display: flex;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
     border-radius: 12px;
@@ -62,7 +84,8 @@
   }
   .checkout p{
     font-size:1.5rem;
-    /* margin-left:-180px; */
+    margin-top:15px;
+    margin-bottom:30px;
     text-align: center;
     /* margin:0; */
     font-weight:700;

@@ -12,8 +12,28 @@
 .offer{
     padding:30px;
     padding-top:65px;
-    /* background: linear-gradient(170deg, rgba(49, 57, 73, 0.8) 20%, rgba(49, 57, 73, 0.5) 20%, rgba(49, 57, 73, 0.5) 35%, rgba(41, 48, 61, 0.6) 35%, rgba(41, 48, 61, 0.8) 45%, rgba(31, 36, 46, 0.5) 45%, rgba(31, 36, 46, 0.8) 75%, rgba(49, 57, 73, 0.5) 75%), linear-gradient(45deg, rgba(20, 24, 31, 0.8) 0%, rgba(41, 48, 61, 0.8) 50%, rgba(82, 95, 122, 0.8) 50%, rgba(133, 146, 173, 0.8) 100%) #313949; */
+    margin-top:40px;    
+}
+.offer .heading{
+  text-transform: uppercase;
+  color:#fff;
+  font-size: 2.4rem;
+  font-weight:900;
+  letter-spacing: 0.1rem;
+  position:relative;
+  text-align: center;
+}
 
+.offer .heading::after
+{
+  content:'';
+  height:5px;
+  border-radius: 7px;
+  width:100px;
+  background:orange;
+  position:absolute;
+  left:calc(57% - 10%);
+  bottom:-12px;
 }
 .offer .heading{
   text-align: center;
@@ -114,7 +134,7 @@ padding-top:80px;
 }
 .offer .box .info .price del,
   .offer .box .info .price span{
-  color:yellow;
+  color:orange;
 }
 
 .offer .box .content .image{
@@ -127,7 +147,7 @@ padding-top:80px;
   border-bottom: 2px solid #fff;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
-  background-color: #10856d;
+  /* background-color: #80d0c7; */
   background-color: #027084;
   /* background-color: transparent; */
 

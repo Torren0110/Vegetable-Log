@@ -97,7 +97,7 @@ export default function CheckoutForm(props) {
 
 
   return (
-      <div className='container'>
+      <div className='payment_container'>
         <ToastContainer/>
       <h4> Pay with card      </h4>
       <form onSubmit={handleSubmit}>
@@ -126,19 +126,19 @@ export default function CheckoutForm(props) {
         </div>
 
         <div className="row">
-          <div className="col-md-12 mb-3">
+          <div >
             <label htmlFor="cc-number">Card Number</label>
             <CardElement
               id="cc-number"
-              className="form-control"
+              className="form-control card_no"
               options={CARD_ELEMENT_OPTIONS}
             />
           </div>
         </div>
 
         <hr className="mb-4" />
-        <button className="btn btn-dark w-100" type="submit" disabled={loading}>
-          {loading ? <div className="spinner-border spinner-border-sm text-light" role="status"></div> : `PAY ₹${props.amount}`}
+        <button  type="submit" disabled={loading}>
+          {loading ? <div className="spinner-border spinner-border-sm text-light" role="status"></div> : `PAY  ₹${props.amount}`}
         </button>
         {/* {success && <div className="text-danger mt-2">{success}</div>} */}
       </form>

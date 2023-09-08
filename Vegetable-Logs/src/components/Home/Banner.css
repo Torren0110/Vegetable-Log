@@ -1,0 +1,56 @@
+.image-slider {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: -50px;
+  }
+  
+  .pagination span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #bbb;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pagination span.active {
+    background-color: green;
+  }
+  .app{
+    padding-top:20px;
+  }
+  .image-slider button {
+      border: none;
+      border-radius: 50%;
+      margin:0 -20px;
+      width:50px;
+      height:50px;
+      background-color: green;
+    color: #fff;
+    cursor: pointer;
+    transition: .4s;
+    z-index:999;
+    opacity: 1;
+  }
+  .image-slider .arrow{
+    font-size:1.5rem;
+  }
+  .image-slider button:hover{
+   transform: scale(1.08);
+  }
+  .image-slider img {
+    width:1410px;
+    height: 610px;
+    border-radius: 20px;
+    opacity: .8.3;
+    box-shadow: 10px 20px 10px 10px 5px #fff;
+
+  }
