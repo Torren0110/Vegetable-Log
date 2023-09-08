@@ -37,8 +37,8 @@ const ItemView = () => {
         else{
           toast.error('FAILED TO ADD TO CART !', {
               position: toast.POSITION.BOTTOM_CENTER,
-              hideProgressBar: true,
-              autoClose: 1000,
+              hideProgressBar: false,
+              autoClose: 2000,
               pauseOnHover: false,
           });
         }

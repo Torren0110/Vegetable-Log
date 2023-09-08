@@ -15,20 +15,27 @@
   background-color: antiquewhite; */
   }
   .highlights .heading{
-    text-align: center;
     text-transform: uppercase;
     color:#fff;
     font-size: 2.4rem;
     font-weight:900;
     letter-spacing: 0.1rem;
-    margin:0;
-   
-    }
-    
-   .highlights .heading span{
-    text-transform: uppercase;
-    /* color:var(--green); */
-    }
+    margin-top:0px;
+    position:relative;
+    text-align: center;
+  }
+  
+  .highlights .heading::after
+  {
+    content:'';
+    height:5px;
+    border-radius: 7px;
+    width:100px;
+    background:orange;
+    position:absolute;
+    left:calc(57% - 10%);
+    bottom:-12px;
+  }
   #home .image{
       flex:1 1 60rem;
   max-width: 650px;

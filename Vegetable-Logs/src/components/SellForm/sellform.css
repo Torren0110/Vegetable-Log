@@ -4,7 +4,7 @@
    flex-direction: column;
    width:50%;
    margin-left:460px;
-   border: 1px solid #ccc;
+   border: 3px solid #ccc;
    padding:40px;
    border-radius: 7px;
    /* margin-bottom:4rem; */
@@ -12,14 +12,10 @@
    background:transparent;
 }
 .form{
-  background-image: linear-gradient(to right, #7fd8ec, #35a6c3); 
-  background-image: radial-gradient( circle farthest-corner at 22.4% 21.7%, rgba(4,189,228,1) 0%, rgba(2,83,185,1) 100.2% );
   background: linear-gradient(170deg, rgba(49, 57, 73, 0.8) 20%, rgba(49, 57, 73, 0.5) 20%, rgba(49, 57, 73, 0.5) 35%, rgba(41, 48, 61, 0.6) 35%, rgba(41, 48, 61, 0.8) 45%, rgba(31, 36, 46, 0.5) 45%, rgba(31, 36, 46, 0.8) 75%, rgba(49, 57, 73, 0.5) 75%), linear-gradient(45deg, rgba(20, 24, 31, 0.8) 0%, rgba(41, 48, 61, 0.8) 50%, rgba(82, 95, 122, 0.8) 50%, rgba(133, 146, 173, 0.8) 100%) #313949;
-background: url('../../assets/background_image.jpg');
-background-size: 100% 100%;
-  padding:40px 0;
+  padding:60px 0;
   padding-top:70px;
-  margin-top:-20px;
+  margin-top:-40px;
   margin-bottom:-20px;
 }
 .item-heading{
@@ -50,6 +46,7 @@ background-size: 100% 100%;
 .sell-form input[type="file"]{
    border:0 none;
    width:250px;
+   padding-top:12px;
 }
 .sell-form button.btn{
     padding:15px;

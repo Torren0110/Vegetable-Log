@@ -1,12 +1,26 @@
-.heading{
-    text-align: center;
-    font-size:2rem;
+
+.vegetable-div .heading{
     text-transform: uppercase;
-    margin-top:3rem;
-    margin-bottom:3rem;
-    font-weight:900;
     color:#fff;
-}
+    font-size: 2.4rem;
+    font-weight:900;
+    letter-spacing: 0.1rem;
+    position:relative;
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  
+  .vegetable-div .heading::after
+  {
+    content:'';
+    height:5px;
+    border-radius: 7px;
+    width:130px;
+    background:orange;
+    position:absolute;
+    left:calc(56% - 10%);
+    bottom:-12px;
+  }
 p.vegprice,p.quantity{
     color:#fff;
     font-size:1.2rem;

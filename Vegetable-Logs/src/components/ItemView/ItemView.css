@@ -10,8 +10,9 @@
         background: linear-gradient(170deg, rgba(49, 57, 73, 0.8) 20%, rgba(49, 57, 73, 0.5) 20%, rgba(49, 57, 73, 0.5) 35%, rgba(41, 48, 61, 0.6) 35%, rgba(41, 48, 61, 0.8) 45%, rgba(31, 36, 46, 0.5) 45%, rgba(31, 36, 46, 0.8) 75%, rgba(49, 57, 73, 0.5) 75%), linear-gradient(45deg, rgba(20, 24, 31, 0.8) 0%, rgba(41, 48, 61, 0.8) 50%, rgba(82, 95, 122, 0.8) 50%, rgba(133, 146, 173, 0.8) 100%) #313949;
 
 margin:0;
-padding-top:30px;
-margin-top:-20px;
+padding-top:60px;
+padding-bottom:30px;
+margin-top:-40px;
 margin-bottom:-20px;
 display: flex;
 align-items: center;
@@ -24,7 +25,7 @@ width:1080px;
     height:530px;
     margin-bottom:5rem;
     margin-top:2rem;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 .imageWrapper{
     width:42% !important;
@@ -38,7 +39,7 @@ width:1080px;
 }
 .imageWrapper img{
     width:80%;
-    height:50%;
+    height:55%;
 }
 p.delivery{
     font-size:1.2rem;
@@ -93,12 +94,13 @@ border-top-left-radius: 0;
     width:80%;
     padding:15px 10px;
     border-radius: 8px;
-    margin-top:50px;
+    margin-top:80px;
     margin-left:50px;
+    transition: .7s;
 }
 .imageWrapper .basketbtn:hover{
-background-image: linear-gradient(to right, #00cdac, #02aab0); 
-
+/* background-image: linear-gradient(to right, #00cdac, #02aab0);  */
+transform: scale(1.06);
 }
 .quant .quantity{
     font-size:1.6rem;

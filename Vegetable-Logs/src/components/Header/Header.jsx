@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import './Header.css';
-import logo from "../../assets/logo.jpeg";
+import logo from "../../assets/vegigo.png";
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { BiLogIn,BiRegistered,BiLogOut, BiUser } from 'react-icons/bi';
 import { FaBars } from 'react-icons/fa';
@@ -86,25 +86,28 @@ const Header = () => {
           </ul>
         )}
      </div>
-      {
-        uid === '' ?
-        [<Link to="/login"> <BiLogIn className='icon'/></Link>,
-        <Link to="/register">  <BiRegistered className='icon'/></Link>]
-        :
-        [<Link to="/cart"> <AiOutlineShoppingCart className='icon'/></Link>,
-        <div className="dropdown-container" ref={dropRef}>
-          <div className="toggle-icon" onClick={toggleDrop}>
-          <Link><BiUser className='icon' /></Link>
-          </div>
-          {Open && (
-            <ul className="items">
-                <Link className="links active" to="/profile">Profile</Link>
-                <Link className="links" to="/orders">Orders</Link>
-                {user.seller ? <Link className="links" to="/sales">Sales</Link>: <></> }
-                <Link onClick={LogOut} className=" links" to="/">Logout</Link>
-            </ul>
-          )}
-        </div>
+     {
+  uid === '' ?
+  [
+    <Link key="login" to="/login"> <BiLogIn className='icon'/></Link>,
+    <Link key="register" to="/register">  <BiRegistered className='icon'/></Link>
+  ]
+  :
+  [
+    <Link key="cart" to="/cart"> <AiOutlineShoppingCart className='icon'/></Link>,
+    <div className="dropdown-container" ref={dropRef} key="userDropdown">
+      <div className="toggle-icon" onClick={toggleDrop}>
+        <Link><BiUser className='icon' /></Link>
+      </div>
+      {Open && (
+        <ul className="items">
+          <Link key="profile" className="links active" to="/profile">Profile</Link>
+          <Link key="orders" className="links" to="/orders">Orders</Link>
+          {user.seller ? <Link key="sales" className="links" to="/sales">Sales</Link> : null }
+          <Link key="logout" onClick={LogOut} className=" links" to="/">Logout</Link>
+        </ul>
+      )}
+    </div>
         ]
       }
     </div>
