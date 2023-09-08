@@ -11,7 +11,6 @@ const Prediction = (data) => {
   const [result, setResult] = useState("");
 
   const onPredict = (data) => {
-    console.log(data);
     predictionService
       .get(data)
       .then((res) => {
