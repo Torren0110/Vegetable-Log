@@ -11,14 +11,15 @@ const OrderItem = ({ item }) => {
       secondary={
         <>
           <Typography
-            sx={{ display: 'inline' }}
-            component="span"
+            // sx={{ display: 'inline' }}
+            // component="span"
             variant="body2"
             color="text.primary"
           >
             Paid
           </Typography>
-          {" — Waiting for shipment"}
+          Status:
+          {item.shipped ? " Shipped":" Waiting for shipment"}
         </>
       }
     />
