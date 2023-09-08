@@ -68,6 +68,7 @@ const Header = () => {
     <Link className="links " to="/">home</Link>
     <Link className="links" to="/about">about</Link>
     <Link className="links" to="/prices">Items</Link>
+    <Link className="links" to="/predict">Predictions</Link>
     {user.seller ? <Link className="links" to="/sellform">Sell</Link>: <></> }
    </nav>
     
@@ -82,6 +83,7 @@ const Header = () => {
               <Link className="links active" to="/">home</Link>
               <Link className="links" to="/about">about</Link>
               <Link className="links" to="/prices">Prices</Link>
+              <Link className="links" to="/predict">Predictions</Link>
               {user.seller ? <Link className="links" to="/sellform">Sell</Link>: <></> }
           </ul>
         )}
