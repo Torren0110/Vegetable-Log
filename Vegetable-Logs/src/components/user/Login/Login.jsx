@@ -47,10 +47,10 @@ const Login = () => {
           validateOnChange: true,
           validateOnBlur: false,
           onSubmit: (values, action) => {
-            console.log( values);
+            // console.log( values);
           userService.logIn(values)
         .then(async (res) => {
-          console.log(res.data);
+          // console.log(res.data);
           setUid(res.data);
           if(values.check === true){
           saveToken({"uid": res.data});}
