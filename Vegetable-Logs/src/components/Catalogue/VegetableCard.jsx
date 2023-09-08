@@ -49,8 +49,7 @@ const VegetableCard = ({ vegetable }) => {
              <p className="vegname">{vegetable.name}</p>   
               </Typography>
               <Typography variant="body2" color="text.secondary" >
-              <p className="vegprice">Price: ₹{vegetable.price}</p>   
-              <p className="quantity"> Quantity: {vegetable.quantity}</p> 
+              <p className="vegprice">Price: ₹{vegetable.price} <br/> Quantity: {vegetable.quantity}</p> 
               </Typography>
               <button><Link className="butn" to={`/itemview/${vegetable._id}`}>Buy now</Link></button>
               </div>
