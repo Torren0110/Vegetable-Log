@@ -30,14 +30,8 @@ router.patch("/", async (req, res) => {
   try {
     let cart = await Cart.findOne({ _id: cid, paid: true });
 
-    cart.shipped = false;
-    cart.delivered = false;
-
-    if(status === "shipped") {
-      cart.shipped = true;
-    }else if(status === "delivered") {
-      cart.shipped = true;
-      cart.delivered = true;
+    if(status === "shipped" || status === "paid" || status === "delivered") {
+      cart.status = status;
     }
 
     cart = await cart.save();

@@ -6,8 +6,7 @@ const cartSchema = mongoose.Schema({
   sellerID: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
   quantity: { type: Number, min: 0 },
   paid: { type: Boolean, default: false },
-  shipped: { type: Boolean, default: false },
-  delivered: { type: Boolean, default: false }
+  status: { type: String, default: "" }
 });
 
 const Cart = new mongoose.model("Cart", cartSchema);
