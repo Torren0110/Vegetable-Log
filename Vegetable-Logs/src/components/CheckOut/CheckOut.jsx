@@ -14,6 +14,8 @@ const CheckOut = () => {
     const location = useLocation()
     const amount = location.state.amt || 0
     const [paymentRes, setPaymentRes] = useState("");
+
+    console.log(user)
     const handleClick = ()=>{
       navigate("/orders")
     }
@@ -31,7 +33,7 @@ const CheckOut = () => {
             <p>Payment Successful</p>
             <div>
               <h5>Order Details: </h5>
-              <p>Name: {user.name}</p>
+              <p>Name: {user.username}</p>
               <p>Address: {user.address}</p>
               <p>Total Amount Paid: Rs. {amount}</p>
               <button onClick={handleClick} >Continue</button>
