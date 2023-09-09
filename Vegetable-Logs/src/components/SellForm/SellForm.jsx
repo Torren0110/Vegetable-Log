@@ -55,7 +55,7 @@ const SellForm = () => {
   };
 
   if(!user.seller){
-    return <h1> Not a seller account </h1>
+    return <h1 className="noseller"> Not a seller account !!</h1>
   }
 
   return (

@@ -7,7 +7,7 @@
         border-bottom:2px solid #fff;
 
     }
-    .salesdiv h1{
+    .salesdiv h1,.salesdiv h2,.noseller{
         text-transform: uppercase;
         color:#fff;
         font-size: 2.4rem;
@@ -18,7 +18,9 @@
         position:relative;
         text-align: center;
       }
-      
+      .noseller{
+        color:#222;
+      }
       .salesdiv h1::after
       {
         content:'';
