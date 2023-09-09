@@ -4,6 +4,8 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import CheckoutForm from './CheckoutForm';
 import { ShopContext } from '../../context/shop-context';
+import {TiTick} from "react-icons/ti"
+import {ImCross} from "react-icons/im"
 
 const stripePromise = loadStripe("pk_test_51NhsFISIJlt9jqACQyXMGDEkVudKxQwTyhqSkLk8ZVRtCPJUy7hDUDNcGQId9HxQ0LzN9RyBqff4I3YjVtAMAzKU00jnyxRUKR");
 
@@ -29,20 +31,36 @@ const CheckOut = () => {
       <>
         {
           paymentRes === "success" ?
-          <div>
-            <p>Payment Successful</p>
-            <div>
-              <h5>Order Details: </h5>
-              <p>Name: {user.username}</p>
-              <p>Address: {user.address}</p>
-              <p>Total Amount Paid: Rs. {amount}</p>
+          <div className='paymentsuccess'>
+            <div className="success">
+              <p className='successtick'><TiTick className='tick'/></p>
+
+              <p className='successmsg'>Payment Successful</p>
+              <div className="field">
+              <div className="que">
+              <p>Payment Type </p>
+              <p>Name  </p>
+              <p>Address </p>
+              <p>Total Amount Paid </p>
+              </div>
+              <div className="ans">
+              <p>Card </p>
+              <p>{user.username} </p>
+              <p>{user.address}</p>
+              <p>Rs. {amount} </p>
+              </div>
+              </div>
               <button onClick={handleClick} >Continue</button>
             </div>
           </div>
           :
-          <div>
-            <p>{paymentRes}</p>
+          <div className='false'>
+            <div>
+              <p className='falsetick'><ImCross/></p>
+            
+            <p className='falsemsg'>{paymentRes}</p>
             <button onClick={handleClicK} >Continue</button>
+            </div>
           </div>
         }
       </>

@@ -1,12 +1,22 @@
 import { ListItem, ListItemAvatar, ListItemText, Typography, Avatar } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import salesService from "../../services/sales-service";
+import userService from "../../services/user-service";
 
 const SaleItem = ({ item }) => {
 
     const [edit, setEdit] = useState(false)
     const [stat, setStat] = useState(item.status)
     const [change, setChange] = useState("")
+    const [soldTo, setSoldTo] = useState("")
+
+    useEffect(()=>{
+      userService.getInfo(item.userID).then((res) => {
+        setSoldTo(res.data.username)
+      }).catch((err) => {
+        // console.log("error", err);
+      })
+    })
 
     const handleSubmit = ()=>{
       if(change !== ""){
@@ -37,12 +47,12 @@ const SaleItem = ({ item }) => {
 
     // console.log(item);
     return (
-      <div>
+      <div className="saleitem">
   
     <ListItem alignItems="flex-start">
       <div className="sale-item">
     <ListItemAvatar>
-      <Avatar style={{ width: '70px', height: '70px', borderRadius:'5px',marginRight:'120px' }} alt="Remy Sharp" src={ item.vegID.image } />
+      <Avatar style={{ width: '60px', height: '60px', borderRadius:'5px',marginRight:'120px' }} alt="Remy Sharp" src={ item.vegID.image } />
     </ListItemAvatar>
     <ListItemText
       // primary= { `${item.vegID.name} | Qty.: ${item.quantity}  Price: Rs. ${item.vegID.price}` }
@@ -52,12 +62,12 @@ const SaleItem = ({ item }) => {
           <p className="veggiename">{item.vegID.name}</p>
           </div>
           <p className="vegquant">{item.quantity}</p>
-          <p className="veggieprice">Rs. {item.vegID.price}</p>
+          <p className="veggieprice">{item.vegID.price}</p>
         <Typography
             variant="body2"
             color="text.primary"
           >
-         <p className="vegsold">Sold to: </p>  
+         <p className="vegsold">{soldTo}</p>  
           </Typography>
           <Typography
             variant="body2"
@@ -65,7 +75,6 @@ const SaleItem = ({ item }) => {
           >
             </Typography>
             <div className="vegstatus">
-            Status:
             {
               edit
               ?
