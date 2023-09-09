@@ -50,6 +50,7 @@ const Sales = () => {
             [<div>
                 { sales.map(sale => <SaleItem key={sales._id} item={sale} /> ) }
             </div>,
+           
             <h5>Total Sale: Rs. {totalAmt}</h5>]
             :
             <h1>You have no Sales!!</h1>
