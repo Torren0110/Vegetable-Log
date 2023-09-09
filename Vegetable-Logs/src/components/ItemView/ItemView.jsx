@@ -143,7 +143,7 @@ const ItemView = () => {
                     </div>
                     
                 </div>
-                <p className='delivery'>Delivery Between 15th Aug to 18th Aug</p>
+                <p className='delivery'>Delivery Between 13th Sept. to 16th Sept.</p>
                 <div className="sold">
                 <p>Sold by: <span> { product.username }</span></p>
 {/* <img src={sold} alt="" /> */}

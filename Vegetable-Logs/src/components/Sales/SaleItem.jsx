@@ -1,12 +1,22 @@
 import { ListItem, ListItemAvatar, ListItemText, Typography, Avatar } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import salesService from "../../services/sales-service";
+import userService from "../../services/user-service";
 
 const SaleItem = ({ item }) => {
 
     const [edit, setEdit] = useState(false)
     const [stat, setStat] = useState(item.status)
     const [change, setChange] = useState("")
+    const [soldTo, setSoldTo] = useState("")
+
+    useEffect(()=>{
+      userService.getInfo(item.userID).then((res) => {
+        setSoldTo(res.data.username)
+      }).catch((err) => {
+        // console.log("error", err);
+      })
+    })
 
     const handleSubmit = ()=>{
       if(change !== ""){
@@ -52,12 +62,12 @@ const SaleItem = ({ item }) => {
           <p className="veggiename">{item.vegID.name}</p>
           </div>
           <p className="vegquant">{item.quantity}</p>
-          <p className="veggieprice">Rs. {item.vegID.price}</p>
+          <p className="veggieprice">{item.vegID.price}</p>
         <Typography
             variant="body2"
             color="text.primary"
           >
-         <p className="vegsold">Sold to: </p>  
+         <p className="vegsold">{soldTo}</p>  
           </Typography>
           <Typography
             variant="body2"
@@ -65,7 +75,6 @@ const SaleItem = ({ item }) => {
           >
             </Typography>
             <div className="vegstatus">
-            Status:
             {
               edit
               ?

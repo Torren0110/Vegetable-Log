@@ -3,7 +3,8 @@ import './orders.css'
 
 
 const OrderItem = ({ item }) => {
-  
+
+    const amt = item.quantity*item.vegID.price
     console.log(item);
     return (
       
@@ -22,7 +23,7 @@ const OrderItem = ({ item }) => {
             variant="body2"
             color="text.primary"
           >
-          <p > Amount : Rs. </p> 
+          <p > Amount : Rs.{amt}</p> 
         <p> <span>Status:</span>  <span className="status">{item.status}</span></p> 
           </Typography>
         </div>
