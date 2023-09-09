@@ -3,6 +3,7 @@ import { Stack } from "@mui/material";
 import SaleItem from "./SaleItem";
 import { ShopContext } from "../../context/shop-context";
 import { useState, useEffect, useContext } from "react";
+import './sales.css'
 
 const Sales = () => {
     const { uid,user } = useContext(ShopContext)
@@ -28,17 +29,32 @@ const Sales = () => {
     return <h1>Loading</h1>
 
     return <>
+<div className="salesdiv">
         <h1>Sales</h1>
+
+
+        <div >
+            <div className="detail">
+                <h2>Vegetable</h2>
+                <h2>Name</h2>
+                <h2>Quantity</h2>
+                <h2>Price</h2>
+                <h2>Sold to</h2>
+                <h2>Status</h2>
+                <h2>Update</h2>
+            </div>
+        </div>
         {
             sales.length
             ?
-            [<Stack>
+            [<div>
                 { sales.map(sale => <SaleItem key={sales._id} item={sale} /> ) }
-            </Stack>,
-            <h5>Total Sale: Rs. ${totalAmt}</h5>]
+            </div>,
+            <h5>Total Sale: Rs. {totalAmt}</h5>]
             :
             <h1>You have no Sales!!</h1>
         }
+</div>
     </>
 }
 

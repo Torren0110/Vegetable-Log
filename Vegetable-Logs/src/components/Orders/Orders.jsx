@@ -3,6 +3,7 @@ import { Stack } from "@mui/material";
 import OrderItem from "./OrderItem";
 import { ShopContext } from "../../context/shop-context";
 import { useContext } from "react";
+import './orders.css'
 
 const Orders = () => {
     const { uid } = useContext(ShopContext);
@@ -13,16 +14,20 @@ const Orders = () => {
 
     // console.log(orders)
     return <>
+    <div className="order-section">
         <h1>Orders</h1>
         {
             orders.length
             ?
-            <Stack>
-                { orders.map(order => <OrderItem key={order._id} item={order} /> ) }
-            </Stack>
+            <div className="ordermap">
+                { orders.map(order => 
+                <OrderItem key={order._id} item={order} />
+                ) }
+            </div>
             :
             <h1>You have no orders!!</h1>
         }
+        </div>
     </>
 };
 

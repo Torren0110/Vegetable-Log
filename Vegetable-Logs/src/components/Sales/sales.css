@@ -1,0 +1,92 @@
+.salesdiv {
+        background: linear-gradient(170deg, rgba(49, 57, 73, 0.8) 20%, rgba(49, 57, 73, 0.5) 20%, rgba(49, 57, 73, 0.5) 35%, rgba(41, 48, 61, 0.6) 35%, rgba(41, 48, 61, 0.8) 45%, rgba(31, 36, 46, 0.5) 45%, rgba(31, 36, 46, 0.8) 75%, rgba(49, 57, 73, 0.5) 75%), linear-gradient(45deg, rgba(20, 24, 31, 0.8) 0%, rgba(41, 48, 61, 0.8) 50%, rgba(82, 95, 122, 0.8) 50%, rgba(133, 146, 173, 0.8) 100%) #313949;
+        margin-top:-40px;
+        padding-left:30px;
+        padding-top:50px;
+        padding-bottom:50px;
+        border-bottom:2px solid #fff;
+
+    }
+    .salesdiv h1{
+        text-transform: uppercase;
+        color:#fff;
+        font-size: 2.4rem;
+        font-weight:900;
+        letter-spacing: 0.1rem;
+        margin-top:0px;
+        margin-bottom:50px;
+        position:relative;
+        text-align: center;
+      }
+      
+      .salesdiv h1::after
+      {
+        content:'';
+        height:5px;
+        border-radius: 7px;
+        width:100px;
+        background:orange;
+        position:absolute;
+        left:calc(57% - 10%);
+        bottom:-12px;
+      }
+      .sale-item,.details{
+        display: flex;
+      }
+      .detail{
+        display: flex;
+        gap:70px;
+        color:#fff;
+      }
+      .detail h2{
+        padding-right:40px;
+        font-size:1.5rem;
+        text-transform: uppercase;
+        border-right:3px solid yellow;
+      }
+      .veggiename{
+        color:#fff;
+        font-size:1.6rem;
+        margin-top:20px;
+        margin-left:40px;
+        /* margin-right:190px; */
+        text-transform: uppercase;
+      }
+      .vegdiv{
+        width:200px;
+      }
+      .vegquant,.veggieprice,.vegsold,.vegstatus{
+        color:#fff;
+        font-size:1.4rem;
+        margin-top:20px;
+        margin-left:130px;
+        margin-right:130px;
+        text-transform: uppercase;
+      }
+      .veggieprice{
+        margin-left:30px;
+        margin-right:100px;
+      }
+      .vegsold{
+        margin-left:0px;
+        margin-right:0px;
+      }
+      .vegstatus{
+        width:200px;
+        margin-right:50px;
+        margin-left:100px;
+      }
+      .vegbtn{
+        padding:15px 25px;
+        border-radius: 10px;
+        margin-top:10px;
+        margin-left:0;
+        background-color: #fff;
+        color:#000;
+      }
+      .salesdiv h5{
+        color:#fff;
+        text-align: center;
+        font-weight:900;
+        margin:40px 0;
+      }
