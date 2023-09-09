@@ -84,8 +84,8 @@ export default function CheckoutForm(props) {
     else{
       console.log(error.message)
       props.setPaymentRes(error.message)
-        await delay(3000); 
-        navigate("/cart")
+        // await delay(3000); 
+        // navigate("/cart")
     }
   };
 
