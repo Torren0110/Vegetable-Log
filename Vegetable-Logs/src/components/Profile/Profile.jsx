@@ -97,7 +97,7 @@ const Register = () => {
                     <input
                       name='username'
                       {...getFieldProps('username')}
-                      readOnly={edit ? "false" : "true"}
+                      readOnly={!edit}
                     />
                     {errors.username && touched.username ? (
                       <p className="form-error">{errors.username}</p>
@@ -110,7 +110,7 @@ const Register = () => {
                     <input
                       name="phone"
                       {...getFieldProps('phone')}
-                      readOnly={edit ? "false" : "true"}
+                      readOnly={!edit}
                     />
                     {errors.phone && touched.phone ? (
                       <p className="form-error">{errors.phone}</p>
@@ -123,7 +123,7 @@ const Register = () => {
                     <input
                       name="email"
                       {...getFieldProps('email')}
-                      readOnly={edit ? "false" : "true"}
+                      readOnly={!edit}
                     />
                     {errors.email && touched.email ? (
                       <p className="form-error">{errors.email}</p>
@@ -136,7 +136,7 @@ const Register = () => {
                     <input
                       name="address"
                       {...getFieldProps('address')}
-                      readOnly={edit ? "false" : "true"}
+                      readOnly={!edit}
                     />
                     {errors.address && touched.address ? (
                       <p className="form-error">{errors.address}</p>
@@ -147,11 +147,11 @@ const Register = () => {
                     {
                       edit
                       ?
-                      <button className="input-button" type="submit">
+                      <button type="button" className="input-button" onClick={handleSubmit} >
                         Update
                       </button>
                       :
-                      <button className="input-button" onClick={toggleEdit}>
+                      <button type="button" className="input-button" onClick={toggleEdit}>
                         Edit
                       </button>
                     }
