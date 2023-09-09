@@ -64,10 +64,10 @@ router.post("/", async (req, res) => {
 router.post("/pay", async (req, res) => {
 	let { amount, id, uid, cart } = req.body
   // console.log("Uid: ",uid)
-  // console.log("Cart: ",cart)
+  amount = amount*100
 	try {
 		const payment = await stripe.paymentIntents.create({
-			amount,
+			amount: amount,
 			currency: "INR",
 			description: "test description",
 			payment_method: id,

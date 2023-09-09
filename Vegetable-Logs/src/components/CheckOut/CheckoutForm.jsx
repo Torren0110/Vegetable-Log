@@ -80,6 +80,10 @@ export default function CheckoutForm(props) {
         setCount(count+1)
         props.setPaymentRes("success")
       }
+      else{
+        setLoading(false)
+        props.setPaymentRes(response.data.message)
+      }
     }
     else{
       console.log(error.message)
