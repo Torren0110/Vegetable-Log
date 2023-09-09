@@ -24,6 +24,7 @@ const OrderItem = ({ item }) => {
             color="text.primary"
           >
           <p > <span> Amount :</span> ₹{amt}</p> 
+
         <p> <span>Status:</span>  <span className="status">{item.status}</span></p> 
           </Typography>
         </div>

@@ -39,7 +39,7 @@ const Sales = () => {
                 <h2>Vegetable</h2>
                 <h2>Name</h2>
                 <h2>Quantity</h2>
-                <h2>Price</h2>
+                <h2>Price (Rs.)</h2>
                 <h2>Sold to</h2>
                 <h2>Status</h2>
                 <h2 className="updatehead">Update</h2>
