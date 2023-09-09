@@ -42,14 +42,14 @@ const Sales = () => {
                 <h2>Price (Rs.)</h2>
                 <h2>Sold to</h2>
                 <h2>Status</h2>
-                <h2>Update</h2>
+                <h2 className="updatehead">Update</h2>
               </div>
               {sales.map((sale) => (
                 <SaleItem key={sales._id} item={sale} />
               ))}
             </div>,
 
-            <h5>Total Sale: Rs. {totalAmt}</h5>,
+            <h5>Total Sale : ₹ {totalAmt}</h5>,
           ]
         ) : (
           <h2>You have no Sales!!</h2>

@@ -23,7 +23,8 @@ const OrderItem = ({ item }) => {
             variant="body2"
             color="text.primary"
           >
-          <p > Amount : Rs.{amt}</p> 
+          <p > <span> Amount :</span> ₹{amt}</p> 
+
         <p> <span>Status:</span>  <span className="status">{item.status}</span></p> 
           </Typography>
         </div>
@@ -36,4 +37,3 @@ const OrderItem = ({ item }) => {
 };
 
 export default OrderItem;
-

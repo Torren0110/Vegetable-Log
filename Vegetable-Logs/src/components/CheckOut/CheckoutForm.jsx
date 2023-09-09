@@ -111,6 +111,7 @@ export default function CheckoutForm(props) {
               className="form-control"
               value={name}
               onChange={e => setName(e.target.value)}
+              required
             />
           </div>
           <div className="col-md-6 mb-3">
@@ -121,6 +122,7 @@ export default function CheckoutForm(props) {
               className="form-control"
               value={email}
               onChange={e => setEmail(e.target.value)}
+              required
             />
           </div>
         </div>

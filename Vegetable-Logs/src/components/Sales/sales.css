@@ -1,10 +1,10 @@
-.salesdiv {
+   .salesdiv {
         background: linear-gradient(170deg, rgba(49, 57, 73, 0.8) 20%, rgba(49, 57, 73, 0.5) 20%, rgba(49, 57, 73, 0.5) 35%, rgba(41, 48, 61, 0.6) 35%, rgba(41, 48, 61, 0.8) 45%, rgba(31, 36, 46, 0.5) 45%, rgba(31, 36, 46, 0.8) 75%, rgba(49, 57, 73, 0.5) 75%), linear-gradient(45deg, rgba(20, 24, 31, 0.8) 0%, rgba(41, 48, 61, 0.8) 50%, rgba(82, 95, 122, 0.8) 50%, rgba(133, 146, 173, 0.8) 100%) #313949;
         margin-top:-40px;
         padding-left:30px;
         padding-top:50px;
         padding-bottom:50px;
-        border-bottom:2px solid #fff;
+        overflow: visible !important;
 
     }
     .salesdiv h1,.salesdiv h2,.noseller{
@@ -39,16 +39,25 @@
         display: flex;
         gap:70px;
         color:#fff;
+        border:2px solid #fff;
+        padding-top:30px;
+        padding-left:20px;
+        height:100px;
+        margin-left:-10px;
+        width:99%;
+      }
+      .updatehead{
+        border-right: none !important;
       }
       .detail h2{
         padding-right:40px;
         font-size:1.5rem;
         text-transform: uppercase;
-        border-right:3px solid yellow;
+        /* border-right:3px solid #fff; */
       }
       .veggiename{
         color:#fff;
-        font-size:1.6rem;
+        font-size:1.3rem;
         margin-top:20px;
         margin-left:40px;
         /* margin-right:190px; */
@@ -57,32 +66,44 @@
       .vegdiv{
         width:200px;
       }
+      .saleitem{
+        border:2px solid #fff;
+        padding:20px ;
+        padding-right:50px;
+        margin-left:-10px;
+        width:99%;
+      }       
+
       .vegquant,.veggieprice,.vegsold,.vegstatus{
         color:#fff;
-        font-size:1.4rem;
+        font-size:1.2rem;
         margin-top:20px;
         margin-left:130px;
         margin-right:130px;
         text-transform: uppercase;
       }
       .veggieprice{
-        margin-left:30px;
+        margin-left:70px;
         margin-right:100px;
+        width:30px;
       }
       .vegsold{
-        margin-left:0px;
+        margin-left:80px;
         margin-right:0px;
+        width:30px;
+
       }
       .vegstatus{
-        width:200px;
-        margin-right:50px;
-        margin-left:100px;
+        width:100px;
+        margin-left:170px;
       }
       .vegbtn{
         padding:15px 25px;
-        border-radius: 10px;
+        border-radius: 6px;
+        font-weight: 700;
         margin-top:10px;
-        margin-left:0;
+        margin-left:00px;
+        border:none;
         background-color: #fff;
         color:#000;
       }

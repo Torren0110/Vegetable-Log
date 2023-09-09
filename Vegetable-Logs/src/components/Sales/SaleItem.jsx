@@ -47,12 +47,12 @@ const SaleItem = ({ item }) => {
 
     // console.log(item);
     return (
-      <div>
+      <div className="saleitem">
   
     <ListItem alignItems="flex-start">
       <div className="sale-item">
     <ListItemAvatar>
-      <Avatar style={{ width: '70px', height: '70px', borderRadius:'5px',marginRight:'120px' }} alt="Remy Sharp" src={ item.vegID.image } />
+      <Avatar style={{ width: '60px', height: '60px', borderRadius:'5px',marginRight:'120px' }} alt="Remy Sharp" src={ item.vegID.image } />
     </ListItemAvatar>
     <ListItemText
       // primary= { `${item.vegID.name} | Qty.: ${item.quantity}  Price: Rs. ${item.vegID.price}` }
