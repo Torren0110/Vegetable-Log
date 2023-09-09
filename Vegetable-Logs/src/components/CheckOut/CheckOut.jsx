@@ -18,6 +18,10 @@ const CheckOut = () => {
       navigate("/orders")
     }
 
+    const handleClicK = ()=>{
+      navigate("/cart")
+    }
+
   if(paymentRes !== ""){
     return(
       <>
@@ -36,6 +40,7 @@ const CheckOut = () => {
           :
           <div>
             <p>{paymentRes}</p>
+            <button onClick={handleClicK} >Continue</button>
           </div>
         }
       </>
