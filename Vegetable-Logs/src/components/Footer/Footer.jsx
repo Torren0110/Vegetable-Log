@@ -1,6 +1,8 @@
 import React from 'react';
 import './Footer.css';
 import {Link} from "react-router-dom";
+import {BsApple} from "react-icons/bs";
+import {FaGooglePlay} from "react-icons/fa";
 
 
 const Footer = () => {
@@ -45,7 +47,17 @@ const Footer = () => {
     </div>
   </div>
   <div className="credit">
-    Created by | <span>Team Dev</span> | all rights reserved
+    <div>Created by | <span>Team Dev</span> | all rights reserved</div>
+    <div className="btns">
+      <div>
+        <FaGooglePlay className='footerbtn'/>
+        <p>Get it on <br /> google pay</p>
+      </div>
+      <div>
+        <BsApple className='footerbtn'/>
+        <p>Get it on <br /> google pay</p>
+      </div>
+    </div>
   </div>
 </footer>
 

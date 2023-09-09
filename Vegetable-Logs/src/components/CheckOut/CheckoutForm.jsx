@@ -96,7 +96,9 @@ export default function CheckoutForm(props) {
 
   return (
       <div className='payment_container'>
+        <>
         <ToastContainer/>
+        </>
       <h4> Pay with card      </h4>
       <form onSubmit={handleSubmit}>
 

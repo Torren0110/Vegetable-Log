@@ -10,9 +10,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top:100px;
-    margin-bottom:280px;
-
+    margin-top:-150px !important;
+    padding-bottom:160px !important;
+    /* margin-bottom:380px; */
+height:1080px !important;
   }
 
   .maindiv .model {
@@ -26,10 +27,11 @@
     transition: 0.4s;
     margin-bottom:100px;
     margin-top: 300px;
+
   }
   .maindiv  .model-container {
     display: flex;
-    max-width: 70vw;
+    max-width: 70vw !important;
     width: 100%;
     border-radius: 10px;
     overflow: hidden;
@@ -40,7 +42,7 @@ margin-bottom: 150px;
   .maindiv  .model-title {
     margin: 0;
     font-weight: 800;
-    color: #55311c;
+    color: #55311c !important;
     font-size:28px;
     text-transform:uppercase;
     margin-bottom:20px;
@@ -53,7 +55,7 @@ margin-bottom: 150px;
  
   .maindiv .model-left {
     padding: 10px 30px 20px;
-    background: #f7f7f7;
+    background: #f7f7f7 !important;
     flex: 1.5;
     transition-duration: 0.5s;
     opacity: 1;

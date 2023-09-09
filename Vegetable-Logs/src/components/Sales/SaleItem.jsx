@@ -36,24 +36,35 @@ const SaleItem = ({ item }) => {
     }
 
     // console.log(item);
-    return (<ListItem alignItems="flex-start">
+    return (
+      <div>
+  
+    <ListItem alignItems="flex-start">
+      <div className="sale-item">
     <ListItemAvatar>
-      <Avatar alt="Remy Sharp" src={ item.vegID.image } />
+      <Avatar style={{ width: '70px', height: '70px', borderRadius:'5px',marginRight:'120px' }} alt="Remy Sharp" src={ item.vegID.image } />
     </ListItemAvatar>
     <ListItemText
-      primary= { `${item.vegID.name} | Qty.: ${item.quantity}  Price: Rs. ${item.vegID.price}` }
+      // primary= { `${item.vegID.name} | Qty.: ${item.quantity}  Price: Rs. ${item.vegID.price}` }
       secondary={
-        <>
+        <div className="details">
+          <div className="vegdiv">
+          <p className="veggiename">{item.vegID.name}</p>
+          </div>
+          <p className="vegquant">{item.quantity}</p>
+          <p className="veggieprice">Rs. {item.vegID.price}</p>
         <Typography
             variant="body2"
             color="text.primary"
           >
-           Sold to: {""}
+         <p className="vegsold">Sold to: </p>  
           </Typography>
           <Typography
             variant="body2"
             color="text.primary"
           >
+            </Typography>
+            <div className="vegstatus">
             Status:
             {
               edit
@@ -70,12 +81,15 @@ const SaleItem = ({ item }) => {
               :
               stat
             }
-          </Typography>
-          {edit ? <button onClick={handleSubmit} >Update</button>  :  <button onClick={handleEdit} >Edit</button>}
-        </>
+          </div>
+          <div>
+          {edit ? <button className="vegbtn" onClick={handleSubmit} >Update</button>  :  <button className="vegbtn" onClick={handleEdit} >Edit</button>}</div>
+        </div>
       }
     />
-  </ListItem>)
+    </div>
+  </ListItem>
+  </div>)
 };
 
 export default SaleItem;

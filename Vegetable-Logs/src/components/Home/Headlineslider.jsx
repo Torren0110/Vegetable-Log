@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './banner.css'; // Import the CSS file
+import './headline.css'; // Import the CSS file
 import {BiSolidLeftArrow,BiSolidRightArrow} from "react-icons/bi"
 
-const ImageSlider = ({ images }) => {
+const Headlineslider = ({ images }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const nextImage = () => {
@@ -32,9 +32,9 @@ const ImageSlider = ({ images }) => {
   }, []);
 
   return (
-    <div className='imgslider'>
+    <div className='headlineslider'>
     <div className="image-slider">
-      <button onClick={prevImage}><BiSolidLeftArrow/></button>
+      <button className='btnarrow' onClick={prevImage}><BiSolidLeftArrow/></button>
       <img src={images[currentImageIndex]} alt="Slider" />
       <button onClick={nextImage}><BiSolidRightArrow/></button>
     </div>
@@ -48,8 +48,7 @@ const ImageSlider = ({ images }) => {
         ))}
       </div>
       </div>
-
   );
 };
 
-export default ImageSlider;
+export default Headlineslider;
