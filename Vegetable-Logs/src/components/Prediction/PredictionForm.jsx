@@ -133,9 +133,9 @@ const PredictionForm = ({ onPredict }) => {
       </FormControl>
 
       <FormControl fullWidth margin="normal">
-        <Button type="submit" variant="outlined">
+        <button type="submit" className="predictbtn">
           Predict
-        </Button>
+        </button>
       </FormControl>
     </form>
   );

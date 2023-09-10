@@ -5,10 +5,9 @@ import userService from "../../services/user-service";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ShopContext } from "../../context/shop-context";
-import Logo from '../../assets/logo.jpeg'
 import * as Yup from "yup";
 
-const Register = () => {
+const Profile = () => {
 
     const { uid, user }  = useContext(ShopContext)
     const [edit, setEdit] = useState(false)
@@ -84,7 +83,7 @@ const Register = () => {
         <>
     <ToastContainer/>
     <div className="profile">
-    <div  className="maindiv">
+    <div  className="maindiv1">
             <div className="model-container">
               <div className="model-left">
                 <h1 className="model-title">User Profile</h1>
@@ -166,4 +165,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default Profile

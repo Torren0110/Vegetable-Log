@@ -6,6 +6,7 @@ import {
 } from "@mui/material";
 import predictionService from "./prediction-service";
 import PredictionForm from "./PredictionForm";
+import "./prediction.css"
 
 const Prediction = (data) => {
   const [result, setResult] = useState("");
@@ -23,22 +24,18 @@ const Prediction = (data) => {
 
 
   return (
-      <Card>
-        <CardContent sx={{ minWidth: "50%", maxWidth: "90%" }}>
+    <div className="predictionform">
           <h1>Prediction</h1>
-          
-          <Grid container spacing={2}>
-            <Grid item xs={6} md={8}>
+      <div className="predictform">
+          <div className="predict-content">
               <PredictionForm onPredict={(data) => onPredict(data)} />
-            </Grid>
-
-            <Grid item xs={6} md={4}>
-              Result: { result }
-            </Grid>
-          </Grid>
-
-        </CardContent>
-      </Card>
+          </div>  
+<div className="resultdiv">
+           <p>Result</p> 
+           {result && <p>₹ {result} per kg</p>}
+            </div>
+      </div>
+      </div>
   );
 };
 

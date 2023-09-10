@@ -1,0 +1,56 @@
+.predictionform{
+    background-color: #fff;
+    margin:0 200px;
+    padding: 10px 15px;
+    border-radius:6px;
+    margin-top:-10px;
+}
+.predictionform h1{
+    text-align: center;
+    font-size:2rem;
+    text-transform: uppercase;
+    margin:0;
+    margin-top:5px;
+    font-weight: 700;
+}
+.predictform{
+    display: flex;
+    margin-top:-10px;
+}
+.predictform .predictbtn{
+    padding:15px 10px;
+    margin-top: -10px;
+    border:none;
+    border-radius: 7px;
+     background: linear-gradient(170deg, rgba(49, 57, 73, 0.8) 20%, rgba(49, 57, 73, 0.5) 20%, rgba(49, 57, 73, 0.5) 35%, rgba(41, 48, 61, 0.6) 35%, rgba(41, 48, 61, 0.8) 45%, rgba(31, 36, 46, 0.5) 45%, rgba(31, 36, 46, 0.8) 75%, rgba(49, 57, 73, 0.5) 75%), linear-gradient(45deg, rgba(20, 24, 31, 0.8) 0%, rgba(41, 48, 61, 0.8) 50%, rgba(82, 95, 122, 0.8) 50%, rgba(133, 146, 173, 0.8) 100%) #313949;
+    color:#fff;
+    text-transform: uppercase;
+}
+.predictform .predictbtn:hover{
+    color:aquamarine;
+}
+.predict-content{
+    padding:10px 15px;
+    width:55%;
+}
+.predictform .resultdiv{
+    height:300px;
+    width:300px;
+    margin:120px 0 0 100px;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size:1.4rem;
+}
+
+.predictform .resultdiv p:first-child{
+    font-size:2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+.predictform .resultdiv p{
+    font-size:1.7rem;
+    
+}
