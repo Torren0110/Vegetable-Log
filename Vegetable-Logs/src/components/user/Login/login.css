@@ -7,11 +7,12 @@
 
 .continer {
     /* position: fixed; */
-  margin-top:250px;
+  margin-top:220px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom:280px;
+
 }
 .or{
     text-align:center;
@@ -34,7 +35,7 @@
     max-width: 70vw;
     width: 100%;
      /* border:.5px solid #000; */
-    border-radius: 10px;
+    border-radius: 7px;
     overflow: hidden;
     position: absolute;
     transition-duration: 0.3s;

@@ -25,7 +25,7 @@ const Orders = () => {
                 ) }
             </div>
             :
-            <h1>You have no orders!!</h1>
+            <h1 className="ordermsg">You have no orders!!</h1>
         }
         </div>
     </>
