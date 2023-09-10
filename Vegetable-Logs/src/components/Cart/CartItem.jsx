@@ -45,7 +45,7 @@ const CartItem = (props) => {
       <ToastContainer/>
       <div className="image">
         <img src={imgSrc} alt="image" />
-        </div>
+      </div>
         <div className="description">
             <p className='veg-name'><b>{vegInfo.name}</b></p>
             <p>Rs.{vegInfo.price}</p> 
