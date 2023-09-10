@@ -35,7 +35,7 @@ function About() {
         safety and provide a smooth working
         interface&nbsp;for&nbsp;the&nbsp;user.
       </p>
-      <a href="#" className="btn">Learn more</a>
+      {/* <a href="#" className="btn">Learn more</a> */}
     </div>
   </div>
 </section>

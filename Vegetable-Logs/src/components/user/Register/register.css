@@ -10,16 +10,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top:-150px !important;
+    margin-top:-200px !important;
     padding-bottom:160px !important;
-    /* margin-bottom:380px; */
 height:1080px !important;
   }
 
   .maindiv .model {
     width: 100%;
-    /* height: 60 */
-    /* background: rgba(51, 51, 51, 0.5); */
+   
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,7 +29,7 @@ height:1080px !important;
   }
   .maindiv  .model-container {
     display: flex;
-    max-width: 70vw !important;
+    max-width: 75vw !important;
     width: 100%;
     border-radius: 10px;
     overflow: hidden;
