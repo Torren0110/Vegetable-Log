@@ -57,6 +57,7 @@ const PredictionForm = ({ onPredict }) => {
           id="outlined-basic"
           label="Vegetable Name"
           variant="outlined"
+          required
         />
       </FormControl>
 
@@ -66,6 +67,7 @@ const PredictionForm = ({ onPredict }) => {
           label="Vegetable Temprature"
           variant="outlined"
 					type="number"
+          required
         />
       </FormControl>
 
@@ -77,6 +79,7 @@ const PredictionForm = ({ onPredict }) => {
           label="Age"
           value={formData.season}
           onChange={(e) => setFormData({ ...formData, season: e.target.value })}
+          required
         >
           {seasons.map((season) => (
             <MenuItem key={season} value={season}>
@@ -92,6 +95,7 @@ const PredictionForm = ({ onPredict }) => {
           label="Month"
           value={formData.month}
           onChange={(e) => setFormData({ ...formData, month: e.target.value })}
+          required
         >
           {months.map((month) => (
             <MenuItem key={month} value={month}>
@@ -109,6 +113,7 @@ const PredictionForm = ({ onPredict }) => {
           onChange={(e) =>
             setFormData({ ...formData, disaster: e.target.value})
           }
+          required
         >
           <MenuItem value="1">Yes</MenuItem>
           <MenuItem value="0">No</MenuItem>
@@ -123,6 +128,7 @@ const PredictionForm = ({ onPredict }) => {
           onChange={(e) =>
             setFormData({ ...formData, condition: e.target.value })
           }
+          required
         >
           {conditions.map((condition) => (
             <MenuItem key={condition} value={condition}>

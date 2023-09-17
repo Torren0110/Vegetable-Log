@@ -47,7 +47,7 @@ def preprocess(data):
 
     data['Month'] = data['Month'].fillna(data['Month'].mode()[0])
 
-    data['Vegetable condition'] = data['Vegetable condition'].replace({'fresh' : 0,'avarage':1,'scrap':2})
+    data['Vegetable condition'] = data['Vegetable condition'].replace({'fresh' : 0,'average':1,'scrap':2})
 
     data['Season'] = data['Season'].replace({'winter' : 0,'summer':1,'spring':2,'autumn': 3,'monsoon':4})
 
