@@ -48,6 +48,7 @@ django-guest-user==0.5.4
 django-lazysignup==2.0.0
 django-widget-tweaks==1.4.8
 dnspython==2.2.1
+guicorn==20.1.0
 easy-thumbnails==2.8.1
 entrypoints==0.4
 eventlet==0.33.1
