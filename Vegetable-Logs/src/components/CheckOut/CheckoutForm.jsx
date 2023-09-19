@@ -73,7 +73,7 @@ export default function CheckoutForm(props) {
         cart,
       }
       console.log("data:",data)
-      const response = await axios.post("http://localhost:3000/api/carts/pay", data)
+      const response = await axios.post("https://node-veg-backend.onrender.com/api/carts/pay", data)
       if(response.data.success){
         console.log(response.data.message)
         setLoading(false)

@@ -15,7 +15,7 @@ import CheckOut from './components/CheckOut/CheckOut'
 import Profile from './components/Profile/Profile'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
-import Orders from './components/Orders/orders'
+import Orders from './components/Orders/Orders'
 import Sales from './components/Sales/Sales'
 import Prediction from './components/Prediction/Prediction'
 // ..
