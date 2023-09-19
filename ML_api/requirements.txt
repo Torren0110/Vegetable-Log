@@ -10,7 +10,6 @@ asgiref==3.6.0
 asttokens==2.0.5
 astunparse==1.6.3
 async-timeout==4.0.3
-guicorn==20.1.0
 attrs==21.4.0
 autobahn==23.6.2
 Automat==22.10.0
@@ -74,6 +73,7 @@ google-auth-oauthlib==0.4.6
 google-pasta==0.2.0
 greenlet==1.1.2
 grpcio==1.44.0
+gunicorn==21.2.0
 gym==0.21.0
 h5py==3.6.0
 hyperlink==21.0.0
