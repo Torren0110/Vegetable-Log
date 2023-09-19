@@ -1,5 +1,5 @@
 import React from 'react';
-import './headline.css';
+import './Headline.css';
 import bg1 from "../../assets/headline1.png"
 import bg2 from "../../assets/headline2.png"
 import bg3 from "../../assets/headline3.png"

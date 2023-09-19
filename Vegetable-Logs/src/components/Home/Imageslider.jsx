@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './banner.css'; // Import the CSS file
+import './Banner.css'; // Import the CSS file
 import {BiSolidLeftArrow,BiSolidRightArrow} from "react-icons/bi"
 
 const ImageSlider = ({ images }) => {

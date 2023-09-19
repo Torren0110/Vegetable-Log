@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './headline.css'; // Import the CSS file
+import './Headline.css'; // Import the CSS file
 import {BiSolidLeftArrow,BiSolidRightArrow} from "react-icons/bi"
 
 const Headlineslider = ({ images }) => {
