@@ -1,5 +1,5 @@
 import React from 'react';
-import './banner.css';
+import './Banner.css';
 
 import ImageSlider from './Imageslider';
 import bg1 from "../../assets/banner1.png"
